@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="send_book_form_view" model="ir.ui.view">
+        <field name="name">send.book.form</field>
+        <field name="model">send.book</field>
+        <field name="arch" type="xml">
+            <form string="Send Book Form">
+                <header>
+                    <button
+                        name="create_send_book_line"
+                        string="Crea e controlla dettaglio"
+                        type="object"
+                        class="oe_highlight"/>
+                    <button
+                        name="create_delivery_order"
+                        string="Conferma e crea spedizione"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible':[('details_line', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="target" widget="selection"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="invio_singolo"/>
+                            <field name="create_date"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Selezione Contatti e Titoli">
+                            <field name="titoli_ids"/>
+                            <field name="partner_ids"/>
+                        </page>
+                        <page string="Dettaglio invio Titoli">
+                            <field name="details_line">
+                                <tree string="Dettaglio invio Titoli" editable="bottom">
+                                    <field name="partner_id"/>
+                                    <field name="titolo_id"/>
+                                    <field name="dedica"/>
+                                    <field name="anticipo"/>
+                                    <field name="urgenza"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="send_book_tree_view" model="ir.ui.view">
+        <field name="name">send.book.tree</field>
+        <field name="model">send.book</field>
+        <field name="arch" type="xml">
+            <tree string="Invio Titoli">
+                <field name="user_id"/>
+                <field name="titoli_ids"/>
+                <field name="partner_ids"/>
+                <field name="invio_singolo"/>
+                <field name="create_date"/>
+            </tree>
+
+        </field>
+    </record>
+
+
+
+    <record id="action_send_book" model="ir.actions.act_window">
+        <field name="name">Invio Titoli</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">send.book</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="search_view_id" ref="sale.sale_order_view_search_inherit_sale"/> -->
+        <field name="context">{}</field>
+        <field name="domain">[('stato','=', False)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Invia i titoli selezionando Destinatari e Titoli
+            </p>
+            <p>
+                Controlla il dettaglio, la giacenza, l'urgenza, la dedica e l'anticipo.
+            </p>
+            <p>
+                Confermando verrà generata una spedizione in Lavorazione.
+            </p>
+        </field>
+    </record>
+
+        <menuitem id="menu_send_books"
+        action="action_send_book"
+        parent="sales_team.menu_sales"
+        sequence="20" />
+
+
+
+
+
+
+
+
+</odoo>
