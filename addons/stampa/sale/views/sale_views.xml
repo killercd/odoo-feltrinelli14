@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding='UTF-8'?>
+
+<odoo>
+
+
+    <record id="action_sale_sent" model="ir.actions.act_window">
+        <field name="name">Spediti - Bolle</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,kanban,form,calendar,pivot,graph</field>
+        <field name="search_view_id" ref="sale.sale_order_view_search_inherit_sale"/>
+        <field name="context">{}</field>
+        <field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel')), ('sent', '=', True)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create a Quotation, the first step of a new sale.
+            </p>
+            <p>
+                Your next actions should flow efficiently: confirm the Quotation
+                to a Sale Order, then create the Invoice and collect the Payment.
+            </p>
+            <p>
+                Note that once a Quotation becomes a Sale Order, it will be moved
+                from the Quotations list to the Sales Order list.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_sale_sent"
+        action="action_sale_sent"
+        parent="sale.sale_order_menu"
+        sequence="11" />
+
+
+     <record id="action_sale_sending" model="ir.actions.act_window">
+        <field name="name">In spedizione - Bolle</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,kanban,form,calendar,pivot,graph</field>
+        <field name="search_view_id" ref="sale.sale_order_view_search_inherit_sale"/>
+        <field name="context">{}</field>
+        <field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel')), ('sent', '=', False)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create a Quotation, the first step of a new sale.
+            </p>
+            <p>
+                Your next actions should flow efficiently: confirm the Quotation
+                to a Sale Order, then create the Invoice and collect the Payment.
+            </p>
+            <p>
+                Note that once a Quotation becomes a Sale Order, it will be moved
+                from the Quotations list to the Sales Order list.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_sale_sending"
+        action="action_sale_sending"
+        parent="sale.sale_order_menu"
+        sequence="10" />
+
+
+    <record id="button_send_order" model="ir.actions.server">
+        <field name="name">Spedisci</field>
+        <field name="model_id" ref="model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">
+        if context.get('active_model') == 'sale.order' and context.get('active_ids'):
+            action = env['sale.order'].browse(context['active_ids']).action_server_validate_picking()
+        </field>
+    </record>
+
+    <record id="button_validate_order" model="ir.actions.server">
+        <field name="name">Manda in spedizione</field>
+        <field name="model_id" ref="model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">
+        if context.get('active_model') == 'sale.order' and context.get('active_ids'):
+            action = env['sale.order'].browse(context['active_ids']).button_manda_in_spedizione()
+        </field>
+    </record>
+
+    <!-- <record id="sale_order_validate_picking_item_action" model="ir.actions.server">
+        <field name="name">Spedisci</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">
+        if context.get('active_model') == 'sale.order' and context.get('active_ids'):
+            action = env['sale.order'].browse(context['active_ids']).action_server_validate_picking()
+        </field>
+    </record>
+    <record model="ir.values" id="ir_value_id">
+         <field eval="'sale.order'" name="model"/>
+        <field name="name">Spedisci</field>
+        <field name="key2">client_action_multi</field>
+        <field eval="'ir.actions.server,%d'%sale_order_validate_picking_item_action" name="value"/>
+        <field name="key">action</field>
+    </record-->
+
+
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='order_line']//tree/field[@name='price_unit']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']//tree/field[@name='tax_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']//tree/field[@name='price_subtotal']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']//tree/field[@name='product_id']" position="replace">
+                <field name="product_id" invisible="1"/>
+                <field name="autori_id" widget="many2many_tags"/>
+                <field name="dedica"/>
+                <field name="anticipo"/>
+                <field name="urgenza"/>
+            </xpath>
+
+            <xpath expr="//group[@name='sale_total']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <field name="payment_term_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="validity_date" position="after">
+                <field name="user_id" string="Operatore"/>
+                <field name="invio_singolo"/>
+            </field>
+            <field name="validity_date" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="partner_id" position="after">
+                <field name="sent"/>
+                <field name="urgenza"/>
+                <field name="nota"/>
+            </field>
+            <xpath expr="//page[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[2]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherited</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <!-- <xpath expr="//tree[0]" position="before">
+                <button name="return_action" string="register" type="object"/>
+            </xpath> -->
+            <field name="message_needaction" position="attributes">
+                <button name="return_action" string="register" type="object"/>
+            </field>
+
+            <field name="name" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+
+            <field name="invoice_status" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="amount_total" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="partner_id" position="after">
+                <field name="lastname"/>
+                <field name="firstname"/>
+                <field name="street"/>
+                <field name="street2"/>
+                <field name="city"/>
+                <field name="province" string="PR"/>
+                <field name="zip_code"/>
+                <field name="country"/>
+                <field name="invio_singolo" string="Singolo"/>
+                <field name="urgenza"/>
+            </field>
+            <field name="user_id" position="before">
+                <field name="tag_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_quotation_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree" />
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="state" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="amount_total" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="partner_id" position="after">
+                <field name="lastname"/>
+                <field name="firstname"/>
+                <field name="street"/>
+                <field name="street2"/>
+                <field name="city"/>
+                <field name="province" string="PR"/>
+                <field name="zip_code"/>
+                <field name="country"/>
+                <field name="invio_singolo" string="Singolo"/>
+                <field name="urgenza"/>
+                <field name="tag_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- ricerca tag -->
+    <record id="view_sales_order_filter_tags" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit.tags</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <separator/>
+                <field name="tag_ids"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="sale_order_line_view_search" model="ir.ui.view">
+        <field name="name">sale.order.line.list.select</field>
+        <field name="model">sale.order.line</field>
+        <field name="arch" type="xml">
+            <search string="Cerca Righe Ordine">
+                <field name="name" string="Righe Ordine" filter_domain="[('name','ilike',self)]"/>
+                <field name="order_partner_id" operator="child_of"/>
+                <field name="salesman_id"/>
+                <field name="product_id"/>
+                <field name="isbn"/>
+                <field name="order_data_uscita"/>
+                <field name="order_in_magazzino"/>
+                <filter string="Miei Ordini" domain="[('salesman_id','=',uid)]" name="my_sale_orders_filter"/>
+                
+                
+                <!--filter string="In libreria oggi" domain="[('order_data_uscita', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')),('date_order', '&lt;=', datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/>
+                <filter string="In magazzino oggi" domain="[('order_in_magazzino', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')),('date_order', '&lt;=', datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Ordine" domain="[]" context="{'group_by':'order_id'}"/>
+                    <filter name="customer" string="Cliente" domain="[]" context="{'group_by':'order_partner_id'}"/>
+                    <filter string="Prodotto" domain="[]" context="{'group_by':'product_id'}"/>
+                    <filter string="In libreria" context="{'group_by':'order_data_uscita'}"/>
+                    <filter string="In magazzino" context="{'group_by':'order_in_magazzino'}"/>
+                    <filter string="Commerciale" domain="[]" context="{'group_by':'salesman_id'}"/>
+                </group  FIXME-->
+            </search>
+        </field>
+    </record>
+
+    <record id="view_order_line_tree" model="ir.ui.view">
+        <field name="name">sale.order.line.tree</field>
+        <field name="model">sale.order.line</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree string="Righe Ordine" decoration-bf="message_needaction==True"
+                  decoration-muted="state=='cancel'">
+                <field name="message_needaction" invisible="1"/>
+                <field name="name_order" string='Rif. Ordine'/>
+                <field name="date_order" string="Data spedizione" widget="date"/>
+                <field name="salesman_id" string="Operatore"/>
+                <field name="partner_id" string="Destinatario"/>
+                <field name="lastname" string="Cognome"/>
+                <field name="firstname" string="Nome"/>
+                <field name="address" string='Indirizzo'/>
+                <!-- <field name="tag_ids" widget="many2many_tags" options="{'no_create_edit': True}" invisible="1"/> -->
+                <!-- <field name="product_id"/> -->
+                <!-- <field name="nome_cliente"/> -->
+                <!-- <field name="isbn" invisible="1"/> -->
+                <!-- <field name="autori_id" widget="many2many_tags" placeholder="Autori..." options="{'no_create_edit': True}"/> -->
+                <field name="order_data_uscita" string="In libreria"/>
+                <field name="order_in_magazzino" invisible="1"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_orders_lines_fltr" model="ir.actions.act_window">
+        <field name="name">Tutti gli ordini - Dettaglio</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_sales_order_line_filter"/>
+        <!--field name="tree_view_id" ref="view_order_line_tree"/-->
+        <field name="context">{}</field>
+        <field name="domain">[('state', 'not in', ('sent', 'cancel'))]</field>
+    </record>
+
+    <record id="sale.act_res_partner_2_sale_order" model="ir.actions.act_window">
+        <field name="name">Quotations and Sales</field>
+        <field name="res_model">sale.order.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_order_partner_id': active_id}</field>
+        <field name="search_view_id" ref="view_sales_order_line_filter"/>
+        <!--field name="tree_view_id" ref="view_order_line_tree"/-->
+        <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Create a Quotation, the first step of a new sale.
+          </p><p>
+            Your next actions should flow efficiently: confirm the Quotation to a Sale Order, then create the Invoice and collect the Payment.
+          </p><p>
+            Note that once a Quotation becomes a Sale Order, it will be moved from the Quotations list to the Sales Order list.
+          </p>
+        </field>
+    </record>
+
+    <menuitem action="action_orders_lines_fltr"
+              id="menu_sale_order_lines" parent="sale.sale_order_menu"
+              sequence="12" groups="sales_team.group_sale_salesman,sales_team.group_sale_manager"/>
+
+
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="name">res.partner.select</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <!-- FIXME field name="product_id" string="Libro" />
+                <field name="collana_id" string="Collana" /-->
+                <field name="street2" string="Testata" filter_domain="[('street2','ilike',self)]"/>
+                <field name="comment" string="Note"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_res_partner_tree" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="display_name" position="after">
+                <field name="lastname"/>
+                <field name="firstname"/>
+                <field name="street2" string="Presso"/>
+                <field name="street" string="Indirizzo"/>
+                <field name="tipo"/>
+                <field name="zip" string="Cap"/>
+                <field name="city" string="Comune"/>
+                <field name="state_id" string="Provincia"/>
+                <field name="category_id" widget="many2many_tags"/>
+                <field name="comment"/>
+            </field>
+            <field name="display_name" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="phone" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="email" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>
