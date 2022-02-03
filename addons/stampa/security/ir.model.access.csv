@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stampa_person_category,stampa.person.category,model_stampa_person_category,base.group_user,1,1,1,1
+access_stampa_collana,stampa.collana,model_stampa_collana,base.group_user,1,1,1,1
+access_stampa_person,stampa.person,model_stampa_person,base.group_user,1,1,1,1
+access_send_book,send.book,model_send_book,base.group_user,1,1,1,1
+access_send_book_line,send.book.line,model_send_book_line,base.group_user,1,1,1,1
+access_opzioni_libro_omaggio,access_opzioni_libro_omaggio,model_opzioni_libro_omaggio,base.group_user,1,1,1,1
+access_dettaglio_opzioni_libro_omaggio,access_dettaglio_opzioni_libro_omaggio,model_dettaglio_opzioni_libro_omaggio,base.group_user,1,1,1,1
+access_invio_libri_omaggio,access_invio_libri_omaggio,model_invio_libri_omaggio,base.group_user,1,1,1,1
