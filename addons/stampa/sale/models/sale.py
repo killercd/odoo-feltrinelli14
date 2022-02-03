@@ -152,9 +152,9 @@ class SaleOrderLine(models.Model):
 
     message_needaction = fields.Boolean(related="order_id.message_needaction")
 
-    name_order = fields.Char(related="order_id.name")
+    name_order = fields.Char(related="order_id.name", string="Spedizione")
     date_order = fields.Datetime(related="order_id.date_order", store=True)
-    partner_id = fields.Many2one(related="order_id.partner_id", store=True)
+    partner_id = fields.Many2one(related="order_id.partner_id", store=True, string="Contatto")
 
     isbn = fields.Char(related="product_id.barcode")
 

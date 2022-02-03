@@ -32,8 +32,29 @@
             </button>
         </field>
     </record-->
-    
 
+    <record id="product_template_form_view_fltr1" model="ir.ui.view">
+        <field name="name">product.template.product.website.form.fltr</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="sale.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="product_template_form_view_fltr" model="ir.ui.view">
+        <field name="name">product.template.supplier.product_template_form_view.inherit.fltr</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='purchase']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
 
     <record id="product_template_form_view" model="ir.ui.view">
             <field name="name">product.template.common.form</field>
@@ -49,8 +70,8 @@
                     </div>
                     <field name="company_id" groups="base.group_multi_company"
                         options="{'no_create': True}"/>
-                    <field name="uom_id" groups="product.group_uom" options="{'no_create': True}"/>
-                    <field name="uom_po_id" groups="product.group_uom" options="{'no_create': True}"/>
+                    <field name="uom_id"  options="{'no_create': True}"/>
+                    <field name="uom_po_id"  options="{'no_create': True}"/>
                     <field name="currency_id" invisible="1"/>
                     <field name="product_variant_id" invisible="1"/>
                 </xpath>
@@ -106,8 +127,12 @@
                 <xpath expr="//page[@name='general_information']/following::page" position="attributes">
                          <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
+                <xpath expr="//page[@name='inventory']" position="attributes">
+                    <attribute name="attrs">{'invisible': True}</attribute>
+                </xpath>
             </field>
         </record>
+
 
         <record id="product_template_only_form_view_fltr6" model="ir.ui.view">
             <field name="name">product.template.product.form</field>
@@ -115,7 +140,7 @@
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
             <field name="arch" type="xml">
                 <field name="default_code" position="attributes">
-                    <attribute name="invisible">True</attribute>
+                    <attribute name="string">ISBN</attribute>
                 </field>
             </field>
         </record>
@@ -163,7 +188,7 @@
             </field>
 
             <field name="default_code" position="attributes">
-                <attribute name="invisible">True</attribute>
+                <attribute name="string">ISBN</attribute>
             </field>
 
             <field name="name" position="replace">
@@ -210,7 +235,7 @@
                     <!-- FIXME questo campo causa un'eccezione sul parsing field name="attribute_value_ids" widget="many2many_tags" groups="product.group_product_variant"/-->
                     <field name="lst_price" invisible="1"/>
                     <field name="price" invisible="not context.get('pricelist',False)"/>
-                    <field name="uom_id" options="{'no_open': True, 'no_create': True}" groups="product.group_uom"/>
+                    <field name="uom_id" options="{'no_open': True, 'no_create': True}" />
                     <field name="product_tmpl_id" invisible="1"/>
                     <field name="active" invisible="1"/>
                     <field name="type"/> <!-- Added for this: Field type used in attrs.invisible ({'invisible':[('type', '!=', 'product')]}) must be present in view but is missing. -->

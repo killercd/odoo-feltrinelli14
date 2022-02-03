@@ -1,0 +1,93 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* opencloud_massive_tag_update
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0-20151013\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-18 14:43+0000\n"
+"PO-Revision-Date: 2015-12-18 14:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.actions.act_window,name:opencloud_massive_tag_update.action_view_adicionar_tag
+#: model:ir.ui.view,arch_db:opencloud_massive_tag_update.view_adicionar_tag
+msgid "Add Tag"
+msgstr "Adicionar Etiqueta"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.ui.menu,name:opencloud_massive_tag_update.menu_opencloud_massive_tag_update
+msgid "Add Tags"
+msgstr "Adicionar Etiquetas"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.ui.view,arch_db:opencloud_massive_tag_update.view_adicionar_tag
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.model.fields,field_description:opencloud_massive_tag_update.field_opencloud_massive_tag_create_uid
+msgid "Created by"
+msgstr "Criada por"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.model.fields,field_description:opencloud_massive_tag_update.field_opencloud_massive_tag_create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.model.fields,field_description:opencloud_massive_tag_update.field_opencloud_massive_tag_display_name
+msgid "Display Name"
+msgstr "Nome a Mostrar"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.model.fields,field_description:opencloud_massive_tag_update.field_opencloud_massive_tag_id
+msgid "ID"
+msgstr "ID"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.model.fields,field_description:opencloud_massive_tag_update.field_opencloud_massive_tag___last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.model.fields,field_description:opencloud_massive_tag_update.field_opencloud_massive_tag_write_uid
+msgid "Last Updated by"
+msgstr "Última Actualização por"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.model.fields,field_description:opencloud_massive_tag_update.field_opencloud_massive_tag_write_date
+msgid "Last Updated on"
+msgstr "Última Actualização em"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.model,name:opencloud_massive_tag_update.model_opencloud_massive_tag
+msgid "Massive Tag"
+msgstr "Adicionar Múltiplas Etiquetas"
+
+#. module: opencloud_massive_tag_update
+#: model:res.groups,name:opencloud_massive_tag_update.group_opencloud_massive_tag_update
+msgid "Opencloud Massive Tag"
+msgstr "Opencloud Adicionar Múltiplas Etiquetas"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.model.fields,field_description:opencloud_massive_tag_update.field_opencloud_massive_tag_partner_ids
+msgid "Partners"
+msgstr "Parceiros"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.model.fields,field_description:opencloud_massive_tag_update.field_opencloud_massive_tag_category_ids
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: opencloud_massive_tag_update
+#: model:ir.ui.view,arch_db:opencloud_massive_tag_update.view_adicionar_tag
+msgid "ou"
+msgstr "ou"
+

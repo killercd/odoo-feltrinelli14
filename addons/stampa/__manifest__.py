@@ -11,15 +11,14 @@
         "crm",
         "sale_crm",
         "mail",
-        # "l10n_it_base_location_geonames_import",
-        # "l10n_it_ddt",
         "stock",
         "sale",
         "sale_management",
         "partner_firstname",
         "queue_job",
         "queue_job_cron",
-        "sh_message"
+        "sh_message",
+        "opencloud_massive_tag_update"
     ],
     # always loaded
     "data": [

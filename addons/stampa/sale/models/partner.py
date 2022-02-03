@@ -24,6 +24,9 @@ class ResPartner(models.Model):
         copy=True,
     )
 
+    property_account_payable_id = fields.Many2one(required=False)
+    property_account_receivable_id = fields.Many2one(required=False)
+
     # FIXME il field product_id nel sale.order non esiste
     # product_id = fields.Many2one(
     #    "product.product", related="order.product_id", string="Product"

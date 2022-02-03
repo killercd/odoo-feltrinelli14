@@ -8,7 +8,7 @@ class HeaderInvioLibroOmaggio(models.TransientModel):
         "product.template", string="Libro", readonly=True
     )
     details_line = fields.One2many(
-        "dettaglio.opzioni.libro.omaggio", "header_id", string="Persone"
+        "dettaglio.opzioni.libro.omaggio", "header_id", string="Contatti"
     )
     partner_ids = fields.Many2many(
         "res.partner", string="Persone", store=False

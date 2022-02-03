@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<odoo>
+	
+		<record id="group_opencloud_massive_tag_update" model="res.groups">
+			<field name="name">Opencloud Massive Tag</field>
+			<field name="users" eval="[(4, ref('base.user_root'))]"/>
+			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+		</record>
+
+</odoo>
+

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_opencloud_massive_tag,access_opencloud_massive_tag,model_opencloud_massive_tag,base.group_user,1,1,1,1
+access_massive_tag_remove,access_massive_tag_remove,model_massive_tag_remove,base.group_user,1,1,1,1

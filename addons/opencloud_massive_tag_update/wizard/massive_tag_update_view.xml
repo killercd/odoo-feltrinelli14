@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding='UTF-8'?>
+
+<odoo>
+
+    <record id="view_adicionar_tag" model="ir.ui.view">
+        <field name="name">Adicionar Tag</field>
+        <field name="model">opencloud.massive.tag</field>
+        <field name="arch" type="xml">
+            <form string="Add Tag">
+                <group>
+                    <field name="partner_ids"/>
+                    <field name="category_ids"/>
+                </group>
+                <footer>
+                    <button name="adicionar_tag" string="Add Tag" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_view_adicionar_tag" model="ir.actions.act_window">
+        <field name="name">Add Tag</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">opencloud.massive.tag</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_adicionar_tag"/>
+        <field name="target">new</field>
+    </record>
+
+    
+
+    <record id="view_remove_tag" model="ir.ui.view">
+        <field name="name">Remove Tag</field>
+        <field name="model">massive.tag.remove</field>
+        <field name="arch" type="xml">
+            <form string="Add Tag">
+                <group>
+                    <field name="partner_ids"/>
+                    <field name="category_ids"/>
+                </group>
+                <footer>
+                    <button name="remove_tag" string="Remove Tag" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_view_remove_tag" model="ir.actions.act_window">
+        <field name="name">Remove Tag</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">massive.tag.remove</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_remove_tag"/>
+        <field name="target">new</field>
+    </record>
+
+
+    <menuitem name="Add Tags" parent="crm.menu_crm_config_lead"
+            id="menu_opencloud_massive_tag_update" action="action_view_adicionar_tag" sequence="4"/>
+
+    <record id="action_partner_add_tags" model="ir.actions.act_window">
+        <field name="name">Add Tags</field>
+        <field name="res_model">opencloud.massive.tag</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+    </record>
+
+    <record id="action_partner_remove_tags" model="ir.actions.act_window">
+        <field name="name">Remove Tags</field>
+        <field name="res_model">massive.tag.remove</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+    </record>
+
+    <!-- <act_window
+        id="action_partner_add_tags"
+        res_model="opencloud.massive.tag"
+        src_model="res.partner"
+        target="new"
+        multi="True"
+        key2="client_action_multi"
+        view_mode="form"
+        name="Add Tags"/>
+
+    <act_window
+        id="action_partner_remove_tags"
+        res_model="massive.tag.remove"
+        src_model="res.partner"
+        target="new"
+        multi="True"
+        key2="client_action_multi"
+        view_mode="form"
+        name="Remove Tags"/> -->
+
+</odoo>

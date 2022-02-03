@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="feltrinelli_report">
+        
+       <t t-name="sale.report_saleorder">
+            <t t-call="web.html_container">
+              
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="div" t-value="divmod(len(o.order_line),15)"/>
+                    <t t-set="count" t-value="0"/>
+                    <t t-if="div[1]">
+                        <t t-set="npage" t-value="div[0]+1"/>
+                    </t>
+                    <t t-if="not div[1]">
+                        <t t-set="npage" t-value="div[0]"/>
+                    </t>
+
+                     <t t-foreach="range(npage)" t-as="i">
+                        <div class="page">
+                            <div> 
+                                <span t-field="o.partner_id.title" /><br></br>
+                                <span t-field="o.partner_id.lastname" /> <span t-field="o.partner_id.firstname" /><br></br>
+                                <span t-field="o.partner_id.street2" /><br></br>
+                                <span t-field="o.partner_id.street" /><br></br>                        
+                                <span t-field="o.partner_id.zip" style="margin-right:10px;" />
+                                <span t-field="o.partner_id.city" style="margin-right:10px;" />
+                                <span t-field="o.partner_id.state_id.code" />
+                                <br></br>
+                                <br></br>
+                                <t t-if="o.nota">
+                                    <strong>Nota:</strong><span t-field="o.nota"/>
+                                </t>
+                            </div>
+                             <br/>
+                            <div class="row">
+                                <div class="col-xs-6 col-xs-offset-6" style="text-align:right; padding-right:0px;">
+                                    <!-- <strong><span t-esc="datetime.datetime.strptime(o.date_order,'%Y-%m-%d %H:%M:%S').strftime('%d/%m/%Y')" style="font-size:10px;"/></strong> -->
+                                    <strong><span t-esc="o.date_order" style="font-size:10px;"/></strong>
+                                </div>
+                                
+                                <div style="min-height:260px; max-height:260px; text-align:right; padding-top: 85px">
+                                    <t t-esc="i+1"/>/<t t-esc="npage"/>
+                                </div>
+                                <div style="padding-top: 30px">
+                                    <table style="font-size:13px; width:100%">
+                                        <t t-foreach="o.order_line[count:15+count]" t-as="l">
+                                            <t t-if="l.anticipo == False">
+                                                <tr>
+                                                    <td width="80%" style="padding-top:5px; padding-bottom:5px; padding-right:5px;">
+                                                        <t t-foreach="l.product_id.autori_id" t-as="a">
+                                                            <span t-field="a.name"/>
+                                                        </t>
+                                                        - <span t-field="l.product_id.name"/>
+                                                    </td>
+                                                    <td width="12%" style="text-align:center; padding-left:2px; padding-right:6px;">
+                                                        <t t-esc="int(l.product_uom_qty)"/>
+                                                    </td>
+                                                    <td width="10%" style="text-align:right; padding-left:10px;">
+                                                        <t t-esc="int(l.product_id.barcode)"/>
+                                                    </td>
+                                                    <td width="2%" style="text-align:center;">
+                                                        <strong>
+                                                            <span t-if="l.dedica == True">D</span>
+                                                            <span t-if="o.urgenza == True">U</span>
+                                                        </strong>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </t>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <t t-set="count" t-value="count+15"/>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    
+</odoo>
