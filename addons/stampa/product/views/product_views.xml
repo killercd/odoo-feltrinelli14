@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding='UTF-8'?>
 <odoo>
 
+    <record model="ir.ui.view" id="product_template_form_view_procurement_button_fltr">
+        <field name="name">product.template_procurement_fltr</field>
+        <field name="model">product.template</field>
+        <field name="groups_id" eval="[(4, ref('stock.group_stock_user'))]"/>
+        <field name="inherit_id" ref="stock.product_template_form_view_procurement_button"/>
+        <field name="arch" type="xml">
+            <button name="action_product_tmpl_forecast_report" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </button>
+            <button name="action_view_stock_move_lines" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </button>
+            <button name="action_view_orderpoints" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </button>
+            <button name="action_view_orderpoints" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </button>
+            <field name="nbr_reordering_rules" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </field>
+            <xpath expr="//button[@name='action_view_orderpoints']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+<!--     <record model="ir.ui.view" id="product_form_view_procurement_button_fltr12">
+        <field name="name">product.product.procurement.fltr12</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock.product_form_view_procurement_button"/>
+        <field name="arch" type="xml">
+            <button name="action_view_orderpoints" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </button>
+        </field>
+    </record> -->
+<!-- 
+    <record id="product_product_view_form_easy_inherit_stock_fltr12" model="ir.ui.view">
+        <field name="name">product.product.view.form.easy.inherit.stock.fltr</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock.product_product_view_form_easy_inherit_stock"/>
+        <field name="arch" type="xml">
+            <button name="action_view_related_putaway_rules" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </button>
+        </field>
+    </record> -->
+
+
+    
 
     <!-- FIXME raise ValueError('External ID not found in the system: %s' % xmlid)
     ValueError: External ID not found in the system: stock.product_template_form_view_procurement_button -->
@@ -174,6 +226,18 @@
         </field>
     </record>
 
+    <record id="view_stock_product_template_tree_fltr" model="ir.ui.view">
+        <field name="name">product.template.stock.tree.inherit.fltr</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_stock_product_template_tree"/>
+        <field name="arch" type="xml">
+            <field name="responsible_id" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </field>
+        </field>
+    </record>
+
+
     <record id="view_stampa_product_template_tree" model="ir.ui.view">
         <field name="name">product.template.stampa.tree.inherit</field>
         <field name="model">product.template</field>
@@ -181,25 +245,21 @@
         <field name="priority" eval="0"/>
         <field name="arch" type="xml">
 
-            <field name="default_code" position="before">
-                <field name="marchio_editoriale"/>
-                <field name="barcode"/>
-                <field name="book_type"/>
+            <field name="default_code" position="replace">
+                
+            </field>
+            <field name="name" position="attributes">
+                <attribute name="string">Titolo</attribute>
             </field>
 
-            <field name="default_code" position="attributes">
-                <attribute name="string">ISBN</attribute>
-            </field>
-
-            <field name="name" position="replace">
-                <field name="name" string="Titolo"/>
-            </field>
             <field name="name" position="before">
+                <field name="marchio_editoriale"/>
+                <field name="default_code" string="ISBN"/>
+                <field name="book_type"/>
                 <field name="data_uscita"/>
                 <field name="in_magazzino"/>
-                <field name="autori_id"/>
+                <field name="autori_id" widget="many2many_tags"/>
             </field>
-
             
             <field name="list_price" position="attributes">
                 <attribute name="invisible">True</attribute>
@@ -244,23 +304,24 @@
             </field>
         </record>
 
-    <record id="product.product_template_action" model="ir.actions.act_window">
+    <record id="sale.product_template_action" model="ir.actions.act_window">
         <field name="name">Products</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">product.template</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,activity</field>
         <field name="view_id" ref="product.product_template_kanban_view"/>
-        <field name="context">{"search_default_filter_to_sell":1}</field>
+        <field name="search_view_id" ref="product.product_template_search_view"/>
+        <field name="context">{"search_default_filter_to_sell":1, "sale_multi_pricelist_product_template": 1}</field>
         <field name="help" type="html">
-            <p class="oe_view_nocontent_create">
-                Click to define a new product.
+            <p class="o_view_nocontent_smiling_face">
+                Create a new product
             </p><p>
-                You must define a product for everything you sell, whether it's a physical product, a consumable or a service you offer to customers.
-            </p><p>
-                The product form contains information to simplify the sale process: price, notes in the quotation, accounting data, procurement methods, etc.
+                You must define a product for everything you sell or purchase,
+                whether it's a storable product, a consumable or a service.
             </p>
         </field>
     </record>
+
 
     <record id="stampa.view_stock_product_template_tree" model="ir.ui.view">
         <field name="name">product.template.stock.tree.inherit</field>

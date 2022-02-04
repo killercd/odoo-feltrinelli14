@@ -18,7 +18,9 @@
         "queue_job",
         "queue_job_cron",
         "sh_message",
-        "opencloud_massive_tag_update"
+        "opencloud_massive_tag_update",
+        "mail",
+        "product"
     ],
     # always loaded
     "data": [
