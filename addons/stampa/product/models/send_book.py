@@ -299,7 +299,7 @@ class SendBook(models.Model):
                 }
                 record = self.env["send.book.line"].create(vals)
                 ids.append(record.id)
-        self.update({"details_line": [(6, 0, ids)]})
+        self.details_line = [(6, 0, ids)]
 
         # controllo giacenza e invio duplicato
         alert_msg = []
@@ -325,13 +325,34 @@ class SendBook(models.Model):
         if not anomalia_giacenze:
             alert_msg.append(" - nessuna anomalia")
 
-        if not anomalia_duplicati and not anomalia_giacenze:
-            self.env.cr.commit()
-            return
+        # commentato perché, se anche valorizzate una delle due variabili, a seguire non c'è alcun rollback 
+        # if not anomalia_duplicati and not anomalia_giacenze:
+        #     self.env.cr.commit()
+        #     return
 
         if alert_msg:
-            self.env.cr.commit()
-            raise exceptions.Warning("\n".join(alert_msg))
+            # commentato perché il raise exceptions non refresha la 
+            # pagina nonostante il commit abbia valorizzato il field details_line
+            # self.env.cr.commit()
+            # raise exceptions.Warning("\n".join(alert_msg))
+
+            view = self.env.ref("sh_message.sh_message_wizard")
+            view_id = view and view.id or False
+            context = dict(self.env.context)
+            context["message"] = "\n".join(alert_msg)
+            context["url"] = ""
+
+            return {
+                "name": "Controllo duplicati e controllo giacenza",
+                "type": "ir.actions.act_window",
+                "view_type": "form",
+                "view_mode": "form",
+                "res_model": "sh.message.wizard",
+                "views": [(view.id, "form")],
+                "view_id": view.id,
+                "target": "new",
+                "context": context,
+            }
 
     def prodotti_duplicati(self, titolo, partner):
 
