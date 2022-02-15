@@ -20,7 +20,8 @@
         "sh_message",
         "opencloud_massive_tag_update",
         "mail",
-        "product"
+        "product",
+        "sale_management"
     ],
     # always loaded
     "data": [

@@ -2,7 +2,7 @@
 
 from odoo import api, fields, models
 
-import odoo.addons.decimal_precision as dp
+# import odoo.addons.decimal_precision as dp
 
 
 class Collana(models.Model):
@@ -50,7 +50,7 @@ class ProductProduct(models.Model):
     qty_bookable = fields.Float(
         "Quantità Prenotabile",
         compute="_compute_quantities_bookable",
-        digits=dp.get_precision("Product Unit of Measure"),
+        digits=(0, 0)
     )
     collana_id = fields.Many2one("stampa.collana", string="Collana")
 

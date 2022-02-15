@@ -2,6 +2,56 @@
 
 <odoo>
 
+    <record id="make_invisible" model="res.groups">
+        <field name="name">Invisible</field>
+    </record>
+    <record model="ir.ui.menu" id="sale.menu_sale_order_invoice">
+        <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+    </record>
+    <record model="ir.ui.menu" id="sale.menu_sale_invoicing">
+        <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+    </record>
+    <record model="ir.ui.menu" id="sale.menu_sale_quotations">
+        <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+    </record>
+    <record model="ir.ui.menu" id="sale.report_sales_team">
+        <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+    </record>
+    <record model="ir.ui.menu" id="sale.res_partner_menu">
+        <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+    </record>
+    <record model="ir.ui.menu" id="sale.menu_sale_order">
+        <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+    </record>
+    <record model="ir.ui.menu" id="sale.menu_sale_report">
+        <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+    </record>
+    <record model="ir.ui.menu" id="sale.product_menu_catalog">
+        <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+    </record>
+
+    <record id="product_template_action_fltr" model="ir.actions.act_window">
+        <field name="name">Titoli</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form,activity</field>
+        <field name="view_id" ref="product.product_template_kanban_view"/>
+        <field name="search_view_id" ref="product.product_template_search_view"/>
+        <field name="context">{"search_default_filter_to_sell":1, "sale_multi_pricelist_product_template": 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new product
+            </p><p>
+                You must define a product for everything you sell or purchase,
+                whether it's a storable product, a consumable or a service.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_titoli"
+        action="product_template_action_fltr"
+        parent="sale.sale_order_menu"
+        sequence="15" />
 
     <record id="action_sale_sent" model="ir.actions.act_window">
         <field name="name">Spediti - Bolle</field>
@@ -38,7 +88,7 @@
         <field name="res_model">sale.order</field>
         <field name="view_mode">tree,kanban,form,calendar,pivot,graph</field>
         <field name="search_view_id" ref="sale.sale_order_view_search_inherit_sale"/>
-        <field name="context">{}</field>
+        <field name="context">{'action': 'spedizione'}</field>
         <field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel')), ('sent', '=', False)]</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
@@ -61,54 +111,86 @@
         sequence="10" />
 
 
-    <record id="button_send_order" model="ir.actions.server">
-        <field name="name">Spedisci</field>
-        <field name="model_id" ref="model_sale_order"/>
-        <field name="state">code</field>
-        <field name="code">
-        if context.get('active_model') == 'sale.order' and context.get('active_ids'):
-            action = env['sale.order'].browse(context['active_ids']).action_server_validate_picking()
+    <record id="action_sale_preparation" model="ir.actions.act_window">
+        <field name="name">In Lavorazione - Bolle</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,kanban,form,calendar,pivot,graph</field>
+        <field name="search_view_id" ref="sale.sale_order_view_search_inherit_sale"/>
+        <field name="context">{'action': 'lavorazione'}</field>
+        <field name="domain">[('state', 'not in', ('sale', 'sent', 'cancel')), ('sent', '=', False)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create a Quotation, the first step of a new sale.
+            </p>
+            <p>
+                Your next actions should flow efficiently: confirm the Quotation
+                to a Sale Order, then create the Invoice and collect the Payment.
+            </p>
+            <p>
+                Note that once a Quotation becomes a Sale Order, it will be moved
+                from the Quotations list to the Sales Order list.
+            </p>
         </field>
     </record>
 
-    <record id="button_validate_order" model="ir.actions.server">
-        <field name="name">Manda in spedizione</field>
-        <field name="model_id" ref="model_sale_order"/>
-        <field name="state">code</field>
-        <field name="code">
-        if context.get('active_model') == 'sale.order' and context.get('active_ids'):
-            action = env['sale.order'].browse(context['active_ids']).button_manda_in_spedizione()
-        </field>
-    </record>
 
-    <!-- <record id="sale_order_validate_picking_item_action" model="ir.actions.server">
-        <field name="name">Spedisci</field>
-        <field name="model_id" ref="sale.model_sale_order"/>
-        <field name="state">code</field>
-        <field name="code">
-        if context.get('active_model') == 'sale.order' and context.get('active_ids'):
-            action = env['sale.order'].browse(context['active_ids']).action_server_validate_picking()
-        </field>
-    </record>
-    <record model="ir.values" id="ir_value_id">
-         <field eval="'sale.order'" name="model"/>
-        <field name="name">Spedisci</field>
-        <field name="key2">client_action_multi</field>
-        <field eval="'ir.actions.server,%d'%sale_order_validate_picking_item_action" name="value"/>
-        <field name="key">action</field>
-    </record-->
+    <menuitem id="menu_sale_preparation"
+        action="action_sale_preparation"
+        parent="sale.sale_order_menu"
+        sequence="9" />
 
 
-    <record id="view_order_form" model="ir.ui.view">
+    <!-- <record id="button_send_order_action_server" model="ir.actions.server">
+            <field name="name">Spedisci</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_sale_order"/>
+            <field name="binding_model_id" ref="model_sale_order"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+active_model = env.context.get('active_model')
+active_ids = env.context.get('active_ids')
+if active_model == 'sale.order' and active_ids:
+            action = env['sale.order'].browse(env.context['active_ids']).action_server_validate_picking()
+            </field>
+        </record>
+
+    <record id="button_validate_order_action_server" model="ir.actions.server">
+            <field name="name">Manda in spedizione</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_sale_order"/>
+            <field name="binding_model_id" ref="model_sale_order"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+active_model = env.context.get('active_model')
+active_ids = env.context.get('active_ids')
+if active_model == 'sale.order' and active_ids:
+            action = env['sale.order'].browse(env.context['active_ids']).button_manda_in_spedizione()
+            </field>
+        </record> -->
+
+
+
+    <record id="view_order_form_fltr" model="ir.ui.view">
         <field name="name">sale.order.form</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
 
+            <xpath expr="//field[@name='state']" position="attributes">
+                <attribute name="statusbar_visible">draft,sale</attribute>
+            </xpath>
+            <xpath expr="//button[@name='preview_sale_order']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='order_lines']" position="attributes">
+                <attribute name="string">Informazioni spedizione</attribute>
+            </xpath>
             <xpath expr="//field[@name='order_line']//tree/field[@name='price_unit']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-
             <xpath expr="//field[@name='order_line']//tree/field[@name='tax_id']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
@@ -117,36 +199,58 @@
                 <attribute name="invisible">1</attribute>
             </xpath>
 
+            <xpath expr="//field[@name='order_line']//tree/field[@name='name']" position="replace">
+            </xpath>
+
             <xpath expr="//field[@name='order_line']//tree/field[@name='product_id']" position="replace">
                 <field name="product_id" invisible="1"/>
+                <field name="name" widget="section_and_note_text" optional="show" string="Titolo"/>
                 <field name="autori_id" widget="many2many_tags"/>
                 <field name="dedica"/>
                 <field name="anticipo"/>
                 <field name="urgenza"/>
             </xpath>
 
-            <xpath expr="//group[@name='sale_total']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-            <field name="payment_term_id" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </field>
-            <field name="validity_date" position="after">
-                <field name="user_id" string="Operatore"/>
-                <field name="invio_singolo"/>
-            </field>
-            <field name="validity_date" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </field>
             <field name="partner_id" position="after">
                 <field name="sent"/>
                 <field name="urgenza"/>
                 <field name="nota"/>
             </field>
-            <xpath expr="//page[1]" position="attributes">
+            <field name="payment_term_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <xpath expr="//group[@name='sale_total']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-            <xpath expr="//page[2]" position="attributes">
+            
+            <field name="date_order" position="after">
+                <field name="user_id" string="Operatore"/>
+                <field name="tag_ids" widget="many2many_tags"/>
+                <field name="invio_singolo"/>
+            </field>
+
+            <field name="validity_date" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+
+            <xpath expr="//page[@name='other_information']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='customer_signature']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            
+        </field>
+    </record>
+
+
+    <record id="sale_order_form_quote_fltr" model="ir.ui.view">
+        <field name="name">sale.order.form.payment.fltr</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_management.sale_order_form_quote"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='optional_products']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
         </field>
@@ -157,9 +261,18 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_tree"/>
         <field name="arch" type="xml">
-            <!-- <xpath expr="//tree[0]" position="before">
-                <button name="return_action" string="register" type="object"/>
-            </xpath> -->
+            <xpath expr="//tree" position="inside">
+                <header>
+                    <button name="button_manda_in_spedizione" 
+                    invisible="context.get('action', '') != 'lavorazione'"
+                    type="object" string="Manda in spedizione"/>
+
+                    <button name="action_server_validate_picking" 
+                    invisible="context.get('action', '') != 'spedizione'"
+                    type="object" string="Spedisci"/>
+                </header>
+            </xpath>
+
             <field name="message_needaction" position="attributes">
                 <button name="return_action" string="register" type="object"/>
             </field>
@@ -375,6 +488,33 @@
             <button name="schedule_meeting" position="attributes">
                  <attribute name="invisible">1</attribute>
             </button>
+        </field>
+    </record>
+
+    <record id="view_partner_form_fltr1" model="ir.ui.view">
+        <field name="name">res.partner.form.fltr</field>
+        <field name="model">res.partner</field>
+        <field name="priority" eval="1"/>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="mobile" position="after">
+                <field name="fax"/>
+            </field>
+            <field name="vat" position="attributes">
+                 <attribute name="invisible">1</attribute>
+            </field>
+            <field name="title" position="after">
+                <field name="create_date" readonly="True" />
+                <field name="write_date" readonly="True" />
+            </field>
+            <!-- <field name="category_id" position="replace">
+            </field>
+         
+
+            <xpath expr="//div[@attrs=\"{'invisible': [('type','=', 'contact')]}\"]" position="after">
+                <field name="category_id"/>
+            </xpath> -->
+
         </field>
     </record>
 

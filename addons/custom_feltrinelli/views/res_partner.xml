@@ -13,19 +13,6 @@
             </field>
         </record>
 
-
-        <record id="view_partner_form_fltr12" model="ir.ui.view">
-            <field name="name">res.partner.form.fltr</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form" />
-            <field name="arch" type="xml">
-                <field name="website" position="after">
-                    <field name="create_date" readonly="True" />
-                    <field name="write_date" readonly="True" />
-                </field>
-            </field>
-        </record>
-
         <record id="view_partner_form_fltr" model="ir.ui.view">
             <field name="name">res.partner.form</field>
             <field name="model">res.partner</field>

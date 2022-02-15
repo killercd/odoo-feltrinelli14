@@ -24,6 +24,7 @@ class ResPartner(models.Model):
         copy=True,
     )
 
+    fax = fields.Char()
     company_type = fields.Selection(default='person')
     property_account_payable_id = fields.Many2one(required=False)
     property_account_receivable_id = fields.Many2one(required=False)

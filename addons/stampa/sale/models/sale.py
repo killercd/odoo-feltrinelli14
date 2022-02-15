@@ -1,7 +1,5 @@
 from odoo import fields, models, api, _
 from odoo.addons.queue_job.job import Job
-
-# import xml.etree.ElementTree as etree
 from lxml import etree
 import logging
 
@@ -38,62 +36,38 @@ class SaleOrder(models.Model):
     zip_code = fields.Char(string="Cap")
     country = fields.Char(string="Nazione")
 
-    # FIXME Commentato codice che nasconde le azioni di spedizione/ validazione a seconda della vista sale.order visualizzata
-    # @api.model
-    # def fields_view_get(
-    #     self, view_id=None, view_type="form", toolbar=False, submenu=False
-    # ):
-
-    #     _logger.debug("Entering fields_view_get")
-
-    #     res = super(SaleOrder, self).fields_view_get(
-    #         view_id=view_id,
-    #         view_type=view_type,
-    #         toolbar=toolbar,
-    #         submenu=submenu,
-    #     )
+    # def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
+    #     res = super().fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
+    #     _logger.error("1toolbar: {}".format(toolbar))
 
     #     if toolbar:
+    #         _logger.error("context: {}".format(self.env.context))
     #         actions_in_toolbar = res["toolbar"].get("action")
-
-    #         if actions_in_toolbar:
-    #             action_view = self._context["params"]["action"]
-
-    #             for action in res["toolbar"]["action"][:]:
-
-    #                 if action.get("xml_id"):
-    #                     _logger.debug(
-    #                         "========== ACTION: {}".format(action["xml_id"])
-    #                     )
-
-    #                     if (
-    #                         action_view
-    #                         == self.env.ref("stampa.action_sale_sent").id
-    #                         or action_view
-    #                         == self.env.ref("sale.action_orders").id
-    #                         # or
-    #                         # action_view == self.env.ref('product.product_template_action').id
-    #                         or (
-    #                             action_view
-    #                             == self.env.ref("sale.action_quotations").id
-    #                             and action["xml_id"]
-    #                             != u"stampa.button_validate_order"
-    #                         )
-    #                         or (
-    #                             action_view
-    #                             == self.env.ref(
-    #                                 "stampa.action_sale_sending"
-    #                             ).id
-    #                             and action["xml_id"]
-    #                             != u"stampa.button_send_order"
-    #                         )
-    #                     ):
-
-    #                         res["toolbar"]["action"].remove(action)
-
+    #         _logger.error("2actions_in_toolbar: {}".format(actions_in_toolbar))
+    #         if actions_in_toolbar and "params" in self.env.context:
+    #             _logger.error("3context: {}".format(self.env.context))
+    #             if "action" in self.env.context["params"]:
+                    
+    #                 action_view = self.env.context["params"]["action"]
+    #                 _logger.warning("5params: {}".format(self.env.context["params"]))
+    #                 action_quotations = self.env.ref("sale.action_quotations").id
+    #                 action_orders = self.env.ref("sale.action_orders").id
+    #                 for action in res['toolbar'].get('action'):
+    #                     if action.get('xml_id'):
+    #                          if (action_view == self.env.ref("stampa.action_sale_sent").id or 
+    #                             action_view == self.env.ref("sale.action_orders").id or 
+    #                             action_view == self.env.ref('product.product_template_action').id or
+    #                             (action_view == self.env.ref("stampa.action_sale_preparation").id and action["xml_id"] != u"stampa.button_validate_order_action_server") or 
+    #                             (action_view == self.env.ref("stampa.action_sale_sending").id and action["xml_id"] != u"stampa.button_send_order_action_server")
+    #                         ):
+    #                             res['toolbar']['action'].remove(action)
     #     return res
 
     def button_manda_in_spedizione(self):
+        for order in self:
+            self.action_confirm()
+
+    def button_manda_in_spedizione_v10(self):
 
         for order in self:
             order.state = "sale"
@@ -123,29 +97,15 @@ class SaleOrder(models.Model):
     def custom_action_procurement_create(self, obj):
         obj.order_line._action_procurement_create()
 
-    def action_server_validate_picking(self):
 
+    def action_server_validate_picking(self):
         for order in self:
             order.sent = True
-
-        self.env[
-            "sale.order"
-        ].with_delay().action_server_validate_picking_batch(self)
-
-    # @job
-    def action_server_validate_picking_batch(self, other):
-
-        for order in other:
-
             for picking in order.picking_ids:
-                self.env["sale.order"].with_delay().custom_action_done(
-                    order, picking
-                )
-
-    # @job
-    def custom_action_done(self, order, picking):
-        picking.action_done()
-
+                picking.action_assign()
+                for move in picking.move_lines:
+                    move.quantity_done = move.product_uom_qty
+                picking._action_done()
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"

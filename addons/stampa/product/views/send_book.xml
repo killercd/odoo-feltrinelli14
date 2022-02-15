@@ -64,8 +64,8 @@
         <field name="arch" type="xml">
             <tree string="Invio Titoli">
                 <field name="user_id"/>
-                <field name="titoli_ids"/>
-                <field name="partner_ids"/>
+                <field name="titoli_ids" widget="many2many_tags"/>
+                <field name="partner_ids" widget="many2many_tags"/>
                 <field name="invio_singolo"/>
                 <field name="create_date"/>
             </tree>

@@ -203,7 +203,7 @@ class SendBook(models.Model):
                 ("partner_id", "=", partner_id.id),
                 ("state", "=", "draft"),
                 ("invio_singolo", "=", self.invio_singolo),
-                ("session_id", "=", self.session_id),
+                # ("session_id", "=", self.session_id),
             ]
 
         order = self.env["sale.order"].search(domain, limit=1)
