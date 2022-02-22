@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding='UTF-8'?>
+
+<odoo>
+    <record id="view_queue_job_tree_fltr" model="ir.ui.view">
+        <field name="name">queue.job.tree.fltr</field>
+        <field name="model">queue.job</field>
+        <field name="inherit_id" ref="queue_job.view_queue_job_tree"/>
+        <field name="arch" type="xml">
+
+            <field name="name" position="replace">
+            </field> 
+            <field name="model_name" position="replace">
+            </field>
+            <field name="eta" position="replace">
+            </field>
+            <field name="exec_time" position="replace">
+            </field>
+            <field name="exc_name" position="replace">
+            </field>
+            <field name="exc_message" position="replace">
+            </field>
+            <field name="uuid" position="replace">
+            </field>
+            <field name="channel" position="replace">
+            </field>
+            <field name="company_id"  position="replace">
+            </field>
+
+            <field name="state" position="before">
+                <field name="transition"/>
+                <field name="partner"/>
+                <field name="ref_order"/>
+                <field name="user_id" string="Utente"/>
+            </field> 
+        </field>
+    </record> 
+</odoo>

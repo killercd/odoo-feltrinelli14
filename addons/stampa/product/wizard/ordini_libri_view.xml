@@ -2,70 +2,6 @@
 
 <odoo>
 
-        <!-- <record id="invio_libri_omaggio_wizard_view_form" model="ir.ui.view">
-            <field name="name">invio.libri.omaggio.form</field>
-            <field name="model">invio.libri.omaggio</field>
-            <field name="arch" type="xml">
-                <form string="Invio Libri">
-                    <group>
-                        <field name="total_selected"/>
-                        <field name="partner_ids" />
-                    </group>
-                    <footer>
-                        <button name="genera_step1" string="CONFERMA" type="object" class="oe_highlight" />
-                        or
-                        <button string="Cancel" class="oe_link" special="cancel" />
-                    </footer>
-                </form>
-            </field>
-        </record>
-
-        <act_window id="product_generate_order"
-                    multi="True"
-                    key2="client_action_multi"
-                    name="Invio Libri"
-                    res_model="invio.libri.omaggio"
-                    src_model="product.template"
-                    view_mode="form"
-                    target="new"
-                    view_type="form" />
-
-        <record id="invio_libri_omaggio_wizard_view_form2" model="ir.ui.view">
-            <field name="name">invio.libri.omaggio.form2</field>
-            <field name="model">opzioni.libro.omaggio</field>
-            <field name="arch" type="xml">
-                <form string="Opzioni Invio Libri">
-                    <field name="msg_qta_superata" style="color:red;font-weight:bold;"/>
-                    <group>
-                        <field name="product_id" />
-                        <field name="invio_singolo" help="Se selezionato verrà generato un nuovo ordine di consegna anche se già presente un ordine in lavorazione con lo stesso partner"/>
-                    </group>
-                    
-                    <field name="partner_ids" invisible="True"/>
-                    <notebook>
-                        <page string="Persone">
-                            <field name="details_line" options="{'no_create': True}">
-                                <tree editable="bottom">
-                                <field name="partner_id" />
-                                <field name="dedica" />
-                                <field name="anticipo" />
-                                <field name="urgenza" />
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
-
-
-                    <footer>
-                        <button name="genera_step2" string="CONFERMA" type="object" class="oe_highlight" />
-                        or
-                        <button string="Cancel" class="oe_link" special="cancel" />
-                    </footer>
-                </form>
-            </field>
-        </record> -->
-
-
         <record id="view_sales_order_line_filter" model="ir.ui.view">
             <field name="name">sale.order.line.list.select</field>
             <field name="model">sale.order.line</field>
@@ -108,7 +44,7 @@
         </record>
 
         <record id="action_quotations_options" model="ir.actions.act_window">
-            <field name="name">Options</field>
+            <field name="name">Opzioni - Dettaglio</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">sale.order.line</field>
             <field name="view_id" ref="stampa.options_order_wizard_view_tree"/>
@@ -139,6 +75,6 @@
         <menuitem id="menu_sale_options"
                   action="action_quotations_options"
                   parent="sale.sale_order_menu"
-                  sequence="11" />
+                  sequence="13" />
 
 </odoo>

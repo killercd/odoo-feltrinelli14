@@ -1,19 +1,26 @@
 from odoo import fields, models, api, _
-from odoo.addons.queue_job.job import Job
+#from odoo.addons.queue_job.job import Job
 from lxml import etree
 import logging
-
+from functools import wraps
+import time
 _logger = logging.getLogger(__name__)
 
-
+def timeit(func):
+    @wraps(func)
+    def timeit_wrapper(*args, **kwargs):
+        start_time = time.perf_counter()
+        result = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        total_time = end_time - start_time
+        print(f'Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds')
+        return result
+    return timeit_wrapper
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     urgenza = fields.Boolean("Urgenza")
     nota = fields.Char(size=30, string="Nota")
-
-    # firstname = fields.Char(related="partner_id.firstname", string="Nome", store=True)
-    # lastname = fields.Char(related="partner_id.lastname", string="Cognome", store=True)
 
     firstname = fields.Char(string="Nome")
     lastname = fields.Char(string="Cognome")
@@ -22,13 +29,6 @@ class SaleOrder(models.Model):
     invio_singolo = fields.Boolean("Invio singolo", default=False)
     session_id = fields.Char("ID Sessione")
 
-    # street = fields.Char(related="partner_id.street", string="Indirizzo", store=True)
-    # street2 = fields.Char(related="partner_id.street2", string="Presso", store=True)
-    # city = fields.Char(related="partner_id.city", string="Città", store=True)
-    # province = fields.Char(related="partner_id.state_id.code", string="Provincia", store=True)
-    # zip_code = fields.Char(related="partner_id.zip", string="Cap", store=True)
-    # country = fields.Char(related="partner_id.country_id.name", string="Nazione", store=True)
-
     street = fields.Char(string="Indirizzo")
     street2 = fields.Char(string="Presso")
     city = fields.Char(string="Città")
@@ -36,68 +36,39 @@ class SaleOrder(models.Model):
     zip_code = fields.Char(string="Cap")
     country = fields.Char(string="Nazione")
 
-    # def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
-    #     res = super().fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
-    #     _logger.error("1toolbar: {}".format(toolbar))
+    def action_confirm_single(self, order):
+        order.action_confirm()
 
-    #     if toolbar:
-    #         _logger.error("context: {}".format(self.env.context))
-    #         actions_in_toolbar = res["toolbar"].get("action")
-    #         _logger.error("2actions_in_toolbar: {}".format(actions_in_toolbar))
-    #         if actions_in_toolbar and "params" in self.env.context:
-    #             _logger.error("3context: {}".format(self.env.context))
-    #             if "action" in self.env.context["params"]:
-                    
-    #                 action_view = self.env.context["params"]["action"]
-    #                 _logger.warning("5params: {}".format(self.env.context["params"]))
-    #                 action_quotations = self.env.ref("sale.action_quotations").id
-    #                 action_orders = self.env.ref("sale.action_orders").id
-    #                 for action in res['toolbar'].get('action'):
-    #                     if action.get('xml_id'):
-    #                          if (action_view == self.env.ref("stampa.action_sale_sent").id or 
-    #                             action_view == self.env.ref("sale.action_orders").id or 
-    #                             action_view == self.env.ref('product.product_template_action').id or
-    #                             (action_view == self.env.ref("stampa.action_sale_preparation").id and action["xml_id"] != u"stampa.button_validate_order_action_server") or 
-    #                             (action_view == self.env.ref("stampa.action_sale_sending").id and action["xml_id"] != u"stampa.button_send_order_action_server")
-    #                         ):
-    #                             res['toolbar']['action'].remove(action)
-    #     return res
+    def action_confirm_single_validate_picking(self, order):
+        order.action_confirm()
+        order.action_server_validate_picking()
 
+    @timeit
     def button_manda_in_spedizione(self):
         for order in self:
-            self.action_confirm()
+            self.with_delay().action_confirm_single(order)
 
-    def button_manda_in_spedizione_v10(self):
+        view = self.env.ref("sh_message.sh_message_wizard")
+        context = dict(self.env.context)
+        context["message"] = "Schedulazione conferma ordini creata con successo. Per verificare controllare la lista nel modulo Queue Job"
+        context["url"] = ""
 
-        for order in self:
-            order.state = "sale"
-            order.confirmation_date = fields.Datetime.now()
+        return {
+            "name": "Schedulazione conferma ordini",
+            "type": "ir.actions.act_window",
+            "view_type": "form",
+            "view_mode": "form",
+            "res_model": "sh.message.wizard",
+            "views": [(view.id, "form")],
+            "view_id": view.id,
+            "target": "new",
+            "context": context,
+        }
 
-        self.env["sale.order"].with_delay().button_manda_in_spedizione_batch(
-            self
-        )
-
-    # @job
-    def button_manda_in_spedizione_batch(self, other):
-
-        if other.env.context.get("send_email"):
-            other.force_quotation_send()
-
-        for order in other:
-            self.env[
-                "sale.order"
-            ].with_delay().custom_action_procurement_create(order)
-
-        if other.env["ir.values"].get_default(
-            "sale.config.settings", "auto_done_setting"
-        ):
-            other.action_done()
-
-    # @job
     def custom_action_procurement_create(self, obj):
         obj.order_line._action_procurement_create()
 
-
+    @timeit
     def action_server_validate_picking(self):
         for order in self:
             order.sent = True
@@ -106,6 +77,24 @@ class SaleOrder(models.Model):
                 for move in picking.move_lines:
                     move.quantity_done = move.product_uom_qty
                 picking._action_done()
+
+        view = self.env.ref("sh_message.sh_message_wizard")
+        context = dict(self.env.context)
+        context["message"] = "Ordini spediti con successo."
+        context["url"] = ""
+
+        return {
+            "name": "Ordini spediti",
+            "type": "ir.actions.act_window",
+            "view_type": "form",
+            "view_mode": "form",
+            "res_model": "sh.message.wizard",
+            "views": [(view.id, "form")],
+            "view_id": view.id,
+            "target": "new",
+            "context": context,
+        }
+
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"

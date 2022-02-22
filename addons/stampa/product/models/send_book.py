@@ -1,11 +1,24 @@
 from odoo import api, fields, models, exceptions, _
-from odoo.addons.queue_job.job import Job
+#from odoo.addons.queue_job.job import Job
 
+from functools import wraps
 import uuid
 import logging
+import time
 
 _logger = logging.getLogger(__name__)
 
+
+def timeit(func):
+    @wraps(func)
+    def timeit_wrapper(*args, **kwargs):
+        start_time = time.perf_counter()
+        result = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        total_time = end_time - start_time
+        print(f'Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds')
+        return result
+    return timeit_wrapper
 
 class SendBook(models.Model):
     _name = "send.book"
@@ -22,102 +35,8 @@ class SendBook(models.Model):
         help="Campo obbligatorio.",
     )
 
-    # def create_delivery_order(self): # commentato perché temporaneamente sostituito con la funzione sincrona
 
-    #     if not self.details_line:
-    #         raise exceptions.Warning(
-    #             'Dati incompleti! Controllare titoli e/o destinatari in "DETTAGLIO INVIO TITOLI".'
-    #         )
-
-    #         return True
-
-    #     self.env["send.book"].with_delay().create_delivery_order_async(self)
-    #     self.stato = "true"
-
-    #     view = self.env.ref("sh_message.sh_message_wizard")
-    #     view_id = view and view.id or False
-    #     context = dict(self._context or {})
-    #     context[
-    #         "message"
-    #     ] = "Creazione schedulata con successo.\n\nMonitoraggio del processo nella vista <<Job Queue>>."
-    #     context["url"] = ""
-
-    #     return {
-    #         "name": "Successo",
-    #         "type": "ir.actions.act_window",
-    #         "view_type": "form",
-    #         "view_mode": "form",
-    #         "res_model": "sh.message.wizard",
-    #         "views": [(view.id, "form")],
-    #         "view_id": view.id,
-    #         "target": "new",
-    #         "context": context,
-    #     }
-
-    # @job nella documentazione della v14 non c'è più il decoratore
-    # def create_delivery_order_async(self, other): # commentato perché temporaneamente sostituito con la funzione sincrona
-    #     other.session_id = u"{}".format(uuid.uuid1())
-    #     orders = []
-    #     for detail in other.details_line:
-    #         libro = detail.titolo_id
-    #         partner = detail.partner_id
-    #         draft_order = other._get_draft_order(partner, detail)
-
-    #         if draft_order not in orders:
-    #             orders.append(draft_order)
-
-    #         tag_name = u"Lancio del {}".format(
-    #             libro.data_uscita if libro.data_uscita else ""
-    #         )
-    #         tag_id = other._get_order_tag(tag_name)
-
-    #         if not other.invio_singolo:
-    #             draft_order.tag_ids = tag_id
-    #         else:
-    #             tag_name = ""
-    #             tag_id = other._get_order_tag(tag_name)
-    #             draft_order.tag_ids = tag_id
-
-    #         # draft_order.tag_ids = tag_id
-
-    #         titolo = other.env["product.product"].search(
-    #             [("product_tmpl_id", "=", detail.titolo_id.id)]
-    #         )
-
-    #         other._set_order_product_quantity(draft_order, titolo, detail)
-
-    #     for order in orders:
-    #         _logger.info(
-    #             u"[CREAZIONE TITOLI] ---> {} - SO: {} - Destinatario: {} {} - Operatore: {}".format(
-    #                 other.target,
-    #                 order.id,
-    #                 order.firstname,
-    #                 order.lastname,
-    #                 other.user_id.name,
-    #             )
-    #         )
-
-    #     if other.target == "spediti":
-
-    #         for order in orders:
-    #             order.state = "sale"
-    #             order.confirmation_date = fields.Datetime.now()
-
-    #             if order.env.context.get("send_email"):
-    #                 order.force_quotation_send()
-
-    #             order.order_line._action_procurement_create()
-
-    #             if order.env["ir.values"].get_default(
-    #                 "sale.config.settings", "auto_done_setting"
-    #             ):
-    #                 order.action_done()
-
-    #             for picking in order.picking_ids:
-    #                 picking.action_done()
-
-    #             order.sent = True
-
+    @timeit
     def create_delivery_order(self):
         # self.session_id = u"{}".format(uuid.uuid1())
         orders = []
@@ -160,27 +79,31 @@ class SendBook(models.Model):
                 )
             )
 
+        message = "Ordini in lavorazione creati con successo"
+
         if self.target == "spediti":
 
             for order in orders:
-                order.state = "sale"
-                # order.confirmation_date = fields.Datetime.now()  # il campo confirmation_date non c'è più nel sale.order, capire insieme FIXME
+                self.env['sale.order'].with_delay().action_confirm_single_validate_picking(order)
 
-                if order.env.context.get("send_email"):
-                    order.force_quotation_send()
+            message = "Schedulazione creazione ordini spediti creata con successo. Per verificare controllare la lista nel modulo Queue Job"
 
-                # order.order_line._action_procurement_create() # la _action_procurement_create non esiste più, verificare che l'ordine abbia le consegne create nel magazzino FIXME
+        view = self.env.ref("sh_message.sh_message_wizard")
+        context = dict(self.env.context)
+        context["message"] = message
+        context["url"] = ""
 
-                # if order.env["ir.values"].get_default(
-                #     "sale.config.settings", "auto_done_setting"
-                # ): # il model ir.values non esiste più FIXME
-                
-                order.action_done()
-
-                for picking in order.picking_ids:
-                    picking.action_done()
-
-                order.sent = True
+        return {
+            "name": "Ordini di spedizioni",
+            "type": "ir.actions.act_window",
+            "view_type": "form",
+            "view_mode": "form",
+            "res_model": "sh.message.wizard",
+            "views": [(view.id, "form")],
+            "view_id": view.id,
+            "target": "new",
+            "context": context,
+        }
 
     def _get_draft_order(self, partner_id, detail):
 
@@ -207,7 +130,7 @@ class SendBook(models.Model):
             ]
 
         order = self.env["sale.order"].search(domain, limit=1)
-        if order:  # (self.target != 'spediti') and order:
+        if (self.target != 'spediti') and order:
             return order
         else:
             return self.env["sale.order"].create(
@@ -262,7 +185,6 @@ class SendBook(models.Model):
         anomalia_duplicati = False
         msg_duplicazione = []
         ids = []
-        associate_partner = None
         for partner in self.partner_ids:
             for titolo in self.titoli_ids:
                 order_lines = self.prodotti_duplicati(titolo, partner)
@@ -325,19 +247,8 @@ class SendBook(models.Model):
         if not anomalia_giacenze:
             alert_msg.append(" - nessuna anomalia")
 
-        # commentato perché, se anche valorizzate una delle due variabili, a seguire non c'è alcun rollback 
-        # if not anomalia_duplicati and not anomalia_giacenze:
-        #     self.env.cr.commit()
-        #     return
-
         if alert_msg:
-            # commentato perché il raise exceptions non refresha la 
-            # pagina nonostante il commit abbia valorizzato il field details_line
-            # self.env.cr.commit()
-            # raise exceptions.Warning("\n".join(alert_msg))
-
             view = self.env.ref("sh_message.sh_message_wizard")
-            view_id = view and view.id or False
             context = dict(self.env.context)
             context["message"] = "\n".join(alert_msg)
             context["url"] = ""
@@ -415,6 +326,6 @@ class SendBookLine(models.Model):
     header_id = fields.Many2one("send.book")
     partner_id = fields.Many2one("res.partner", string="Destinatario")
     titolo_id = fields.Many2one("product.template", string="Titolo")
-    dedica = fields.Boolean("Dedicazzatone", store=True)
+    dedica = fields.Boolean("Dedica", store=True)
     anticipo = fields.Boolean("Anticipo")
     urgenza = fields.Boolean("Urgenza")
