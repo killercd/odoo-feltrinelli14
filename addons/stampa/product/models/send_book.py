@@ -1,5 +1,5 @@
 from odoo import api, fields, models, exceptions, _
-#from odoo.addons.queue_job.job import Job
+from odoo.addons.queue_job.job import Job
 
 from functools import wraps
 import uuid

@@ -1,5 +1,5 @@
 from odoo import fields, models, api, _
-#from odoo.addons.queue_job.job import Job
+from odoo.addons.queue_job.job import Job
 from lxml import etree
 import logging
 from functools import wraps
