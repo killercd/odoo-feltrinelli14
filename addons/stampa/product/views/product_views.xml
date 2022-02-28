@@ -29,61 +29,6 @@
         </field>
     </record>
 
-<!--     <record model="ir.ui.view" id="product_form_view_procurement_button_fltr12">
-        <field name="name">product.product.procurement.fltr12</field>
-        <field name="model">product.product</field>
-        <field name="inherit_id" ref="stock.product_form_view_procurement_button"/>
-        <field name="arch" type="xml">
-            <button name="action_view_orderpoints" position="attributes">
-                <attribute name="invisible">True</attribute>
-            </button>
-        </field>
-    </record> -->
-<!-- 
-    <record id="product_product_view_form_easy_inherit_stock_fltr12" model="ir.ui.view">
-        <field name="name">product.product.view.form.easy.inherit.stock.fltr</field>
-        <field name="model">product.product</field>
-        <field name="inherit_id" ref="stock.product_product_view_form_easy_inherit_stock"/>
-        <field name="arch" type="xml">
-            <button name="action_view_related_putaway_rules" position="attributes">
-                <attribute name="invisible">True</attribute>
-            </button>
-        </field>
-    </record> -->
-
-
-    
-
-    <!-- FIXME raise ValueError('External ID not found in the system: %s' % xmlid)
-    ValueError: External ID not found in the system: stock.product_template_form_view_procurement_button -->
-
-    <!--record model="ir.ui.view" id="product_template_form_view_procurement_button_fltr11">
-        <field name="name">product.template_procurement</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="stock.product_template_form_view_procurement_button"/>
-        <field name="arch" type="xml">
-
-            <button  name="%(stock.action_stock_level_forecast_report_template)d"  position="attributes">
-                <attribute name="invisible">True</attribute>
-            </button>
-
-            <button  name= "stock.action_view_stock_move_lines" position="attributes">
-                <attribute name="invisible">True</attribute>
-            </button>
-
-            <button  name="action_view_orderpoints" position="attributes">
-                <attribute name="invisible">True</attribute>
-            </button>
-
-            <button  name="action_view_routes" position="attributes">
-                <attribute name="invisible">True</attribute>
-            </button>
-
-            <button  name="action_open_product_lot" position="attributes">
-                <attribute name="invisible">True</attribute>
-            </button>
-        </field>
-    </record-->
 
     <record id="product_template_form_view_fltr1" model="ir.ui.view">
         <field name="name">product.template.product.website.form.fltr</field>
@@ -97,7 +42,7 @@
     </record>
 
 
-    <record id="product_template_form_view_fltr" model="ir.ui.view">
+    <record id="product_template_form_view_fltr2" model="ir.ui.view">
         <field name="name">product.template.supplier.product_template_form_view.inherit.fltr</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
@@ -108,7 +53,7 @@
         </field>
     </record>
 
-    <record id="product_template_form_view" model="ir.ui.view">
+    <record id="product_template_form_view_fltr3" model="ir.ui.view">
             <field name="name">product.template.common.form</field>
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_form_view" />

@@ -141,44 +141,11 @@
         sequence="9" />
 
 
-    <!-- <record id="button_send_order_action_server" model="ir.actions.server">
-            <field name="name">Spedisci</field>
-            <field name="type">ir.actions.server</field>
-            <field name="model_id" ref="model_sale_order"/>
-            <field name="binding_model_id" ref="model_sale_order"/>
-            <field name="binding_view_types">list</field>
-            <field name="state">code</field>
-            <field name="code">
-active_model = env.context.get('active_model')
-active_ids = env.context.get('active_ids')
-if active_model == 'sale.order' and active_ids:
-            action = env['sale.order'].browse(env.context['active_ids']).action_server_validate_picking()
-            </field>
-        </record>
-
-    <record id="button_validate_order_action_server" model="ir.actions.server">
-            <field name="name">Manda in spedizione</field>
-            <field name="type">ir.actions.server</field>
-            <field name="model_id" ref="model_sale_order"/>
-            <field name="binding_model_id" ref="model_sale_order"/>
-            <field name="binding_view_types">list</field>
-            <field name="state">code</field>
-            <field name="code">
-active_model = env.context.get('active_model')
-active_ids = env.context.get('active_ids')
-if active_model == 'sale.order' and active_ids:
-            action = env['sale.order'].browse(env.context['active_ids']).button_manda_in_spedizione()
-            </field>
-        </record> -->
-
-
-
     <record id="view_order_form_fltr" model="ir.ui.view">
         <field name="name">sale.order.form</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
-
             <xpath expr="//field[@name='state']" position="attributes">
                 <attribute name="statusbar_visible">draft,sale</attribute>
             </xpath>
@@ -261,6 +228,10 @@ if active_model == 'sale.order' and active_ids:
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_tree"/>
         <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="multi_edit">0</attribute>
+            </xpath>
+
             <xpath expr="//tree" position="inside">
                 <header>
                     <button name="button_manda_in_spedizione" 
@@ -310,6 +281,10 @@ if active_model == 'sale.order' and active_ids:
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_quotation_tree" />
         <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="multi_edit">0</attribute>
+            </xpath>
+
             <field name="name" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field>
