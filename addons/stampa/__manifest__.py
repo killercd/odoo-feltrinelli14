@@ -22,7 +22,10 @@
         "mail",
         "product",
         "sale_management",
-        "feltrinelli_reports"
+        "feltrinelli_reports",
+        "snailmail_account_followup",
+        "custom_feltrinelli"
+        # "base_location"
     ],
     # always loaded
     "data": [
