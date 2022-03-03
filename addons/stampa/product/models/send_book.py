@@ -39,6 +39,10 @@ class SendBook(models.Model):
     @timeit
     def create_delivery_order(self):
         # self.session_id = u"{}".format(uuid.uuid1())
+
+        if not self.details_line:
+            raise exceptions.Warning('Dati incompleti! Controllare titoli e/o destinatari in "DETTAGLIO INVIO TITOLI".')
+        
         orders = []
         for detail in self.details_line:
             libro = detail.titolo_id
@@ -88,10 +92,12 @@ class SendBook(models.Model):
 
             message = "Schedulazione creazione ordini spediti creata con successo. Per verificare controllare la lista nel modulo Queue Job"
 
+        self.stato = 'true'
+
         view = self.env.ref("sh_message.sh_message_wizard")
         context = dict(self.env.context)
         context["message"] = message
-        context["url"] = ""
+        context['url'] = '/web#min=1&limit=80&view_type=list&model=send.book'
 
         return {
             "name": "Ordini di spedizioni",
@@ -180,72 +186,69 @@ class SendBook(models.Model):
         )
 
     def create_send_book_line(self):
-        msg_already_sent = ["Controllo duplicati"]
+        msg_already_sent = ['Controllo duplicati']
         anomalia_giacenze = False
         anomalia_duplicati = False
         msg_duplicazione = []
         ids = []
+        associate_partner = None
         for partner in self.partner_ids:
             for titolo in self.titoli_ids:
                 order_lines = self.prodotti_duplicati(titolo, partner)
-                if len(order_lines) > 0:
-                    anomalia_duplicati = True
+                if len(order_lines)>0:
+                    anomalia_duplicati=True
                     for order_i in order_lines:
-                        msg_duplicazione.append(
-                            u"Il prodotto '{}' è già stato inviato a {} {} nell'ordine {}".format(
+                        msg_duplicazione.append(u"Il prodotto '{}' è già stato inviato a {} {} nell'ordine {}".format(
                                 order_i.display_name,
                                 order_i.firstname,
                                 order_i.lastname,
-                                order_i.name_order,
-                            )
-                        )
+                                order_i.name_order))
 
                 (dedica, anticipo, urgenza) = [False] * 3
                 for detail in self.details_line:
 
                     if detail.titolo_id.id == titolo.id:
-                        (dedica, anticipo, urgenza) = (
-                            detail.dedica,
-                            detail.anticipo,
-                            detail.urgenza,
-                        )
+                        (dedica, anticipo, urgenza) = (detail.dedica, detail.anticipo, detail.urgenza)
                         break
 
                 vals = {
-                    "partner_id": partner.id,
-                    "titolo_id": titolo.id,
-                    "header_id": self.id,
-                    "dedica": dedica,
-                    "anticipo": anticipo,
-                    "urgenza": urgenza,
+                    'partner_id': partner.id,
+                    'titolo_id': titolo.id,
+                    'header_id': self.id,
+                    'dedica': dedica,
+                    'anticipo': anticipo,
+                    'urgenza': urgenza
                 }
-                record = self.env["send.book.line"].create(vals)
+                record = self.env['send.book.line'].create(vals)
                 ids.append(record.id)
-        self.details_line = [(6, 0, ids)]
+        self.update({'details_line': [(6, 0, ids)]})
 
         # controllo giacenza e invio duplicato
         alert_msg = []
         alert_msg.extend(msg_already_sent)
 
         if not anomalia_duplicati:
-            alert_msg.extend([" - nessuna anomalia"])
+            alert_msg.extend([' - nessuna anomalia'])
         else:
             alert_msg.extend(msg_duplicazione)
 
-        alert_msg.extend(["", "Controllo giacenza"])
+
+        alert_msg.extend(['', 'Controllo giacenza'])
 
         for book in self.titoli_ids:
             books = self.details_line.filtered(
-                lambda line: line.titolo_id == book
-            )
+                lambda line: line.titolo_id == book)
             if len(books) > book.qty_bookable:
                 anomalia_giacenze = True
-                msg = u" - Titolo: {}, Quantità richieste: {}, Quantità disponibili: {}".format(
-                    book.name, len(books), book.qty_bookable
+                msg = u' - Titolo: {}, Quantità richieste: {}, Quantità disponibili: {}'.format(
+                    book.name,
+                    len(books),
+                    book.qty_bookable
                 )
                 alert_msg.append(msg)
+
         if not anomalia_giacenze:
-            alert_msg.append(" - nessuna anomalia")
+            alert_msg.append(' - nessuna anomalia')
 
         if alert_msg:
             view = self.env.ref("sh_message.sh_message_wizard")
@@ -326,6 +329,6 @@ class SendBookLine(models.Model):
     header_id = fields.Many2one("send.book")
     partner_id = fields.Many2one("res.partner", string="Destinatario")
     titolo_id = fields.Many2one("product.template", string="Titolo")
-    dedica = fields.Boolean("Dedica", store=True)
+    dedica = fields.Boolean("Dedica")
     anticipo = fields.Boolean("Anticipo")
     urgenza = fields.Boolean("Urgenza")

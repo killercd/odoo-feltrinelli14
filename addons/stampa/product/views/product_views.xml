@@ -30,6 +30,46 @@
     </record>
 
 
+    <record id="product_template_form_view_fltr10" model="ir.ui.view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="accantonamento" />
+            </xpath>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="product_form_view_procurement_button_fltr9">
+            <field name="name">product.product.procurement</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="stock.product_form_view_procurement_button"/>
+            <field name="arch" type="xml">
+                <button name="action_product_forecast_report"  position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+
+                <button name= "action_view_stock_move_lines"  position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+
+                <button name="action_view_orderpoints" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+                
+                <button name="action_open_product_lot"  position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+
+                <button name="action_view_related_putaway_rules"  position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+            </field>
+        </record>
+
+
     <record id="product_template_form_view_fltr1" model="ir.ui.view">
         <field name="name">product.template.product.website.form.fltr</field>
         <field name="model">product.template</field>
@@ -54,93 +94,86 @@
     </record>
 
     <record id="product_template_form_view_fltr3" model="ir.ui.view">
-            <field name="name">product.template.common.form</field>
-            <field name="model">product.template</field>
-            <field name="inherit_id" ref="product.product_template_form_view" />
-            <field name="arch" type="xml">
+        <field name="name">product.template.common.form.fltr</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field eval="10" name="priority"/>
+        <field name="arch" type="xml">
 
-                <xpath expr="//group[@name='group_standard_price']" position="replace">
-                    <field name="list_price" string="Prezzo" widget='monetary' options="{'currency_field': 'currency_id', 'field_digits': True}"/>
-                    <label for="standard_price" groups="base.group_user" attrs="{'invisible': True}"/>
-                    <div name="standard_price_uom" groups="base.group_user" attrs="{'invisible': True}">
-                        <field name="standard_price" widget='monetary' options="{'currency_field': 'cost_currency_id', 'field_digits': True}"/>
-                    </div>
-                    <field name="company_id" groups="base.group_multi_company"
-                        options="{'no_create': True}"/>
-                    <field name="uom_id"  options="{'no_create': True}"/>
-                    <field name="uom_po_id"  options="{'no_create': True}"/>
-                    <field name="currency_id" invisible="1"/>
-                    <field name="product_variant_id" invisible="1"/>
-                </xpath>
+            <xpath expr="//group[@name='group_standard_price']" position="replace">
+                <label for="list_price"/>
+                <field name="list_price" string="Prezzo" widget='monetary' options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                <label for="standard_price" groups="base.group_user" attrs="{'invisible': True}"/>
+                <div name="standard_price_uom" groups="base.group_user" attrs="{'invisible': True}">
+                    <field name="standard_price" widget='monetary' options="{'currency_field': 'cost_currency_id', 'field_digits': True}"/>
+                </div>
+                <field name="company_id" groups="base.group_multi_company"
+                    options="{'no_create': True}"/>
+                <field name="uom_id"  options="{'no_create': True}"/>
+                <field name="uom_po_id"  options="{'no_create': True}"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="product_variant_id" invisible="1"/>
+            </xpath>
 
-                <field name="type" position="attributes">
-                    <attribute name="attrs">{'invisible': True}</attribute>
-                </field>
-
-                <!-- TODO nascondimento descrizione per picking > dà errore-->
-
-                <!-- <xpath expr="//page[@name='notes']" position="replace">
-                    <group string="Description" attrs="{'invisible': [('sale_ok','=',False)]}">
-                        <field name="description_sale" nolabel="1"/>
-                    </group>
-                </xpath> -->
-
-
-                <xpath expr="//div[@name='options']" position="attributes">
-                    <attribute name="attrs">{'invisible': True}</attribute>
-                </xpath>
-                <xpath expr="//field[@name='categ_id']" position="replace">
-                    <field name="collana_id" /> <!-- options="{'no_create_edit': True}" FIXME-->
-                    <field name="marchio_editoriale" />
-                    <field name="book_type" />
-                    <field name="data_uscita" />
-                    <field name="in_magazzino" />
-                    
-                    <!-- options="{'no_create_edit': True}" # commentati per test FIXME-->
-                    <field name="autori_id" widget="many2many_tags" placeholder="Autori..." />
-                    <field name="curatori_id" widget="many2many_tags" placeholder="Curatori..." />
-                    <field name="prefatori_id" widget="many2many_tags" placeholder="Prefatori..." />
-                    <field name="traduttori_id" widget="many2many_tags" placeholder="Traduttori..." />
-                    <field name="illustratori_id" widget="many2many_tags" placeholder="Illustratori..." />
-                    
-                    <field name="numero_pagine"/>
-                    <field name="categ_id"/>
-                    
-                </xpath>
-                <xpath expr="//page[@name='sales']" position="attributes">
-                         <attribute name="attrs">{'invisible': True}</attribute>
-                </xpath>
-                <xpath expr="//page[@name='invoicing']" position="attributes">
-                         <attribute name="attrs">{'invisible': True}</attribute>
-                </xpath>
+            <field name="type" position="attributes">
+                <attribute name="attrs">{'invisible': True}</attribute>
             </field>
-        </record>
 
-       <record id="view_template_property_form2" model="ir.ui.view">
-            <field name="name">product.template.stock.property.form.inherit2</field>
-            <field name="model">product.template</field>
-            <field name="inherit_id" ref="stock.view_template_property_form" />
-            <field name="arch" type="xml">
-                <xpath expr="//page[@name='general_information']/following::page" position="attributes">
-                         <attribute name="attrs">{'invisible': True}</attribute>
-                </xpath>
-                <xpath expr="//page[@name='inventory']" position="attributes">
-                    <attribute name="attrs">{'invisible': True}</attribute>
-                </xpath>
+            <xpath expr="//div[@name='options']" position="attributes">
+                <attribute name="attrs">{'invisible': True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_id']" position="replace">
+                <field name="collana_id" /> <!-- options="{'no_create_edit': True}" FIXME-->
+                <field name="marchio_editoriale" />
+                <field name="book_type" />
+                <field name="data_uscita" />
+                <field name="in_magazzino" />
+                
+                <!-- options="{'no_create_edit': True}" # commentati per test FIXME-->
+                <field name="autori_id" widget="many2many_tags" placeholder="Autori..." />
+                <field name="curatori_id" widget="many2many_tags" placeholder="Curatori..." />
+                <field name="prefatori_id" widget="many2many_tags" placeholder="Prefatori..." />
+                <field name="traduttori_id" widget="many2many_tags" placeholder="Traduttori..." />
+                <field name="illustratori_id" widget="many2many_tags" placeholder="Illustratori..." />
+                
+                <field name="numero_pagine"/>
+                <field name="categ_id"/>
+                
+            </xpath>
+            <xpath expr="//page[@name='sales']" position="attributes">
+                <attribute name="attrs">{'invisible': True}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='invoicing']" position="attributes">
+                <attribute name="attrs">{'invisible': True}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_template_property_form2" model="ir.ui.view">
+        <field name="name">product.template.stock.property.form.inherit2</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.view_template_property_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']/following::page" position="attributes">
+                        <attribute name="attrs">{'invisible': True}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='inventory']" position="attributes">
+                <attribute name="attrs">{'invisible': True}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="product_template_only_form_view_fltr6" model="ir.ui.view">
+        <field name="name">product.template.product.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <field name="default_code" position="attributes">
+                <attribute name="string">ISBN</attribute>
             </field>
-        </record>
-
-
-        <record id="product_template_only_form_view_fltr6" model="ir.ui.view">
-            <field name="name">product.template.product.form</field>
-            <field name="model">product.template</field>
-            <field name="inherit_id" ref="product.product_template_only_form_view"/>
-            <field name="arch" type="xml">
-                <field name="default_code" position="attributes">
-                    <attribute name="string">ISBN</attribute>
-                </field>
-            </field>
-        </record>
+        </field>
+    </record>
 
     <record id="product_template_search_view_custom" model="ir.ui.view">
         <field name="name">product.template.search</field>
@@ -282,6 +315,44 @@
             <field name="qty_available" position="before">
                 <field name="qty_bookable"/>
             </field>
+        </field>
+    </record>
+
+    <!-- <record id="act_product_product_2_sale_order" model="ir.actions.act_window">
+        <field name="name">Spedizioni</field>
+        <field name="res_model">sale.order.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_product_id': product_variant_ids}</field>
+        <field name="search_view_id" ref="sale_order_line_view_search_fltr"/>
+        <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Create a Quotation, the first step of a new sale.
+          </p><p>
+            Your next actions should flow efficiently: confirm the Quotation to a Sale Order, then create the Invoice and collect the Payment.
+          </p><p>
+            Note that once a Quotation becomes a Sale Order, it will be moved from the Quotations list to the Sales Order list.
+          </p>
+        </field>    
+    </record> -->
+
+
+    <record id="product_template_view_form_inherit_stock_fltr" model="ir.ui.view">
+        <field name="name">product.template.inherit.form.fltr</field>
+        <field name="inherit_id" ref="sale_stock.product_template_view_form_inherit_stock"/>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <button name="action_view_sales" position="replace">
+                <button class="oe_stat_button" name="action_view_sales" type="object" icon="fa-signal">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="sales_count" widget="statinfo" string="Spedizioni" class="mr4"/>
+                            <field name="uom_name"/>
+                        </span>
+                        
+                    </div>
+                </button>
+            </button>
         </field>
     </record>
 

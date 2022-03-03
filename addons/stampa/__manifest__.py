@@ -12,6 +12,8 @@
         "sale_crm",
         "mail",
         "stock",
+        "base",
+        "sale_stock",
         "sale",
         "sale_management",
         "partner_firstname",
@@ -24,7 +26,7 @@
         "sale_management",
         "feltrinelli_reports",
         "snailmail_account_followup",
-        "custom_feltrinelli"
+        "account_reports"
         # "base_location"
     ],
     # always loaded
