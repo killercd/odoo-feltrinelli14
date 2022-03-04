@@ -3,19 +3,9 @@ from odoo.addons.queue_job.job import Job
 from lxml import etree
 import logging
 from functools import wraps
-import time
 _logger = logging.getLogger(__name__)
 
-def timeit(func):
-    @wraps(func)
-    def timeit_wrapper(*args, **kwargs):
-        start_time = time.perf_counter()
-        result = func(*args, **kwargs)
-        end_time = time.perf_counter()
-        total_time = end_time - start_time
-        print(f'Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds')
-        return result
-    return timeit_wrapper
+
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
@@ -39,11 +29,15 @@ class SaleOrder(models.Model):
     def action_confirm_single(self, order):
         order.action_confirm()
 
-    def action_confirm_single_validate_picking(self, order):
-        order.action_confirm()
-        order.action_server_validate_picking()
+    def action_confirm_shipping(self, order):
+        order.sent = True
+        for picking in order.picking_ids:
+            picking.action_assign()
+            for move in picking.move_lines:
+                move.quantity_done = move.product_uom_qty
+            picking._action_done()
 
-    @timeit
+
     def button_manda_in_spedizione(self):
         for order in self:
             self.with_delay().action_confirm_single(order)
@@ -68,19 +62,13 @@ class SaleOrder(models.Model):
     def custom_action_procurement_create(self, obj):
         obj.order_line._action_procurement_create()
 
-    @timeit
     def action_server_validate_picking(self):
         for order in self:
-            order.sent = True
-            for picking in order.picking_ids:
-                picking.action_assign()
-                for move in picking.move_lines:
-                    move.quantity_done = move.product_uom_qty
-                picking._action_done()
+            self.with_delay().action_confirm_shipping(order)
 
         view = self.env.ref("sh_message.sh_message_wizard")
         context = dict(self.env.context)
-        context["message"] = "Ordini spediti con successo."
+        context["message"] = "Schedulazione spedizione ordini creata con successo. Per verificare controllare la lista nel modulo Queue Job"
         context["url"] = ""
 
         return {

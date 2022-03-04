@@ -4,21 +4,9 @@ from odoo.addons.queue_job.job import Job
 from functools import wraps
 import uuid
 import logging
-import time
 
 _logger = logging.getLogger(__name__)
 
-
-def timeit(func):
-    @wraps(func)
-    def timeit_wrapper(*args, **kwargs):
-        start_time = time.perf_counter()
-        result = func(*args, **kwargs)
-        end_time = time.perf_counter()
-        total_time = end_time - start_time
-        print(f'Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds')
-        return result
-    return timeit_wrapper
 
 class SendBook(models.Model):
     _name = "send.book"
@@ -35,14 +23,7 @@ class SendBook(models.Model):
         help="Campo obbligatorio.",
     )
 
-
-    @timeit
-    def create_delivery_order(self):
-        # self.session_id = u"{}".format(uuid.uuid1())
-
-        if not self.details_line:
-            raise exceptions.Warning('Dati incompleti! Controllare titoli e/o destinatari in "DETTAGLIO INVIO TITOLI".')
-        
+    def action_create_shipping(self):
         orders = []
         for detail in self.details_line:
             libro = detail.titolo_id
@@ -64,36 +45,31 @@ class SendBook(models.Model):
                 tag_id = self._get_order_tag(tag_name)
                 draft_order.tag_ids = tag_id
 
-            # draft_order.tag_ids = tag_id
-
             titolo = self.env["product.product"].search(
                 [("product_tmpl_id", "=", detail.titolo_id.id)]
             )
 
             self._set_order_product_quantity(draft_order, titolo, detail)
-
-        for order in orders:
-            _logger.info(
-                u"[CREAZIONE TITOLI] ---> {} - SO: {} - Destinatario: {} {} - Operatore: {}".format(
-                    self.target,
-                    order.id,
-                    order.firstname,
-                    order.lastname,
-                    self.user_id.name,
-                )
-            )
-
-        message = "Ordini in lavorazione creati con successo"
-
+        
         if self.target == "spediti":
-
             for order in orders:
-                self.env['sale.order'].with_delay().action_confirm_single_validate_picking(order)
+                order.action_confirm()
+                order.action_server_validate_picking()
+        
+    def create_delivery_order(self):
 
-            message = "Schedulazione creazione ordini spediti creata con successo. Per verificare controllare la lista nel modulo Queue Job"
+        if not self.details_line:
+            raise exceptions.Warning('Dati incompleti! Controllare titoli e/o destinatari in "DETTAGLIO INVIO TITOLI".')
 
-        self.stato = 'true'
+        if self.stato == True:
+            raise exceptions.Warning('Attenzione! Invio titoli già confermato. Crearne uno nuovo.')
+        
+        
+        self.with_delay().action_create_shipping()
 
+        self.stato = True
+            
+        message = "Schedulazione creazione Ordini {} creata con successo. Per verificare controllare la lista nel modulo Queue Job".format(self.target)
         view = self.env.ref("sh_message.sh_message_wizard")
         context = dict(self.env.context)
         context["message"] = message

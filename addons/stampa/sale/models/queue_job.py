@@ -12,26 +12,30 @@ class QueueJob(models.Model):
 
     _inherit = "queue.job"
 
-    ADMITTED_METHOD = ['action_confirm_single_validate_picking', 'action_confirm_single']
-
     TRANSITION_MAP = {
-        'action_confirm_single_validate_picking': 'Creazione Titoli -> Spedito',
-        'action_confirm_single': 'In lavorazione -> In spedizione'
+        'action_create_shipping': 'Creazione Ordini -> {}',
+        'action_confirm_single': 'In lavorazione -> In spedizione',
+        'action_confirm_shipping': 'In spedizione -> Spediti'
     }
 
     ref_order = fields.Char(string='Rif. Ordine', readonly=True)
     transition = fields.Char(string='Transizione', readonly=True)
     partner = fields.Char(string='Destinatario', readonly=True)
 
-    def create(self, vals_list):
-        if 'model_name' in vals_list:
-            if vals_list['model_name'] == 'sale.order' and vals_list['method_name'] in self.ADMITTED_METHOD:
-                so = vals_list['args'][0]
-                vals_list['ref_order'] = so.name
-                vals_list['transition'] = self.TRANSITION_MAP.get(vals_list['method_name'], '')
-                vals_list['partner'] = so.partner_id.name
+    def create(self, vals):
+        _logger.info(vals)
+        if 'model_name' in vals:
+            if vals['model_name'] in ['sale.order', 'send.book'] and vals['method_name'] in self.TRANSITION_MAP:
+                if  vals['model_name'] == 'sale.order':
+                    so = vals['args'][0]
+                    vals['ref_order'] = so.name
+                    vals['partner'] = so.partner_id.name
+                    vals['transition'] = self.TRANSITION_MAP.get(vals['method_name'], '')
+                elif vals['model_name'] == 'send.book':
+                    vals['partner'] = '[JOB DISPATCHER]'
+                    vals['transition'] = self.TRANSITION_MAP.get(vals['method_name'], '').format(vals['records'][0].target)
         
-        res = super(QueueJob, self).create(vals_list)
+        res = super(QueueJob, self).create(vals)
         
 
 

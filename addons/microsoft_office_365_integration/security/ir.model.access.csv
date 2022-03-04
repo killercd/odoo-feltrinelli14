@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_office_credentials,office.credentials,model_office_credentials,base.group_user,1,1,1,1
+access_office_connector,office.connector,model_office_connector,base.group_user,1,1,1,1
+access_office_import_stats,office.import.stats,model_office_import_stats,base.group_user,1,1,1,1
+access_office_export_stats,office.export.stats,model_office_export_stats,base.group_user,1,1,1,1

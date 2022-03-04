@@ -1,0 +1,178 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+      <record id="contact_view_extend" model="ir.ui.view">
+    <field name="name">res.partner.form</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//page[@name='internal_notes']" position="after">
+            <page string="OneDrive">
+                <group string="OneDrive Account">
+                    <field name="attachment_ids" widget = "many2many_binary"/>
+                    <button name="one_drive_upload_btn" type="object" string="Export Files" class="oe_highlight"/>
+                    <button name="one_drive_download_btn" type="object" string="Import Files" class="oe_highlight"/>
+                </group>
+            </page>
+        </xpath>
+    </field>
+    </record>
+
+    <record model="ir.ui.view" id="office_credentials_list">
+      <field name="name">Office Credentials List</field>
+      <field name="model">office.credentials</field>
+      <field name="arch" type="xml">
+            <form edit="false" create="false">
+                <sheet>
+
+                      <group string="Office365 Credentials">
+                            <field name="redirect_url" style="width:50%" placeholder="http://localhost:8069/office_success"/>
+                            <field name="client_id" style="width:50%" />
+                            <field name="client_secret" style="width:50%" password="True" />
+                      </group>
+                            <button name="connect" type="object" string="Connect" class="oe_highlight" target="_blank"/>
+                </sheet>
+            </form>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="office_import_stats_list">
+      <field name="name">Office Import Stats List</field>
+      <field name="model">office.import.stats</field>
+      <field name="arch" type="xml">
+            <tree string="Import History" edit="false" create="false">
+
+              <field name="email" string="New Emails"/>
+              <field name="task" string="New Tasks"/>
+              <field name="calender" string="New Events"/>
+              <field name="contact" string="New Contacts"/>
+                <field name="create_date" string="Sync Time"/>
+                <field name="connector" widget="many2one"/>
+            </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="office_export_stats_list">
+      <field name="name">Office Export Stats List</field>
+      <field name="model">office.export.stats</field>
+      <field name="arch" type="xml">
+            <tree edit="false" create="false">
+              <field name="task" string="New Tasks"/>
+              <field name="calender" string="New Events"/>
+              <field name="contact" string="New Contacts"/>
+                <field name="create_date" string="Sync Time"/>
+                <field name="connector" widget="many2one"/>
+            </tree>
+      </field>
+    </record>
+
+        <record model="ir.ui.view" id="office_connector_form">
+      <field name="name">Office Connector Form</field>
+      <field name="model">office.connector</field>
+      <field name="arch" type="xml">
+            <form edit="false" create="false">
+                <sheet>
+                       <group string="Office365 Connector">
+                        <group>
+                              <h3>Contact</h3>
+                              <div>
+                                   <field name="import_contact"/>
+                                   <label for="import_contact" string="Import"/>
+                                   <field name="export_contact"/>
+                                   <label for="export_contact" string="Export"/>
+                             </div>
+                          </group>
+
+
+                        <group>
+                              <h3>Task</h3>
+                              <div>
+                                  <field name="import_task"/>
+                                  <label for="import_task" string="Import"/>
+                                  <field name="export_task"/>
+                                  <label for="export_task" string="Export"/>
+                              </div>
+                        </group>
+
+                         <group>
+                             <h3>Calender</h3>
+                             <div>
+                                  <field name="import_calender"/>
+                                  <label for="import_calender" string="Import"/>
+                                  <field name="export_calender"/>
+                                  <label for="export_calender" string="Export"/>
+                              </div>
+                          </group>
+
+                          <group>
+                              <h3>Email</h3>
+                              <div>
+                                  <field name="import_email"/>
+                                  <label for="import_email" string="Import"/>
+                             </div>
+                        </group>
+
+                        <group>
+                            <field name="custom_from_datetime" style="width:50%"/>
+                            <field name="custom_to_datetime" style="width:50%"/>
+                        </group>
+                      </group>
+                      <button name="synchronize" type="object" string="Sync" class="oe_highlight"/>
+                    <br/>
+                    <br/>
+                    <button name="import_history_action" type="object" target="new" string="Import History"/>
+                    <button name="export_history_action" type="object" target="new" string="Export History"/>
+            </sheet>
+
+          </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="office_credentials_action_window">
+      <field name="name">Office365 Credentials</field>
+      <field name="res_model">office.credentials</field>
+      <field name="view_mode">form</field>
+      <field name="target">inline</field>
+    </record>
+
+      <record model="ir.actions.act_window" id="office_connector_action_window">
+      <field name="name">Office365 Connector</field>
+      <field name="res_model">office.connector</field>
+      <field name="view_mode">form</field>
+      <field name="target">inline</field>
+    </record>
+
+      <record model="ir.actions.act_window" id="office_import_stats_action_window">
+      <field name="name">Office365 Import History</field>
+      <field name="res_model">office.import.stats</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="office_export_stats_action_window">
+      <field name="name">Office365 Export History</field>
+      <field name="res_model">office.export.stats</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+    <!-- server action to the one above -->
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="Microsoft Office365" id="office_credentials_menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Credentials" id="office_credentials_menu_1" parent="office_credentials_menu_root" action="office_credentials_action_window"/>
+    <menuitem name="Connector" id="office_credentials_menu_2" parent="office_credentials_menu_root" action="office_connector_action_window"/>
+    <menuitem name="Import History" id="office_credentials_menu_3" parent="office_credentials_menu_root" action="office_import_stats_action_window"/>
+    <menuitem name="Export History" id="office_credentials_menu_4" parent="office_credentials_menu_root" action="office_export_stats_action_window"/>
+
+    <!-- actions -->
+
+</data>
+
+</odoo>

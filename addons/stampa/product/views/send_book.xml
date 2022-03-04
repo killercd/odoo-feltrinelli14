@@ -10,13 +10,14 @@
                         name="create_send_book_line"
                         string="Crea e controlla dettaglio"
                         type="object"
-                        class="oe_highlight"/>
+                        class="oe_highlight"
+                        attrs="{'invisible':[('stato', '==', True)]}"/>
                     <button
                         name="create_delivery_order"
                         string="Conferma e crea spedizione"
                         type="object"
                         class="oe_highlight"
-                        attrs="{'invisible':[('details_line', '=', False)]}"/>
+                        attrs="{'invisible':[('stato', '==', True)]}"/>
                 </header>
                 <sheet>
                     <group>
@@ -25,6 +26,7 @@
                         </group>
                         <group>
                             <field name="user_id"/>
+                            <field name="stato" invisible="1"/>
                             <field name="invio_singolo"/>
                             <field name="create_date"/>
                         </group>
