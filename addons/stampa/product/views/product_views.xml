@@ -216,6 +216,7 @@
     </record>
 
 
+
     <record id="view_stampa_product_template_tree" model="ir.ui.view">
         <field name="name">product.template.stampa.tree.inherit</field>
         <field name="model">product.template</field>
