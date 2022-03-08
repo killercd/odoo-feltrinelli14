@@ -223,8 +223,8 @@
         <field name="priority" eval="0"/>
         <field name="arch" type="xml">
 
-            <field name="default_code" position="replace">
-                
+            <field name="default_code" position="attributes">
+                <attribute name="invisible">True</attribute>
             </field>
             <field name="name" position="attributes">
                 <attribute name="string">Titolo</attribute>
@@ -232,7 +232,7 @@
 
             <field name="name" position="before">
                 <field name="marchio_editoriale"/>
-                <field name="default_code" string="ISBN"/>
+                <field name="barcode" string="ISBN"/>
                 <field name="book_type"/>
                 <field name="data_uscita"/>
                 <field name="in_magazzino"/>
