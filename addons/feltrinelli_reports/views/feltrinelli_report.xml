@@ -17,7 +17,7 @@
 
                      <t t-foreach="range(npage)" t-as="i">
                         <div class="page">
-                            <div> 
+                            <div style="font-size:12px;"> 
                                 <span t-field="o.partner_id.title" /><br></br>
                                 <span t-field="o.partner_id.lastname" /> <span t-field="o.partner_id.firstname" /><br></br>
                                 <span t-field="o.partner_id.street2" /><br></br>
@@ -34,31 +34,30 @@
                              <br/>
                             <div class="row">
                                 <div class="col-xs-6 col-xs-offset-6" style="text-align:right; padding-right:0px;">
-                                    <!-- <strong><span t-esc="datetime.datetime.strptime(o.date_order,'%Y-%m-%d %H:%M:%S').strftime('%d/%m/%Y')" style="font-size:10px;"/></strong> -->
-                                    <strong><span t-esc="o.date_order" style="font-size:10px;"/></strong>
+                                    <strong><span t-esc="o.date_order.strftime('%d/%m/%Y')" style="font-size:6px;"/></strong>
                                 </div>
                                 
-                                <div style="min-height:260px; max-height:260px; text-align:right; padding-top: 85px">
+                                <div style="font-size:10px; min-height:140px; max-height:140px; text-align:right; padding-top: 65px">
                                     <t t-esc="i+1"/>/<t t-esc="npage"/>
                                 </div>
                                 <div style="padding-top: 30px">
-                                    <table style="font-size:13px; width:100%">
+                                    <table style="font-size:8px; width:100%">
                                         <t t-foreach="o.order_line[count:15+count]" t-as="l">
                                             <t t-if="l.anticipo == False">
                                                 <tr>
-                                                    <td width="80%" style="padding-top:5px; padding-bottom:5px; padding-right:5px;">
+                                                    <td width="82%" style="padding-top:5px; padding-bottom:5px; padding-right:2px;">
                                                         <t t-foreach="l.product_id.autori_id" t-as="a">
                                                             <span t-field="a.name"/>
                                                         </t>
                                                         - <span t-field="l.product_id.name"/>
                                                     </td>
-                                                    <td width="12%" style="text-align:center; padding-left:2px; padding-right:6px;">
+                                                    <td width="11%" style="text-align:right; padding-left:2px; padding-right:18px;">
                                                         <t t-esc="int(l.product_uom_qty)"/>
                                                     </td>
-                                                    <td width="10%" style="text-align:right; padding-left:10px;">
+                                                    <td width="6%" style="text-align:right; padding-left:5px;">
                                                         <t t-esc="int(l.product_id.barcode)"/>
                                                     </td>
-                                                    <td width="2%" style="text-align:center;">
+                                                    <td width="1%" style="text-align:center;">
                                                         <strong>
                                                             <span t-if="l.dedica == True">D</span>
                                                             <span t-if="o.urgenza == True">U</span>

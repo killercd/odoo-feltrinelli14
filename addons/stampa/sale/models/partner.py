@@ -93,20 +93,21 @@ class ResPartner(models.Model):
 
         result = super(ResPartner, self).write(vals)
 
-        (relation, target) = (
-            ("parent_id", self.id)
-            if not len(self.parent_id)
-            else ("id", self.parent_id[0].id)
-        )
-        records = self.env["res.partner"].search([(relation, "=", target)])
+        for partner in self:
+            (relation, target) = (
+                ("parent_id", partner.id)
+                if not len(partner.parent_id)
+                else ("id", partner.parent_id[0].id)
+            )
+            records = self.env["res.partner"].search([(relation, "=", target)])
 
-        for record in records:
+            for record in records:
 
-            if "category_id" in vals:
-                super(ResPartner, record).write(
-                    {"category_id": vals["category_id"]}
-                )
-            else:
-                self.update({"category_id": record["category_id"]})
+                if "category_id" in vals:
+                    super(ResPartner, record).write(
+                        {"category_id": vals["category_id"]}
+                    )
+                else:
+                    partner.update({"category_id": record["category_id"]})
 
         return result
