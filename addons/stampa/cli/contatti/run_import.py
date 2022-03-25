@@ -103,8 +103,8 @@ class Partner(object):
     city = attr.ib(default=None)
     function = attr.ib(default=None)
     zip = attr.ib(default=None)
-    state_xid = attr.ib(default=None)
-    country_xid = attr.ib(default=None)
+    state_id = attr.ib(default=None)
+    country_id = attr.ib(default=None)
     fax = attr.ib(default=None)
     comment = attr.ib(default=None)
     website = attr.ib(default=None)
@@ -159,6 +159,9 @@ class ImportFromChimp(Command):
 
     @environmentContextManager(manage_args_method="manage_args")
     def run(self, args, env):
+        self.run_batch(args, env)
+
+    def run_batch(self, args, env, fln_name=None):
         logger.info("Start")
 
         self.env = env
@@ -528,8 +531,8 @@ class ImportFromOutlook(Command):
                 website=website,
                 parent_id=parent_id,
                 category_id=category_id,
-                country_xid=country_id,
-                state_xid=state_id,
+                country_id=country_id,
+                state_id=state_id,
             )
 
             yield partner
@@ -585,8 +588,8 @@ class ImportFromOutlook(Command):
                     mobile=contact.get("cellulare"),
                     fax=contact.get("fax"),
                     email=contact.get("email"),
-                    country_xid=country_id,
-                    state_xid=state_id,
+                    country_id=country_id,
+                    state_id=state_id,
                     comment=note,
                     type="other",
                 )
@@ -699,7 +702,7 @@ class ImportAuthors(ImportFromOutlook):
         return Category(name="Ruoli", id=external_id("categorie", "ruoli"))
 
     def get_categories(self, infile):
-        # import pdb;pdb.set_trace()
+        #import pdb;pdb.set_trace()
         reader = utf_reader(infile)
         reader.next()
 
@@ -1977,3 +1980,56 @@ class ImportFromInfolib(Command):
             logger.exception(
                 "Something went wrong somewhere in the code! Now go to debugging!"
             )
+class ImportContact_14(ImportFromChimp):
+    def run_batch(self, env, fln_name=None):
+        logger.info("Start")
+
+        self.env = env
+        count = 0
+        fields = [f.name for f in attr.fields(Partner)]
+        try:
+            with open(fln_name, "rt", encoding="utf-8") as filename:
+                partners = self.get_partners(filename)
+                partner_blocks = self.batch_generator(partners)
+                for block in partner_blocks:
+                    values = [attr.astuple(p) for p in block]
+                    import pdb; pdb.set_trace()
+                    results = env["res.partner"].load(fields, values)
+                    ids = self.set_ids_check_results(results)
+                    count += len(ids)
+                    logger.info("So far: %s", count)
+        except Exception:
+            logger.exception("caricamento fallito")
+        finally:
+            self.teardown()
+    def batch_generator(self, iterable, recordnum=BATCH):
+        source = iter(iterable)
+        while True:
+            batchiter = islice(source, recordnum)
+            yield list(chain([next(batchiter)], batchiter))
+    def get_partners(self, infile):
+        reader = csv.reader(infile,delimiter=DELIMITER)
+        next(reader)
+        while True:
+            line = next(reader)
+            logger.info("line: %s", line)
+            name = " ".join((line[1], line[2]))
+            email = line[0].strip().lower()
+            partner = Partner(
+                firstname=name.title().strip(),
+                email=email,
+                id=self.external_id("contatti", email),
+            )
+            yield partner
+    def slugify(self, value):
+        if not isinstance(value, str):
+            value = value.decode(ENC, "ignore")
+        value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore")
+        value = re.sub("[^/\w\s@-]", "", value.decode('utf-8')).strip().lower()
+        return re.sub("[-\s/]+", "_", value)
+
+
+    def external_id(self, target, field):
+        key = self.slugify(field)
+        ext_id = "feltricrm.%s_%s" % (target, key)
+        return ext_id

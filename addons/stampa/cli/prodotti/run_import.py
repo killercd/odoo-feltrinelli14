@@ -1,4 +1,5 @@
 from __future__ import print_function
+from ast import While
 
 import logging
 import argparse
@@ -12,9 +13,11 @@ from datetime import datetime
 import time
 
 import attr
+from builtins import str
 
 from odoo.cli import Command
 from odoo.addons.stampa.cli.run import environmentContextManager
+from odoo.addons.stampa.product.models import *
 
 
 logger = logging.getLogger(__name__)
@@ -126,7 +129,7 @@ class ImportProducts(Command):
         return args, unknown
 
     def set_ids_check_results(self, results):
-        # import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace()
         self.errors = results["messages"]
         self.ids = results["ids"] or []
         if self.errors:
@@ -248,6 +251,8 @@ class ImportProducts(Command):
 
     def adjusted_fields(self, cls):
         fields = [f.name for f in attr.fields(cls)]
+        logger.info("fields: %s", fields)
+        #import pdb; pdb.set_trace()
         return map(lambda x: x + "/id" if x.endswith("_id") else x, fields)
 
     def load_collane(self, infile):
@@ -280,7 +285,7 @@ class ImportProducts(Command):
                 ids = self.set_ids_check_results(results)
                 # logger.debug("ids: %s", ids)
                 count += len(ids)
-            logger.debug("Count: %s", count)
+            #logger.debug("Count: %s", count)
         except:
             logger.exception("caricamento fallito")
 
@@ -571,8 +576,11 @@ class ImportProducts(Command):
 
     @environmentContextManager(manage_args_method="manage_args")
     def run(self, args, env):
+        self.run_batch(args, env)
+
+    def run_batch(self, args, env, fln_name=None):
         logger.info("Start")
-        # import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace()
         self.env = env
         with cursor(env):
             if args.categories:
@@ -581,12 +589,13 @@ class ImportProducts(Command):
                         self.load_collane(filename)
 
             else:
-                if args.filename:
-                    with open(args.filename, "rb") as filename:
+                file_open = fln_name if fln_name else args.filename
+                
+                if file_open:
+                    with open(file_open, "rb") as filename:
                         self.load_products(filename)
 
                 if args.lanci:
-
                     logger.info("job import lanci: START")
                     start_time = time.time()
 
@@ -599,3 +608,119 @@ class ImportProducts(Command):
                     )
 
         logger.info("End")
+
+class ImportProducts_14(ImportProducts):
+    def run_batch(self, env, fln_name=None):
+        #logger.info("Start ImportProducts_14")
+        #import pdb; pdb.set_trace()
+        self.env = env
+        with cursor(env):
+            with open(fln_name, "rt", encoding="utf-8") as filename:
+                self.load_products(filename)
+
+        logger.info("End")
+    def load_products(self, infile):
+        self.get_products(infile)
+    
+    def get_products(self, infile):
+        reader = self.utf_reader(infile)
+        next(reader)  # skip first line
+        # import pdb;pdb.set_trace()
+        try:
+            while True:
+                line = next(reader)
+                # id_gpe = line[0]
+                isbn13 = line[1]
+                titolo = line[2].strip()
+                # sottotitolo = line[3].strip()
+                collana_id = line[4].strip()
+                collana = line[5].strip()
+                data_uscita = line[6]
+                in_magazzino = line[7]
+                tipo = line[8].title()
+                redazione = line[9]
+                marchio = line[10].strip().title()
+                autori = line[11]
+                curatori = line[12]
+                prefatori = line[13]
+                traduttori = line[14]
+                illustratori = line[15]
+                nome_cedola = line[16]
+                data_cedola = line[17]
+                id = self.external_id("libri", isbn13)
+
+                ##collana_id = collana_id
+                collana_id = self.get_external_ids("collane", collana_id)
+                autori_id = self.get_external_ids("autori", autori)
+                curatori_id = self.get_external_ids("autori", curatori)
+                prefatori_id = self.get_external_ids("autori", prefatori)
+                traduttori_id = self.get_external_ids("autori", traduttori)
+                illustratori_id = self.get_external_ids("autori", illustratori)
+                product = Product(
+                    name=titolo,
+                    id=id,
+                    barcode=isbn13,
+                    data_uscita=data_uscita,
+                    redazione=redazione,
+                    marchio_editoriale=marchio,
+                    book_type=tipo,
+                    in_magazzino=in_magazzino,
+                    # collana_id=None,
+                    collana_id=collana_id,
+                    autori_id=autori_id,
+                    curatori_id=curatori_id,
+                    prefatori_id=prefatori_id,
+                    traduttori_id=traduttori_id,
+                    illustratori_id=illustratori_id,
+                    data_cedola=data_cedola,
+                    nome_cedola=nome_cedola,
+                )
+                #yield product
+                self.load_product(product)
+        except StopIteration:
+            print("FINE")
+        except:
+            print("ERRORE")
+    
+    def load_product(self, product):
+        fields = self.adjusted_fields(Product)
+        logger.debug("Fields: %s", fields)
+        values = [attr.astuple(product)]
+        logger.info("Values: %s", values)
+        #import pdb; pdb.set_trace()
+        results = self.env["product.template"].load(fields, values)
+        # logger.info("results: %s", results)
+        #ids = self.set_ids_check_results(results)
+        self.set_ids_check_results(results)
+        # logger.debug("ids: %s", ids)
+        #count += len(ids)
+        #logger.debug("Count: %s", count)
+
+    def utf_reader(self, infile):
+        reader = csv.reader(infile, delimiter=DELIMITER)
+        while True:
+            row = next(reader)
+            yield [str(cell) for cell in row]
+    def slugify(self,value):
+        if not isinstance(value, str):
+            value = value.decode(ENC, "ignore")
+        value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore")
+        value = re.sub("[^/\w\s@-]", "", value.decode('utf-8')).strip().lower()
+        return re.sub("[-\s/]+", "_", value)
+    def external_id(self,target, field):
+        # import pdb; pdb.set_trace()
+        key = self.slugify(field)
+        ext_id = "feltricrm.%s_%s" % (target, key)
+        return ext_id
+    def get_external_ids(self, prefix, values):
+        # import pdb; pdb.set_trace()
+        #logger.debug("get_external_ids")
+        categories = self.get_category_names(values)
+        #logger.debug("categories: %s", categories)
+        if not categories:
+            return None
+        cat_ids = [self.external_id(prefix, cat) for cat in categories]
+        #logger.debug("cat_ids: %s", cat_ids)
+        category_id = ",".join(cat_ids)
+        #logger.debug("category_id: %s", category_id)
+        return category_id

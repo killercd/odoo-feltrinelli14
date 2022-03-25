@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 from odoo import http
+from werkzeug.wrappers import Request, Response
+import json
 from odoo.addons.queue_job.job import Job
 import logging
 from functools import wraps
 import time
-from odoo.addons.stampa.cli.contatti.run_import import *
-_logger = logging.getLogger(__name__)
+import odoo.addons.stampa.cli.contatti.run_import as contact_import
+import odoo.addons.stampa.cli.prodotti.run_import as product_import
+import pdb
+
+
 
 _logger = logging.getLogger(__name__)
 
@@ -23,26 +28,19 @@ def timeit(func):
 class ModuloStampa(http.Controller):
     @http.route('/import/autori/', auth='public')
     def index(self, **kw):
-        #self.writedata()    
-        _logger.info('last version')
-        # importchimp = ImportFromChimp()
-        # importchimp.run(None, None)
-        return "last version"
-    
-    @timeit
-    def writedata(self):
-        with open("/tmp/a",'w') as op:
-            op.write("aaaa\n")
+        contact_file = "/tmp/contact.csv"
         
-    # @http.route('/feltrinelli_reports/feltrinelli_reports/objects/', auth='public')
-    # def list(self, **kw):
-    #     return http.request.render('feltrinelli_reports.listing', {
-    #         'root': '/feltrinelli_reports/feltrinelli_reports',
-    #         'objects': http.request.env['feltrinelli_reports.feltrinelli_reports'].search([]),
-    #     })
-
-    # @http.route('/feltrinelli_reports/feltrinelli_reports/objects/<model("feltrinelli_reports.feltrinelli_reports"):obj>/', auth='public')
-    # def object(self, obj, **kw):
-    #     return http.request.render('feltrinelli_reports.object', {
-    #         'object': obj
-    #     })
+        _logger.info("Start import contatti (%s)",contact_file);
+        ic = contact_import.ImportContact_14()
+        ic.run_batch(http.request.env, contact_file)
+        return "OK"
+        
+    @http.route('/import/product/', auth='public')
+    def list(self, **kw):
+        product_file = "/tmp/titoli.csv"
+        
+        _logger.info("Start import autori (%s)",product_file);
+        ip = product_import.ImportProducts_14()
+        ip.run_batch(http.request.env, product_file)
+        return "OK"
+        

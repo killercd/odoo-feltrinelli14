@@ -182,8 +182,7 @@ class SendBook(models.Model):
 
                 (dedica, anticipo, urgenza) = [False] * 3
                 for detail in self.details_line:
-
-                    if detail.titolo_id.id == titolo.id:
+                    if detail.titolo_id.id == titolo.id and detail.partner_id.id == partner.id:
                         (dedica, anticipo, urgenza) = (detail.dedica, detail.anticipo, detail.urgenza)
                         break
 

@@ -26,8 +26,9 @@
         "sale_management",
         "feltrinelli_reports",
         "snailmail_account_followup",
-        "account_reports"
-        # "base_location"
+        "account_reports",
+        "base_location",
+        "base_location_geonames_import",
     ],
     # always loaded
     "data": [

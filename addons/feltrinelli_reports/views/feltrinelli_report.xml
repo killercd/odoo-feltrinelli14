@@ -41,7 +41,7 @@
                                     <t t-esc="i+1"/>/<t t-esc="npage"/>
                                 </div>
                                 <div style="padding-top: 30px">
-                                    <table style="font-size:8px; width:100%">
+                                    <table style="font-size:8px; width:102%">
                                         <t t-foreach="o.order_line[count:15+count]" t-as="l">
                                             <t t-if="l.anticipo == False">
                                                 <tr>
@@ -51,10 +51,10 @@
                                                         </t>
                                                         - <span t-field="l.product_id.name"/>
                                                     </td>
-                                                    <td width="11%" style="text-align:right; padding-left:2px; padding-right:18px;">
+                                                    <td width="11%" style="text-align:right; padding-left:2px; padding-right:28px;">
                                                         <t t-esc="int(l.product_uom_qty)"/>
                                                     </td>
-                                                    <td width="6%" style="text-align:right; padding-left:5px;">
+                                                    <td width="8%" style="text-align:right; padding-left:5px;">
                                                         <t t-esc="int(l.product_id.barcode)"/>
                                                     </td>
                                                     <td width="1%" style="text-align:center;">
