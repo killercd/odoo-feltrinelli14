@@ -1,3 +1,4 @@
+from email.policy import default
 from odoo import api, fields, models, exceptions, _
 from odoo.addons.queue_job.job import Job
 
@@ -154,7 +155,7 @@ class SendBook(models.Model):
                 "name": product.name,
                 "price_unit": 0.0,
                 "product_uom": 1,
-                "product_uom_qty": 1,
+                "product_uom_qty": details.quantita,
                 "anticipo": details.anticipo,
                 "dedica": details.dedica,
                 "urgenza": details.urgenza,
@@ -179,17 +180,18 @@ class SendBook(models.Model):
                                 order_i.firstname,
                                 order_i.lastname,
                                 order_i.name_order))
-
+                quantita = 0
                 (dedica, anticipo, urgenza) = [False] * 3
                 for detail in self.details_line:
                     if detail.titolo_id.id == titolo.id and detail.partner_id.id == partner.id:
-                        (dedica, anticipo, urgenza) = (detail.dedica, detail.anticipo, detail.urgenza)
+                        (quantita, dedica, anticipo, urgenza) = (detail.quantita, detail.dedica, detail.anticipo, detail.urgenza)
                         break
 
                 vals = {
                     'partner_id': partner.id,
                     'titolo_id': titolo.id,
                     'header_id': self.id,
+                    'quantita': quantita,
                     'dedica': dedica,
                     'anticipo': anticipo,
                     'urgenza': urgenza
@@ -213,11 +215,14 @@ class SendBook(models.Model):
         for book in self.titoli_ids:
             books = self.details_line.filtered(
                 lambda line: line.titolo_id == book)
+            quantita = 0
+            for bok in books:
+                quantita += bok.quantita
             if len(books) > book.qty_bookable:
                 anomalia_giacenze = True
                 msg = u' - Titolo: {}, Quantità richieste: {}, Quantità disponibili: {}'.format(
                     book.name,
-                    len(books),
+                    quantita,
                     book.qty_bookable
                 )
                 alert_msg.append(msg)
@@ -304,6 +309,7 @@ class SendBookLine(models.Model):
     header_id = fields.Many2one("send.book")
     partner_id = fields.Many2one("res.partner", string="Destinatario")
     titolo_id = fields.Many2one("product.template", string="Titolo")
+    quantita = fields.Integer("Quantità", min=1, default = 1)
     dedica = fields.Boolean("Dedica")
     anticipo = fields.Boolean("Anticipo")
     urgenza = fields.Boolean("Urgenza")
