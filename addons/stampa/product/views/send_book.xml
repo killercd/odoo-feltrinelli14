@@ -43,7 +43,6 @@
                                 <tree string="Dettaglio invio Titoli" editable="bottom">
                                     <field name="partner_id"/>
                                     <field name="titolo_id"/>
-                                    <field name="quantita" type="number"/>
                                     <field name="dedica"/>
                                     <field name="anticipo"/>
                                     <field name="urgenza"/>
