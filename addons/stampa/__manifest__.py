@@ -1,6 +1,6 @@
 {
     "name": "Ufficio Stampa",
-    "summary": "Personalizzazioni per Uffico Stampa Feltrinelli",
+    "summary": "Personalizzazioni per Uffico Stampa Feltrinelli reload",
     "description": "Personalizzazioni per Uffico Stampa Feltrinelli",
     "author": "NTT DATA, Marco Di Francesco",
     "website": "",
