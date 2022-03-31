@@ -16,8 +16,7 @@
                     </t>
 
                      <t t-foreach="range(npage)" t-as="i">
-					 
-                        <div class="page" style="height: 700px;">
+                        <div class="page" style="height: 690px;">
                             <div style="font-size:12px;"> 
                                 <span t-field="o.partner_id.title" /><br></br>
                                 <span t-field="o.partner_id.lastname" /> <span t-field="o.partner_id.firstname" /><br></br>
