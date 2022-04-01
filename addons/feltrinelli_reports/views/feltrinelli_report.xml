@@ -34,13 +34,13 @@
                              <br/>
                             <div class="row">
                                 <div class="col-xs-6 col-xs-offset-6" style="text-align:right; padding-right:0px;">
-                                    <strong><span t-esc="o.date_order.strftime('%d/%m/%Y')" style="font-size:6px;"/></strong>
+                                    <strong><span t-esc="o.date_order.strftime('%d/%m/%Y')" style="font-size:10px;"/></strong>
                                 </div>
                                 
                                 <div style="font-size:10px; min-height:140px; max-height:140px; text-align:right; padding-top: 65px">
                                     <t t-esc="i+1"/>/<t t-esc="npage"/>
                                 </div>
-                                <div style="padding-top: 30px">
+                                <div style="padding-top: 45px">
                                     <table style="font-size:8px; width:102%">
                                         <t t-foreach="o.order_line[count:15+count]" t-as="l">
                                             <t t-if="l.anticipo == False">
