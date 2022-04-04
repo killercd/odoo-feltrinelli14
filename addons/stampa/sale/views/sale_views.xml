@@ -380,6 +380,7 @@
                 <field name="name_order" string='Rif. Ordine'/>
                 <field name="date_order" string="Data spedizione" widget="date"/>
                 <field name="autori_id" widget="many2many_tags" placeholder="Autori..." options="{'no_create_edit': True}"/>
+                <field name="name" string="Titolo"/>
                 <field name="salesman_id" string="Operatore"/>
                 <!-- <field name="partner_id" string="Destinatario"/>
                 <field name="lastname" string="Cognome"/>
