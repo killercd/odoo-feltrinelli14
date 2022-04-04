@@ -171,16 +171,18 @@ class SendBook(models.Model):
         associate_partner = None
         for partner in self.partner_ids:
             for titolo in self.titoli_ids:
+                duplicato = False
                 order_lines = self.prodotti_duplicati(titolo, partner)
                 if len(order_lines)>0:
                     anomalia_duplicati=True
+                    duplicato = True
                     for order_i in order_lines:
                         msg_duplicazione.append(u"Il prodotto '{}' è già stato inviato a {} {} nell'ordine {}".format(
                                 order_i.display_name,
                                 order_i.firstname,
                                 order_i.lastname,
                                 order_i.name_order))
-                quantita = 0
+                quantita = 1
                 (dedica, anticipo, urgenza) = [False] * 3
                 for detail in self.details_line:
                     if detail.titolo_id.id == titolo.id and detail.partner_id.id == partner.id:
@@ -192,6 +194,7 @@ class SendBook(models.Model):
                     'titolo_id': titolo.id,
                     'header_id': self.id,
                     'quantita': quantita,
+                    'duplicato': duplicato,
                     'dedica': dedica,
                     'anticipo': anticipo,
                     'urgenza': urgenza
@@ -310,6 +313,7 @@ class SendBookLine(models.Model):
     partner_id = fields.Many2one("res.partner", string="Destinatario")
     titolo_id = fields.Many2one("product.template", string="Titolo")
     quantita = fields.Integer("Quantità", min=1, default = 1)
+    duplicato = fields.Boolean("Duplicato", default = False)
     dedica = fields.Boolean("Dedica")
     anticipo = fields.Boolean("Anticipo")
     urgenza = fields.Boolean("Urgenza")

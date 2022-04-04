@@ -111,6 +111,8 @@ class SaleOrderLine(models.Model):
     tag_ids = fields.Many2many(related="order_id.tag_ids")
 
     address = fields.Char(string="Indirizzo", compute="_get_address")
+    test = fields.Char(string="test", compute="_get_address")
+    stato=fields.Char(string="Stato Ordine",compute="_get_stato")
 
     @api.depends("order_id")
     def _get_address(self):
@@ -136,3 +138,15 @@ class SaleOrderLine(models.Model):
                     ],
                 )
             )
+            
+    def _get_stato(self):
+        for record in self:
+            record.stato=""
+            if record.state.strip().lower()=="draft":
+                record.stato="In Lavorazione"
+            elif record.state.strip().lower()=="sale" and record.order_id.sent:
+                record.stato="Spedito"
+            elif record.state.strip().lower()=="sale" and not record.order_id.sent:
+                record.stato="In Spedizione"
+
+    

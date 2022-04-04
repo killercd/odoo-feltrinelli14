@@ -44,6 +44,7 @@
                                     <field name="partner_id"/>
                                     <field name="titolo_id"/>
                                     <field name="quantita" type="number"/>
+                                    <field name="duplicato" readonly="1"/>
                                     <field name="dedica"/>
                                     <field name="anticipo"/>
                                     <field name="urgenza"/>

@@ -369,6 +369,35 @@
         </field>
     </record>
 
+     <record id="view_order_line_tree_2" model="ir.ui.view">
+        <field name="name">sale.order.line.tree</field>
+        <field name="model">sale.order.line</field>
+        <field name="priority">3</field>
+        <field name="arch" type="xml">
+            <tree string="Righe Ordine" decoration-bf="message_needaction==True"
+                  decoration-muted="state=='cancel'">
+                <field name="message_needaction" invisible="1"/>
+                <field name="name_order" string='Rif. Ordine'/>
+                <field name="date_order" string="Data spedizione" widget="date"/>
+                <field name="autori_id" widget="many2many_tags" placeholder="Autori..." options="{'no_create_edit': True}"/>
+                <field name="salesman_id" string="Operatore"/>
+                <!-- <field name="partner_id" string="Destinatario"/>
+                <field name="lastname" string="Cognome"/>
+                <field name="firstname" string="Nome"/> -->
+                <field name="address" string='Indirizzo'/>
+                <!-- <field name="tag_ids" widget="many2many_tags" options="{'no_create_edit': True}" invisible="1"/> -->
+                <!-- <field name="product_id"/> -->
+                <!-- <field name="nome_cliente"/> -->
+                <!-- <field name="isbn" invisible="1"/> -->
+                <field name="stato" string="Stato Ordine"/>
+                <field name="order_data_uscita" string="In libreria"/>
+                <field name="order_in_magazzino" invisible="1"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
     <record id="view_order_line_tree" model="ir.ui.view">
         <field name="name">sale.order.line.tree</field>
         <field name="model">sale.order.line</field>
@@ -380,6 +409,8 @@
                 <field name="name_order" string='Rif. Ordine'/>
                 <field name="date_order" string="Data spedizione" widget="date"/>
                 <field name="salesman_id" string="Operatore"/>
+                <field name="autori_id" widget="many2many_tags" placeholder="Autori..." options="{'no_create_edit': True}"/>
+                <field name="name" string="Titolo"/>
                 <field name="partner_id" string="Destinatario"/>
                 <field name="lastname" string="Cognome"/>
                 <field name="firstname" string="Nome"/>
@@ -405,7 +436,14 @@
         <field name="search_view_id" ref="sale_order_line_view_search_fltr"/>
         <!--field name="tree_view_id" ref="view_order_line_tree"/-->
         <field name="context">{}</field>
+        <field
+            name="view_ids"
+            eval="[(5,0,0),
+                      (0, 0, {'view_mode': 'tree', 'view_id': ref('stampa.view_order_line_tree_2')})
+                   ]"
+        />
         <field name="domain">[('state', 'not in', ('sent', 'cancel'))]</field>
+       
     </record>
 
     <record id="sale.act_res_partner_2_sale_order" model="ir.actions.act_window">
