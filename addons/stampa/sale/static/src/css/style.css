@@ -1,3 +1,9 @@
 [data-id="tag_ids"] {
    pointer-events: none;
 }
+
+.fa-area-chart{
+
+   display:none;
+
+}
