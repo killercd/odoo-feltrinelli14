@@ -1,13 +1,14 @@
 from email.policy import default
+from warnings import WarningMessage
 from odoo import api, fields, models, exceptions, _
 from odoo.addons.queue_job.job import Job
+from odoo.exceptions import RedirectWarning
 
 from functools import wraps
 import uuid
 import logging
 
 _logger = logging.getLogger(__name__)
-
 
 class SendBook(models.Model):
     _name = "send.book"
@@ -64,18 +65,27 @@ class SendBook(models.Model):
 
         if self.stato == True:
             raise exceptions.Warning('Attenzione! Invio titoli già confermato. Crearne uno nuovo.')
-        
+
+        for detail_line in self.details_line:
+            if detail_line.quantita < 1:
+                raise exceptions.Warning('Attenzione! Quantità < 1')
         
         self.with_delay().action_create_shipping()
-
         self.stato = True
+        self.env.cr.commit()
             
         message = "Schedulazione creazione Ordini {} creata con successo. Per verificare controllare la lista nel modulo Queue Job".format(self.target)
+        query = "select id from ir_actions where lower(name) like '%in lavorazione%';"
+        self.env.cr.execute(query)
+        action_id = self.env.cr.fetchone()
+        '''
         view = self.env.ref("sh_message.sh_message_wizard")
         context = dict(self.env.context)
         context["message"] = message
         context['url'] = '/web#min=1&limit=80&view_type=list&model=send.book'
-
+        '''
+        raise RedirectWarning(message, action_id[0], _('Vai a in Lavorazione'))
+        '''
         return {
             "name": "Ordini di spedizioni",
             "type": "ir.actions.act_window",
@@ -85,8 +95,9 @@ class SendBook(models.Model):
             "views": [(view.id, "form")],
             "view_id": view.id,
             "target": "new",
-            "context": context,
+            "context": context
         }
+        '''
 
     def _get_draft_order(self, partner_id, detail):
 
@@ -134,7 +145,7 @@ class SendBook(models.Model):
                     # "session_id": self.session_id,  #commentato per AttributeError: 'send.book' object has no attribute 'session_id'
                     # non ho trovato nessuna definizione del campo session_id nel model send.book FIXME
                 }
-            )
+            )   
 
     def _get_order_tag(self, tag_name):
 
@@ -188,7 +199,7 @@ class SendBook(models.Model):
                     if detail.titolo_id.id == titolo.id and detail.partner_id.id == partner.id:
                         (quantita, dedica, anticipo, urgenza) = (detail.quantita, detail.dedica, detail.anticipo, detail.urgenza)
                         break
-
+                    
                 vals = {
                     'partner_id': partner.id,
                     'titolo_id': titolo.id,
@@ -232,7 +243,7 @@ class SendBook(models.Model):
 
         if not anomalia_giacenze:
             alert_msg.append(' - nessuna anomalia')
-
+            
         if alert_msg:
             view = self.env.ref("sh_message.sh_message_wizard")
             context = dict(self.env.context)
@@ -250,6 +261,7 @@ class SendBook(models.Model):
                 "target": "new",
                 "context": context,
             }
+        
 
     def prodotti_duplicati(self, titolo, partner):
 
@@ -303,12 +315,10 @@ class SendBook(models.Model):
     name = fields.Char(
         "Nome", compute="_compute_send_book_name", readonly=True
     )
-
-
+        
 class SendBookLine(models.Model):
     _name = "send.book.line"
     _description = "Dettaglio Invio Libri"
-
     header_id = fields.Many2one("send.book")
     partner_id = fields.Many2one("res.partner", string="Destinatario")
     titolo_id = fields.Many2one("product.template", string="Titolo")
