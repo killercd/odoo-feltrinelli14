@@ -38,7 +38,9 @@
                     <field name="dedica"/>
                     <field name="urgenza"/>
                     <field name="anticipo"/>
-                    <field name="state" readonly="True"/>
+                    <field name="stato" string="Stato Ordine"/>
+                    <field name="state" readonly="True" invisible="1"/>
+                    
                 </tree>
             </field>
         </record>
