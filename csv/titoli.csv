@@ -1,0 +1,191 @@
+id;isbn13;titolo;sottotitolo;collana_id;collana;in_libreria;in_magazzino;tipo;redazione;marchio_editoriale;autori;curatori;prefatori;traduttori;illustratori;cedola;data_cedola;modifica
+31534;9788850334513;Il mio primo libro di coding;Scopri il mondo della programmazione senza dover usare il computer;9;Fuori Collana;2018-09-27;2018-09-17;major;Apogeo;APOGEO;7405;;;;;Maggio-Giugno-Luglio 2021;2021-05-01;2022-03-15 14:27:32.434701+01
+33075;9788807111587;Colazione a Pechino;Sogni e incubi di un impero senza tempo;82;Storie;;;major;GGF;FELTRINELLI;7621;;;;;Ottobre - Novembre 2021;2021-01-07;2022-03-15 17:53:16.95362+01
+33674;9788850336203;Fotografia architettonica;La composizione, lo scatto, la postproduzione;1095;Fotografia;;;major;Apogeo;APOGEO;19516;;;;;set-22;2022-09-01;2022-03-14 10:21:20.094134+01
+33820;9788807896521;Storia segreta del Costaguana;;97;Universale Economica;;;economica;GGF;FELTRINELLI;5134;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:37:39.566851+01
+33926;9788807091568;La terapia delle parole;Dentro e fuori dal Web, scrivere per stare bene;817;Urra Feltrinelli;2021-05-27;2021-05-17;major;GGF;FELTRINELLI;7808;;;;;Maggio-Giugno-Luglio 2021;2021-01-07;2022-03-14 10:29:18.924652+01
+34450;9788807893780;La civetta cieca. Tre gocce di sangue;;97;Universale Economica;2022-05-26;2022-05-16;economica;GGF;FELTRINELLI;1000483;;1000312;"7931;7933;7932";;Maggio-Giugno-Luglio  2020;2020-05-01;2022-03-15 16:51:34.157123+01
+34523;9788850335459;Nudo Fine Art;Tecniche di illuminazione e posa per fotografare il corpo umano;1095;Fotografia;;;major;Apogeo;APOGEO;7313;;;;;Ottobre-Novembre 2020;2020-10-01;2022-03-11 11:48:49.288364+01
+46654;9788858029398;Quello che devi sapere sul denaro II (Nuova Edizione) ALLEGATI;;;;2021-09-30;2021-09-20;major;Gribaudo;GRIBAUDO;5426;;;;;;;2022-03-10 16:31:10.136449+01
+46785;9788850336067;ASP.NET Core;Guida allo sviluppo con .NET e C#;16;Guida completa;2022-04-21;2022-04-08;major;Apogeo;APOGEO;19344;;;;;apr-22;2022-04-01;2022-03-15 17:54:08.21212+01
+46801;9788807034923;Tutte le volte che mi sono innamorato;;68;I Narratori;2022-04-28;2022-04-14;major;GGF;FELTRINELLI;12502;;;;;apr-22;2022-01-01;2022-03-16 09:51:48.643369+01
+46820;9788807493256;Un bagno nello stagno sotto la pioggia;In cui quattro scrittori russi tengono una master class sulla scrittura, la lettura e la vita;84;Varia;2022-05-26;2022-05-16;major;GGF;FELTRINELLI;5982;;;5983;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:18:49.566964+01
+58461;9788807493003;Il cercatore di essenze;Viaggio alle origini del profumo;84;Varia;2021-11-04;2021-10-22;major;GGF;FELTRINELLI;14262;;;18940;;Maggio-Giugno-Luglio 2021;2021-01-07;2022-03-15 15:00:21.662275+01
+105543;9788807493010;Le protagoniste;L'emancipazione femminile attraverso lo sport;84;Varia;2021-06-24;2021-06-14;major;GGF;FELTRINELLI;"168823;5581";;;;;Maggio-Giugno-Luglio 2021;2021-01-07;2022-03-15 14:58:29.330549+01
+105599;9788807034954;Speculazioni;;68;I Narratori;;;major;GGF;FELTRINELLI;18918;;;8330;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-14 17:17:08.749784+01
+105980;9788807091711;Amici (im)perfetti;Contro-filosofia dell'amicizia;817;Urra Feltrinelli;;;major;GGF;FELTRINELLI;7468;;;;;set-22;2022-09-01;2022-03-09 18:09:55.996386+01
+106130;9788807551031;Gabonzo, l'invincibile robot;;855;Feltrinelli Comics;2022-04-21;2022-04-08;major;GGF;FELTRINELLI;7915;;;;;apr-22;2022-01-01;2022-03-14 16:16:20.464227+01
+106154;9788807904110;Tractatus logico-philosophicus;;109;Universale Economica I Classici;2022-04-07;2022-03-28;economica;GGF;FELTRINELLI;19041;"179255;19040";;"179255;19040";;Gennaio-febbraio-marzo  2022;2022-01-01;2022-03-15 12:29:50.651404+01
+106173;9788807091667;Flip-thinking;Fare di un problema un'opportunità;817;Urra Feltrinelli;2022-04-21;2022-04-08;major;GGF;FELTRINELLI;19043;;;4863;;apr-22;2022-01-01;2022-03-16 10:26:51.196207+01
+106185;9788807034664;Il sentiero del sale;;68;I Narratori;2022-04-07;2022-03-28;major;GGF;FELTRINELLI;19046;;;499937;;apr-22;2022-01-01;2022-03-14 16:16:20.544103+01
+106196;9788807896736;L'arte della guerra;Edizione commentata per ragazzi;941;Universale Economica Ragazzi;;;economica;GGF;FELTRINELLI;10008513;4553;;10008514;4553;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:00:15.906643+01
+106272;9788807550898;Maledetto poeta;;855;Feltrinelli Comics;;;major;GGF;FELTRINELLI;7469;;;;;Ottobre - Novembre 2021;2021-01-07;2022-03-14 16:16:20.493577+01
+106320;9788807174063;Siamo qui per voi;Come ci governano le nuove corporation;74;Serie Bianca;2022-03-10;2022-02-28;major;GGF;FELTRINELLI;1000371;;;1000344;;Gennaio-febbraio-marzo  2022;2022-01-01;2022-03-10 16:03:36.079102+01
+106692;9788850336265;La Cattedrale e il Bazaar;Riflessioni di un rivoluzionario per caso su Linux e l'open source;9;Fuori Collana;;;major;Apogeo;APOGEO;7693;;;;;set-22;2022-09-01;2022-03-16 10:29:47.237486+01
+106752;9788807896514;Il corpo docile;;97;Universale Economica;2022-04-28;2022-04-14;economica;GGF;FELTRINELLI;6087;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-15 13:51:26.139888+01
+106805;9788807896644;La Dragunera;;1084;Universale economica - Il Saggiatore;;;economica;GGF;FELTRINELLI;19196;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 19:06:31.414599+01
+106811;9788807896446;Natura morta con custodia di sax;Storie di jazz;1084;Universale economica - Il Saggiatore;2022-04-28;2022-04-14;economica;GGF;FELTRINELLI;19199;;;;;apr-22;2022-01-01;2022-03-14 16:16:20.80128+01
+106823;9788807896637;Hamburg;La sabbia del tempo scomparso;1084;Universale economica - Il Saggiatore;;;economica;GGF;FELTRINELLI;19205;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 19:07:08.828836+01
+106957;9788807896149;Gli insospettabili;Le indagini di Anna Melissari. 1;103;Universale Economica Noir;;;economica;GGF;FELTRINELLI;7824;;;;;Gennaio-febbraio-marzo  2022;2022-01-01;2022-03-13 17:53:41.966498+01
+107093;9788850335985;Il metodo Amazon;I 14 principi per diventare un leader di mercato;1096;Saggi;2022-03-03;2022-02-21;major;Apogeo;APOGEO;19277;;;;;Gennaio-Febbraio-Marzo 2022;2022-01-01;2022-03-14 18:15:07.452907+01
+107161;9788807550997;Comics&Science;Volume 1;855;Feltrinelli Comics;2022-03-31;2022-03-21;major;GGF;FELTRINELLI;1988;"19488;19487";;;;Gennaio-febbraio-marzo  2022;2022-01-01;2022-03-15 15:04:43.671966+01
+107227;9788883063541;Madre di cane;;1079;Mediterranea;2022-04-21;2022-04-08;major;Apogeo;CROCETTI;19264;;;19428;;apr-22;2022-04-01;2022-03-15 12:45:09.739401+01
+107301;9788807990779;La società essenziale;Dalla scuola ai trasporti: cinque inchieste sulle condizioni minime del nostro benessere;1092;Fondazione Feltrinelli Ricerche;;;major;GGF;FELTRINELLI;;"19268;19269";;;;Gennaio-febbraio-marzo  2022;2022-01-01;2022-03-14 16:16:20.53157+01
+107302;9788807990786;Libere tutte;Storie di riscatto ed emancipazione;1092;Fondazione Feltrinelli Ricerche;2022-03-03;2022-02-21;major;GGF;FELTRINELLI;19270;;;;;Gennaio-febbraio-marzo  2022;2022-01-01;2022-03-10 16:02:55.664194+01
+107330;9788807034961;Il girotondo delle iene;;68;I Narratori;;;major;GGF;FELTRINELLI;19276;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:55:16.865108+01
+107351;9788807551079;Nora's big eyes;Le avventure;855;Feltrinelli Comics;;;major;GGF;FELTRINELLI;18884;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:31:36.426896+01
+107443;9788807923708;Pigiama party con i mostri;;723;Feltrinelli Kids;2022-05-12;2022-05-02;major;GGF;FELTRINELLI;19296;;;771;5844;apr-22;2022-01-01;2022-03-16 09:18:40.846648+01
+107520;9788807896408;Le confessioni della carne;Storia della sessualità 4;571;Universale Economica Saggi Rossi;2022-04-07;2022-03-28;economica;GGF;FELTRINELLI;172719;;;5221;;apr-22;2022-01-01;2022-03-14 16:16:20.952751+01
+107523;9788807493201;Gesù e Giuda;;84;Varia;2022-04-21;2022-04-08;major;GGF;FELTRINELLI;186099;;157349;160411;;apr-22;2022-01-01;2022-03-14 16:16:21.030347+01
+107529;9788807910715;Melody. Un passo fuori dal cuore;;850;Feltrinelli Up;2022-04-21;2022-04-08;major;GGF;FELTRINELLI;5622;;;5354;;apr-22;2022-01-01;2022-03-14 16:16:20.518883+01
+107535;9788807896309;Un topino a Parigi;;941;Universale Economica Ragazzi;2022-04-07;2022-03-28;economica;GGF;FELTRINELLI;7914;;;4129;491984;apr-22;2022-01-01;2022-03-14 16:16:20.863754+01
+107540;9788807896286;La fattoria degli animali;;1076;Universale economica Ragazzi I Classici;2022-04-07;2022-03-28;economica;GGF;FELTRINELLI;7601;;;156328;;apr-22;2022-01-01;2022-03-14 16:16:20.901398+01
+107541;9788807896293;Matematica amica;;941;Universale Economica Ragazzi;2022-04-07;2022-03-28;economica;GGF;FELTRINELLI;1000877;;;;4901;apr-22;2022-01-01;2022-03-14 16:16:20.888847+01
+107544;9788807896323;Noi, Partigiani;Memoriale della Resistenza italiana;97;Universale Economica;2022-04-07;2022-03-28;economica;GGF;FELTRINELLI;;"7920;1000477";;;;apr-22;2022-01-01;2022-03-15 11:34:27.740458+01
+107547;9788807896422;Verità, bellezza, bontà;Educare alle virtù nel ventunesimo secolo;570;Universale Economica Saggi Blu;2022-04-21;2022-04-08;economica;GGF;FELTRINELLI;194090;;;1982;;apr-22;2022-01-01;2022-03-14 16:16:20.927041+01
+107554;9788807896330;Giura;;97;Universale Economica;2022-04-07;2022-03-28;economica;GGF;FELTRINELLI;194054;;;;;apr-22;2022-01-01;2022-03-15 12:24:33.559952+01
+107558;9788807896378;Guardami negli occhi;;97;Universale Economica;2022-04-28;2022-04-14;economica;GGF;FELTRINELLI;2030;;;;;apr-22;2022-01-01;2022-03-14 16:16:20.696053+01
+107571;9788807896415;All'inferno e ritorno;Per la nostra rinascita sociale ed economica;571;Universale Economica Saggi Rossi;2022-04-07;2022-03-28;economica;GGF;FELTRINELLI;5464;;;;;apr-22;2022-01-01;2022-03-14 16:16:20.939785+01
+107573;9788807923678;Mozartino;;723;Feltrinelli Kids;2022-05-12;2022-05-02;major;GGF;FELTRINELLI;19319;;;;19447;apr-22;2022-01-01;2022-03-16 09:20:07.799375+01
+107588;9788807896392;Il rapimento di Lol V. Stein;;97;Universale Economica;2022-04-21;2022-04-08;economica;GGF;FELTRINELLI;215337;;;;;apr-22;2022-01-01;2022-03-14 16:16:20.708913+01
+107593;9788807990793;Democratizzare l'economia;Il futuro del capitalismo e la sfida dell’uguaglianza;1092;Fondazione Feltrinelli Ricerche;2022-03-31;2022-03-21;major;GGF;FELTRINELLI;1988;1001003;;;;apr-22;2022-01-01;2022-03-15 15:03:07.8497+01
+107594;9788807904134;L'opera d'arte nell'epoca della sua riproducibilità tecnica;Edizione integrale comprensiva delle cinque stesure;109;Universale Economica I Classici;2022-04-21;2022-04-08;economica;GGF;FELTRINELLI;7707;"157541;19536";;"1988;7720";;apr-22;2022-01-01;2022-03-15 12:27:38.875165+01
+107626;9788858040263;Le più belle storie dell'Odissea;;913;Le grandi raccolte;2022-04-28;2022-04-14;major;Gribaudo;GRIBAUDO;"4827;4837";;;;7559;apr-22;2021-10-19;2022-03-11 15:13:56.397087+01
+107648;9788858040096;Le sei storie delle paroline magiche;;836;Facile!;2022-03-17;2022-03-07;major;Gribaudo;GRIBAUDO;2191;;;;2190;apr-22;2021-10-19;2022-03-10 12:17:29.039447+01
+107651;9788858040102;Le sei storie del Piccolo Principe;;836;Facile!;2022-03-17;2022-03-07;major;Gribaudo;GRIBAUDO;4333;;;;;apr-22;2021-10-19;2022-03-10 14:26:05.077987+01
+107653;9788858040317;Farfalle nello stomaco;e altri piatti fatti con amore;703;Sapori e fantasia;2022-05-12;2022-05-02;major;Gribaudo;GRIBAUDO;19359;;;;;apr-22;2021-10-19;2022-03-11 15:16:44.68973+01
+107655;9788858040140;Giardinaggio in 5 minuti;Pillole quotidiane per coltivare il tuo pollice verde;404;Straordinariamente;2022-04-28;2022-04-14;major;Gribaudo;GRIBAUDO;19360;;;;;apr-22;2021-10-19;2022-03-11 15:15:59.863582+01
+107659;9788858040164;Il dizionario dei sapori giapponesi;Cultura, ingredienti, ricette;703;Sapori e fantasia;2022-05-12;2022-05-02;major;Gribaudo;GRIBAUDO;19362;;;;;apr-22;2021-10-19;2022-03-11 15:17:38.318627+01
+107661;9788858040225;L'abc della carne;La scuola step by step per scegliere e cucinare la carne senza sprechi e con gusto;703;Sapori e fantasia;2022-05-12;2022-05-02;major;Gribaudo;GRIBAUDO;7476;;;;;apr-22;2021-10-19;2022-03-11 15:18:34.538543+01
+107739;9788850336050;Guidare il Cambiamento;Gli otto passi per affrontare e vincere la sfida;1096;Saggi;2022-04-21;2022-04-08;major;Apogeo;APOGEO;19342;;;;;apr-22;2022-04-01;2022-03-16 09:30:43.888136+01
+107742;9788850336098;L'arte e la scienza del disegno;Osservare, analizzare e riprodurre qualsiasi soggetto;9;Fuori Collana;2022-03-31;2022-03-21;major;Apogeo;APOGEO;19345;;;;;apr-22;2022-04-01;2022-03-14 18:15:07.422077+01
+107743;9788850336104;Cannabis;Conoscere la storia, la pianta e gli effetti sulla creatività e il lavoro artistico;9;Fuori Collana;2022-03-31;2022-03-21;major;Apogeo;APOGEO;19346;;;;;apr-22;2022-04-01;2022-03-14 18:15:07.397621+01
+107798;9788807091674;Non farcela come stile di vita;Guida semi-stolta per diversamente performanti;817;Urra Feltrinelli;2022-05-12;2022-05-02;major;GGF;FELTRINELLI;"19354;19355";;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-10 19:21:58.308664+01
+107812;9788807551086;11-lug-82;;855;Feltrinelli Comics;;;major;GGF;FELTRINELLI;7339;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 19:02:08.661509+01
+107833;9788807035081;Stupore;;68;I Narratori;;;major;GGF;FELTRINELLI;4356;;;153949;;set-22;2022-09-01;2022-03-15 16:46:44.319885+01
+107851;9788807896538;Il calamaro gigante;;97;Universale Economica;;;economica;GGF;FELTRINELLI;18905;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:36:11.291444+01
+107858;9788807174148;Nudge. La spinta gentile;La nuova strategia per migliorare le nostre decisioni su denaro, salute, felicità.Edizione aggiornata;74;Serie Bianca;;;major;GGF;FELTRINELLI;"1000947;1000946";;;1000739;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:15:49.341494+01
+107881;9788807896743;Jane Eyre;;1076;Universale economica Ragazzi I Classici;2022-05-26;2022-05-16;economica;GGF;FELTRINELLI;5065;;;4336;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:29:32.378639+01
+107886;9788807904189;Tifone;;109;Universale Economica I Classici;;;economica;GGF;FELTRINELLI;207989;;8353;8383;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:39:44.272242+01
+107908;9788807551062;Comics&Science;Vol. 2;855;Feltrinelli Comics;2022-05-19;2022-05-09;major;GGF;FELTRINELLI;"19372;7732;19375;19373;19374";"19487;19488";;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-15 15:04:08.381236+01
+107910;9788807493225;Jova Beach Coloring;;84;Varia;2022-04-07;2022-03-28;major;GGF;FELTRINELLI;12492;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-14 16:16:21.043362+01
+107920;9788807923753;Storie incredibili per bambini pronti all'avventura;;723;Feltrinelli Kids;;;major;GGF;FELTRINELLI;"188524;4451;244436";;;"153949;155936";"12386;7774;272569";Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:31:46.806227+01
+107953;9788807896750;Ernest e Celestine;;941;Universale Economica Ragazzi;2022-05-12;2022-05-02;economica;GGF;FELTRINELLI;246704;;;154178;7826;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-09 14:38:15.03773+01
+107963;9788883063589;E alla luce del lupo ritornano;;1079;Mediterranea;;;major;Apogeo;CROCETTI;19381;;;19185;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:44:04.611424+01
+107967;9788883063572;Le chiavi del giorno;;1058;Poesia;;;major;Apogeo;CROCETTI;19383;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:41:31.297232+01
+108106;9788850336166;WebAssembly;Imparare a scrivere e compilare applicazioni web con prestazioni elevate;16;Guida completa;;;major;Apogeo;APOGEO;19430;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:41:31.244917+01
+108109;9788850336159;Catturare l'attenzione;Come emergere e farsi notare in 3 secondi;1096;Saggi;;;major;Apogeo;APOGEO;19096;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:41:31.329997+01
+108113;9788850336180;Scuola di fotografia;Una master class per imparare da un maestro del colore, della composizione e del ritratto;1095;Fotografia;2022-05-26;2022-05-16;major;Apogeo;APOGEO;5992;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-16 09:18:18.221262+01
+109671;9788850336173;Prodotti da amare;Creare oggetti e servizi tecnologici che conquistano le persone;1096;Saggi;2022-05-12;2022-05-02;major;Apogeo;APOGEO;19431;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-16 09:18:18.247795+01
+109693;9788883063619;Poesia Nuova Serie nr. 14;luglio-agosto 2022;1057;Rivista Poesia;2022-07-05;2022-06-23;major;Apogeo;CROCETTI;1988;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-11 11:48:49.299445+01
+109730;9788858041246;Le più belle storie dell'Antico e del Nuovo Testamento;Cofanetto;913;Le grandi raccolte;2022-04-28;2022-04-14;major;Gribaudo;GRIBAUDO;5880;;;;7760;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-11 15:12:46.359891+01
+109882;9788807896804;Zorro;L'inizio della leggenda;606;Universale Economica Ristampa in prenotazione;2022-04-28;2022-04-14;economica;GGF;FELTRINELLI;187125;;;158836;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-15 13:52:40.144313+01
+109890;9788807341496;Catalogo Kids 2022;;579;Cataloghi e listini;2022-05-19;2022-05-09;;GGF;FELTRINELLI;;;;;;;;2022-03-10 17:00:39.829958+01
+110165;9788858042076;Psicologia al tuo servizio (Tempi liberi) per Allegati;;1077;Tempi liberi;;;major;Gribaudo;GRIBAUDO;;;;;;;;2022-03-15 11:34:03.377243+01
+110260;9788850336234;React Native;Guida allo sviluppo mobile cross-platform;16;Guida completa;;;major;Apogeo;APOGEO;19513;;;;;set-22;2022-09-01;2022-03-14 16:27:35.0318+01
+110326;9788850336258;I segreti del copywriting;Usare la forza delle parole per ottenere più clic, vendite e profitti;1096;Saggi;;;major;Apogeo;APOGEO;19511;;;;;set-22;2022-09-01;2022-03-14 16:05:34.283517+01
+110454;9788858042670;Paura della Guerra;;914;Quid +;;;major;Gribaudo;GRIBAUDO;;;;;;;;2022-03-09 14:28:27.026603+01
+110498;9788807421594;L'AGENDA DEI LETTORI;FELTRINELLI 2023;81;Fuori Collana;;;major;GGF;FELTRINELLI;1988;4553;;;;set-22;2022-09-01;2022-03-16 09:53:25.265527+01
+21302;9788807883361;Ricette immorali;;97;Universale Economica;;;economica;GGF;FELTRINELLI;241078;;;160036;184800;;;2022-03-10 12:27:22.779135+01
+26184;9788807035128;Il segreto di Amrit Kaur;;68;I Narratori;;;major;GGF;FELTRINELLI;5260;;;;;set-22;2022-09-01;2022-03-16 09:42:47.822035+01
+26307;9788850334490;PHP & MySQL;sviluppare applicazioni web lato server;9;Fuori Collana;2022-03-10;2022-02-28;major;Apogeo;APOGEO;5903;;;;;set-21;2021-09-01;2022-03-14 18:15:07.410519+01
+26499;9788807032677;Vita in vendita;;68;I Narratori;2022-03-31;2022-03-21;major;GGF;FELTRINELLI;240557;;;154011;;Gennaio-febbraio-marzo  2022;2022-01-01;2022-03-10 12:34:19.282951+01
+32262;9788807492822;Una pietra può soffrire?;Piccolo manuale filosofico;84;Varia;2022-04-07;2022-03-28;major;GGF;FELTRINELLI;7372;;;7436;;apr-22;2022-01-01;2022-03-14 16:16:21.017674+01
+33946;9788807904202;La casa della gioia;;109;Universale Economica I Classici;2022-05-26;2022-05-16;economica;GGF;FELTRINELLI;5303;4759;;161682;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:25:01.780149+01
+34913;9788807035036;La rettitudine degli assassini;;68;I Narratori;;;major;GGF;FELTRINELLI;1000708;;;1000885;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-16 12:15:52.266959+01
+46308;9788807105630;Una mente sintetica;Indagine sulle mie intelligenze;77;Campi Del Sapere;2022-04-21;2022-04-08;major;GGF;FELTRINELLI;194090;;;5096;;apr-22;2022-01-01;2022-03-14 16:16:20.423332+01
+46409;9788807923388;Yerbi, il guardiano del fiume;;723;Feltrinelli Kids;2022-07-05;2022-06-23;major;GGF;FELTRINELLI;7624;;;1001103;12435;Gennaio-febbraio-marzo 2021;2021-01-01;2022-03-10 17:02:49.284642+01
+46653;9788858029381;Quello che devi sapere sul denaro (Nuova Edizione) ALLEGATI;Primi passi verso la libertà finanziaria;;;2021-09-30;2021-09-20;major;Gribaudo;GRIBAUDO;5426;;;;;;;2022-03-10 16:30:33.303023+01
+46726;9788858018958;Il libro della filosofia;;404;Straordinariamente;2022-03-17;2022-03-07;major;Gribaudo;GRIBAUDO;;;;;;apr-22;2021-10-19;2022-03-10 11:27:38.100627+01
+93652;9788807105586;Cassandre;Scrittrici profetiche: da Elsa Morante ad Amelia Rosselli;77;Campi Del Sapere;;;major;GGF;FELTRINELLI;17539;;;;;set-21;2021-01-07;2022-03-13 18:54:03.773383+01
+105429;9788807034862;La Fortuna;;68;I Narratori;2022-05-05;2022-04-22;major;GGF;FELTRINELLI;12316;;;;;Gennaio-febbraio-marzo  2022;2022-01-01;2022-03-15 11:22:08.119804+01
+105597;9788807034916;Il pianista di Hitler;;68;I Narratori;2022-04-21;2022-04-08;major;GGF;FELTRINELLI;18917;;;5930;;apr-22;2022-01-01;2022-03-16 10:38:26.864929+01
+105660;9788850336227;Amazon SageMaker;Creare modelli di machine learning per sviluppatori e data scientist;16;Guida completa;;;major;Apogeo;APOGEO;19512;;;;;set-22;2022-09-01;2022-03-14 16:21:26.966208+01
+105865;9788858026335;Le mie torte salate;Sfiziosità per ogni occasione, dall'aperitivo al pranzo della domenica;703;Sapori e fantasia;2022-03-17;2022-03-07;major;Gribaudo;GRIBAUDO;2378;;;;;apr-22;2021-10-19;2022-03-10 12:02:04.398524+01
+105866;9788807910739;King e le libellule;;850;Feltrinelli Up;;;major;GGF;FELTRINELLI;18976;;;19173;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:52:17.592777+01
+105995;9788807034992;Lo sguardo all'indietro;;68;I Narratori;2022-07-05;2022-06-23;major;GGF;FELTRINELLI;5134;;;"158836;7770";;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 19:22:40.161211+01
+106140;9788807034985;La banda dei colpevoli;Gli insospettabili 3;68;I Narratori;2022-07-05;2022-06-23;major;GGF;FELTRINELLI;7824;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 19:21:31.733944+01
+106150;9788807174094;Infiammazione;Medicina, conflitto e disuguaglianza;74;Serie Bianca;2022-04-28;2022-04-14;major;GGF;FELTRINELLI;"19038;1000870";;;156126;;apr-22;2022-01-01;2022-03-15 13:34:48.144361+01
+106283;9788807034978;La casa del tè;;68;I Narratori;2022-05-26;2022-05-16;major;GGF;FELTRINELLI;19056;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:18:08.161297+01
+106305;9788850335947;Data Analytics per tutti;Imparare ad analizzare, visualizzare e raccontare i dati;16;Guida completa;2022-03-17;2022-03-07;major;Apogeo;APOGEO;7553;;;;;Gennaio-Febbraio-Marzo 2022;2022-01-01;2022-03-14 18:15:07.431432+01
+106339;9788807551093;Gli ultimi giorni di luce di Billie Scott;;855;Feltrinelli Comics;;;major;GGF;FELTRINELLI;19079;;;7655;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:49:42.652814+01
+106368;9788858030721;Il grande kit della magia (nuova scatola);;612;Giochi creativi;2021-11-04;2021-10-22;major;Gribaudo;GRIBAUDO;;;;;;Ottobre - Novembre 2021;2021-01-07;2022-03-10 16:29:20.472129+01
+106555;9788807896705;Milindapanha;Le radici della saggezza buddhista;101;Universale Economica Oriente;;;economica;GGF;FELTRINELLI;;"10008459;14155";;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 19:09:15.827505+01
+106748;9788807034909;La stanza delle mele;;68;I Narratori;2022-04-07;2022-03-28;major;GGF;FELTRINELLI;7992;;;;;apr-22;2022-01-01;2022-03-14 16:16:20.556507+01
+106801;9788807896439;Sogni di robot;Racconti;1084;Universale economica - Il Saggiatore;2022-04-28;2022-04-14;economica;GGF;FELTRINELLI;19195;;;;;apr-22;2022-01-01;2022-03-14 16:16:20.826195+01
+106803;9788807896651;Visioni di robot;;1084;Universale economica - Il Saggiatore;;;economica;GGF;FELTRINELLI;19195;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 19:06:04.156576+01
+106821;9788807896453;Nottuario;;1084;Universale economica - Il Saggiatore;2022-04-28;2022-04-14;economica;GGF;FELTRINELLI;19204;;;;;apr-22;2022-01-01;2022-03-14 16:16:20.813861+01
+106852;9788807174131;I Calabresi già si sono mossi;La ’Ndrangheta nelle stragi;74;Serie Bianca;2022-05-19;2022-05-09;major;GGF;FELTRINELLI;19211;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-10 19:18:50.221036+01
+106936;9788807896033;Della gentilezza e del coraggio;Breviario di politica e altre cose;97;Universale Economica;2022-03-31;2022-03-21;economica;GGF;FELTRINELLI;7911;;;;;Gennaio-febbraio-marzo  2022;2022-01-01;2022-03-10 11:17:41.341454+01
+106944;9788807896545;Lontano dagli occhi;;97;Universale Economica;2022-04-28;2022-04-14;economica;GGF;FELTRINELLI;4240;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-14 16:16:20.632152+01
+106980;9788807904196;Lucente stella. Poesie scelte;Testo originale a fronte;109;Universale Economica I Classici;2022-05-12;2022-05-02;economica;GGF;FELTRINELLI;"230158;230158";"161144;161144";;161144;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-15 16:55:55.938773+01
+107071;9788883063565;Rapporto al Greco;;1079;Mediterranea;2022-05-19;2022-05-09;major;Apogeo;CROCETTI;12340;;;12327;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-14 09:46:20.448725+01
+107080;9788807174162;Il tempo dei tiranni;Come Putin, Bolsonaro e gli altri governano il mondo;74;Serie Bianca;;;major;GGF;FELTRINELLI;19236;;;19052;;set-22;2022-09-01;2022-03-16 09:40:30.846777+01
+107086;9788807551024;Tettonica;;855;Feltrinelli Comics;2022-04-21;2022-04-08;major;GGF;FELTRINELLI;"19240;19241";;;;;apr-22;2022-01-01;2022-03-14 16:16:20.477112+01
+107198;9788807091650;Seneca tra gli zombie;Guida filosofica di sopravvivenza al caos;817;Urra Feltrinelli;2022-04-07;2022-03-28;major;GGF;FELTRINELLI;19258;;;;;apr-22;2022-01-01;2022-03-14 16:16:20.965758+01
+107199;9788858039656;Instant architettura;Dall'antichità alle archistar, per capire davvero e in modo semplice il passato, il presente e il futuro del mondo che ci circonda;404;Straordinariamente;2022-05-12;2022-05-02;major;Gribaudo;GRIBAUDO;19259;;;;;Gennaio-febbraio-marzo 2022;2022-01-01;2022-03-11 15:20:00.683173+01
+107372;9788850336081;Il Giovane Imprenditore;Entrare nel mondo degli affari ai tempi della scuola;1096;Saggi;;;major;Apogeo;APOGEO;"19348;19349";;;;;apr-22;2022-04-01;2022-03-13 18:41:31.321873+01
+107486;9788883063596;Il lago.;Viaggio nei Balcani in pace e in guerra;1079;Mediterranea;2022-05-26;2022-05-16;major;Apogeo;CROCETTI;19309;;;19412;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-14 09:46:20.458143+01
+107524;9788807896354;Il dolce domani;;97;Universale Economica;2022-04-07;2022-03-28;economica;GGF;FELTRINELLI;265057;;;1001103;;apr-22;2022-01-01;2022-03-14 16:16:20.670111+01
+107527;9788807896361;Io e Mr Wilder;;97;Universale Economica;2022-04-21;2022-04-08;economica;GGF;FELTRINELLI;207085;;;156262;;apr-22;2022-01-01;2022-03-14 16:16:20.657188+01
+107532;9788807493195;Un amore partigiano;;84;Varia;2022-04-21;2022-04-08;major;GGF;FELTRINELLI;"19313;5746";;;;;apr-22;2022-01-01;2022-03-14 16:16:20.991656+01
+107534;9788807923715;Tutta colpa della coda;;723;Feltrinelli Kids;2022-05-12;2022-05-02;major;GGF;FELTRINELLI;19314;;;;19314;apr-22;2022-01-01;2022-03-16 09:21:52.008203+01
+107538;9788807923685;Non ci sto!;I bambini contro l'illegalità;723;Feltrinelli Kids;2022-05-12;2022-05-02;major;GGF;FELTRINELLI;19315;;;;;apr-22;2022-01-01;2022-03-16 09:17:40.354773+01
+107556;9788807896347;Diavoli custodi;;97;Universale Economica;2022-04-21;2022-04-08;economica;GGF;FELTRINELLI;"157349;6102";;;;6102;apr-22;2022-01-01;2022-03-16 10:31:37.12665+01
+107560;9788807896385;Come il mare in un bicchiere;;97;Universale Economica;2022-04-21;2022-04-08;economica;GGF;FELTRINELLI;4948;;;;;apr-22;2022-01-01;2022-03-14 16:16:20.644725+01
+107562;9788807904127;La casa in collina;;109;Universale Economica I Classici;2022-04-21;2022-04-08;economica;GGF;FELTRINELLI;7100;;19316;;;apr-22;2022-01-01;2022-03-16 10:34:35.730639+01
+107564;9788807904158;America;;784;Universale Economica I Classici Ristampa in prenotazione;2022-04-21;2022-04-08;economica;GGF;FELTRINELLI;201391;;;"271397;271398;271396";;apr-22;2022-01-01;2022-03-16 10:29:12.281909+01
+107567;9788883063602;Anabasi;;1058;Poesia;;;major;Apogeo;CROCETTI;19317;;;19413;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:41:31.289151+01
+107568;9788807904165;Misura per misura;Testo originale a fronte;784;Universale Economica I Classici Ristampa in prenotazione;2022-04-28;2022-04-14;economica;GGF;FELTRINELLI;221379;159918;;159918;;apr-22;2022-01-01;2022-03-14 16:16:20.785437+01
+107581;9788883063169;Vento nelle mani degli uomini;;1058;Poesia;2022-04-21;2022-04-08;major;Apogeo;CROCETTI;19320;;;;;apr-22;2022-04-01;2022-03-16 12:00:12.721627+01
+107583;9788883063510;Amore mio infinito;;1079;Mediterranea;2022-04-21;2022-04-08;major;Apogeo;CROCETTI;11454;;;;;apr-22;2022-04-01;2022-03-15 12:50:17.252799+01
+107586;9788858039946;Scienziati;Alla scoperta delle menti che hanno cambiato il mondo;613;Enciclopedie per ragazzi;2022-03-17;2022-03-07;major;Gribaudo;GRIBAUDO;;;;;;apr-22;2021-10-19;2022-03-11 11:42:02.033486+01
+107589;9788807896279;L'amico ritrovato;;941;Universale Economica Ragazzi;2022-04-07;2022-03-28;economica;GGF;FELTRINELLI;261672;;;156262;12407;apr-22;2022-01-01;2022-03-14 16:16:20.876299+01
+107601;9788850336074;XML per tutti;Imparare il linguaggio di marcatura per la gestione dei dati;16;Guida completa;2022-03-17;2022-03-07;major;Apogeo;APOGEO;1408;;;;;apr-22;2022-04-01;2022-03-14 18:15:07.443239+01
+107632;9788858040133;Il principe e il povero;;749;Vola la pagina;2022-04-07;2022-03-28;major;Gribaudo;GRIBAUDO;261563;;;;;apr-22;2021-10-19;2022-03-10 15:11:24.103205+01
+107643;9788858040027;Alza la testa;La Resistenza narrata ai bambini;904;Albi illustrati;2022-04-07;2022-03-28;major;Gribaudo;GRIBAUDO;499972;;;;19366;apr-22;2021-10-19;2022-03-10 14:45:52.27174+01
+107646;9788858040089;Le sei storie delle emozioni;;836;Facile!;2022-03-17;2022-03-07;major;Gribaudo;GRIBAUDO;2191;;;;2190;apr-22;2021-10-19;2022-03-10 12:09:28.315935+01
+107650;9788858040072;Le sei storie scacciapaura;;836;Facile!;2022-03-17;2022-03-07;major;Gribaudo;GRIBAUDO;5635;;;;19358;apr-22;2021-10-19;2022-03-10 12:25:50.362234+01
+107654;9788858040249;Cucina essenziale, semplice e consapevole;The bluebird kitchen;703;Sapori e fantasia;2022-04-28;2022-04-14;major;Gribaudo;GRIBAUDO;19328;;;;;apr-22;2021-10-19;2022-03-15 12:29:48.290604+01
+107656;9788858040119;Gerard English Club;Il pronto soccorso per parlare inglese in ogni situazione, fin da subito;404;Straordinariamente;2022-05-12;2022-05-02;major;Gribaudo;GRIBAUDO;19329;;;;;apr-22;2021-10-19;2022-03-11 15:20:48.151032+01
+107673;9788807923692;In volo con mamma;;723;Feltrinelli Kids;2022-05-12;2022-05-02;major;GGF;FELTRINELLI;5870;;;;19448;apr-22;2022-01-01;2022-03-16 09:20:52.451645+01
+107674;9788807923661;L'estate dei ribelli;Una storia della Resistenza;723;Feltrinelli Kids;2022-04-21;2022-04-08;major;GGF;FELTRINELLI;19333;;;;12386;apr-22;2022-01-01;2022-03-14 16:16:20.506435+01
+107744;9788850336111;Marketing e PR;Le nuove regole per raggiungere il pubblico e comunicare con le persone;16;Guida completa;;;major;Apogeo;APOGEO;19347;;;;;apr-22;2022-04-01;2022-03-13 18:41:31.269406+01
+107829;9788807904172;Orestea;Agamennone - Coefore - Eumenidi;109;Universale Economica I Classici;2022-06-14;2022-06-01;economica;GGF;FELTRINELLI;216237;3226;;3226;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-15 16:59:20.20218+01
+107836;9788807174155;Aprite gli occhi;La mia lotta per dare una voce alla crisi climatica;74;Serie Bianca;2022-05-12;2022-05-02;major;GGF;FELTRINELLI;19368;;;19052;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-15 10:56:37.87045+01
+107838;9788807923746;Storie fantastiche delle vacanze;;723;Feltrinelli Kids;2022-05-26;2022-05-16;economica;GGF;FELTRINELLI;201391;;;154360;19496;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:21:40.807603+01
+107839;9788807896484;Come vivo ora;;941;Universale Economica Ragazzi;2022-05-26;2022-05-16;economica;GGF;FELTRINELLI;1000468;;;1000469;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:27:18.872647+01
+107843;9788807896477;Pappagalli verdi;Cronache di un chirurgo di guerra;941;Universale Economica Ragazzi;;;economica;GGF;FELTRINELLI;258789;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 19:02:41.980329+01
+107849;9788807896576;Apeirogon;;97;Universale Economica;;;economica;GGF;FELTRINELLI;7900;;;7993;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:36:26.89552+01
+107855;9788807070549;Gravianos;da definire;802;Feltrinelli Fuochi;2022-05-12;2022-05-02;major;GGF;FELTRINELLI;12591;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-15 14:46:46.528453+01
+107862;9788807174117;La sfida verde;Diritto al lavoro o diritto alla salute?;74;Serie Bianca;2022-05-26;2022-05-16;major;GGF;FELTRINELLI;19369;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:18:18.544109+01
+107863;9788807896569;Lettere d'amore da Montmartre;;97;Universale Economica;;;economica;GGF;FELTRINELLI;4102;;;2752;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 19:08:05.188474+01
+107866;9788807105647;La speranza progettuale;Ambiente e società;77;Campi Del Sapere;2022-04-28;2022-04-14;major;GGF;FELTRINELLI;176688;"7753;205730";"7753;197555";;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-16 09:42:52.632808+01
+107873;9788807896613;Chi ha peccato;;103;Universale Economica Noir;;;economica;GGF;FELTRINELLI;12370;;;18940;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:57:23.82143+01
+107878;9788807896781;L'Italia in guerra;1915-1918. Niente sarà come prima;941;Universale Economica Ragazzi;2022-05-12;2022-05-02;economica;GGF;FELTRINELLI;10008482;;;;5532;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-09 14:34:08.849804+01
+107883;9788807896620;Il testimone chiave;Le indagini di Anna Melissari. 2;103;Universale Economica Noir;;;economica;GGF;FELTRINELLI;7824;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:56:53.767493+01
+107900;9788807896606;Pista letale;Le indagini del commissario Courrèges;103;Universale Economica Noir;;;economica;GGF;FELTRINELLI;5968;;;1000407;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:57:56.003682+01
+107904;9788807896675;Tutte le vite di Spinoza;Amsterdam 1677: l'invenzione della libertà;571;Universale Economica Saggi Rossi;;;economica;GGF;FELTRINELLI;7694;;;7588;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:35:58.34103+01
+107906;9788807035029;Gli oscuri resti;Le indagini di Laidlaw;68;I Narratori;2022-07-05;2022-06-23;major;GGF;FELTRINELLI;"19371;4783";;;4816;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 19:22:19.820109+01
+107913;9788807896590;Ombre su Berlino;La prima inchiesta di Gereon Rath;103;Universale Economica Noir;;;economica;GGF;FELTRINELLI;6052;;;"6069;6068";;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:58:22.075677+01
+107965;9788883063558;Poesie sulla spiaggia;;1058;Poesia;2022-05-19;2022-05-09;major;Apogeo;CROCETTI;;"12327;12492";;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-14 09:46:20.466652+01
+108049;9788807896729;Il mastino dei Baskerville;;1076;Universale economica Ragazzi I Classici;2022-05-26;2022-05-16;economica;GGF;FELTRINELLI;10832;;;10008547;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 17:28:31.741122+01
+108105;9788850336128;Imparare a programmare robot;Costruire robot dotati di intelligenza artificiale con Raspberry Pi e Python;16;Guida completa;2022-05-12;2022-05-02;major;Apogeo;APOGEO;19421;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-16 09:18:18.23941+01
+108107;9788850336210;Code;Il linguaggio segreto dei computer e del software;16;Guida completa;;;major;Apogeo;APOGEO;19514;;;;;set-22;2022-09-01;2022-03-14 16:32:39.427207+01
+108112;9788850336197;La meravigliosa fotografia di tutti i giorni;Risveglia la creatività e cattura immagini straordinarie dietro l'angolo;1095;Fotografia;2022-05-26;2022-05-16;major;Apogeo;APOGEO;"19425;19424";;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-16 09:18:18.231597+01
+108147;9788850336135;Dare un prezzo alle cose;Strategie di vendita e idee per il giusto pricing online, in fiera, in negozio;1096;Saggi;2022-05-12;2022-05-02;major;Apogeo;APOGEO;19422;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-16 09:18:18.256431+01
+109643;9788850336142;L'arte del profitto;Trasformare un'azienda mangia soldi in una macchina genera guadagni;1096;Saggi;;;major;Apogeo;APOGEO;19423;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:41:31.313542+01
+109692;9788883063176;Poesia Nuova Serie nr. 13;maggio-giugno 2022;1057;Rivista Poesia;;;major;Apogeo;CROCETTI;1988;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 18:41:31.305363+01
+109765;9788807493263;Senior Service;Nuova edizione;84;Varia;2022-03-10;2022-02-28;major;GGF;FELTRINELLI;217509;;;;;Gennaio-febbraio-marzo  2022;2022-01-01;2022-03-09 13:01:29.302058+01
+109922;9788807035050;Le inchieste degli insospettabili;Gli insospettabili - Il testimone chiave;68;I Narratori;2022-07-05;2022-06-23;major;GGF;FELTRINELLI;7824;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-13 19:15:05.743338+01
+109933;9788807035067;Flashback;;68;I Narratori;;;major;GGF;FELTRINELLI;207682;;;;;set-22;2022-09-01;2022-03-16 09:41:55.620402+01
+110138;9788807896811;Dead Lions. In bocca al lupo;Le indagini di Jackson Lamb;103;Universale Economica Noir;2022-04-28;2022-04-14;economica;GGF;FELTRINELLI;6100;;;4816;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-14 16:16:20.838892+01
+110142;9788807896828;Slow horses. Un covo di bastardi;Le indagini di Jackson Lamb;1090;Universale economica Noir Ristampa in prenotazione;2022-04-28;2022-04-14;economica;GGF;FELTRINELLI;6100;;;4816;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-14 16:16:20.851336+01
+110170;9788807493300;Sotto il Vulcano. Idee/Narrazioni/Immaginari. Rivista trimestrale. nr. 4;luglio-settembre 2022;84;Varia;;;major;GGF;FELTRINELLI;1988;8353;;;4553;set-22;2022-09-01;2022-03-16 09:58:04.286966+01
+110236;9788807897030;Salvezza. ...A casa nostra. Cronaca da Riace;;97;Universale Economica;;;economica;GGF;FELTRINELLI;"6138;6139";;;;;set-22;2022-09-01;2022-03-09 18:10:58.13681+01
+110255;9788807493324;Lì dentro;Cosa sono diventati gli italiani nei social;84;Varia;2022-04-28;2022-04-14;major;GGF;FELTRINELLI;1001082;;;;;Maggio-Giugno-Luglio 2022;2022-05-01;2022-03-14 16:16:21.004675+01
+110274;9788858042175;Alza la testa La Resistenza narrata ai bambini ALLEGATI;;;;;;major;Gribaudo;GRIBAUDO;;;;;;;;2022-03-10 14:47:16.740712+01
+110351;9788850336241;Il libro rosso del marketing;I tre ingredienti che guidano al successo;1096;Saggi;;;major;Apogeo;APOGEO;"19532;19531";;;;;set-22;2022-09-01;2022-03-14 16:02:39.742085+01
+110359;9788807923807;Magica Milla;;723;Feltrinelli Kids;2022-05-12;2022-05-02;major;GGF;FELTRINELLI;19337;;;;5871;apr-22;2022-01-01;2022-03-16 09:13:12.851767+01
+110405;9788807897023;Il vizio della memoria;;606;Universale Economica Ristampa in prenotazione;;;economica;GGF;FELTRINELLI;207544;;;;;;;2022-03-15 10:21:45.011499+01
+110479;9788858042687;Il cammino di Santiago in cento storie;;;;;;major;Gribaudo;GRIBAUDO;;;;;;;;2022-03-14 10:21:42.311409+01

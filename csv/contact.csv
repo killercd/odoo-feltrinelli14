@@ -1,0 +1,694 @@
+id;cognome;nome;ruoli
+269;Osho;;AUTORE
+771;Restani;Daria;TRADUTTORE
+1408;Canducci;Massimo;AUTORE
+1641;Del Soldà;Pietro;AUTORE
+1962;Camerini;Valentina;AUTORE
+1982;Sala;Virginio B.;"AUTORE;PREFATORE;TRADUTTORE"
+1988;VV.;AA.;"AUTORE;TRADUTTORE"
+2030;Montanaro;Giovanni;"AUTORE;PREFATORE"
+2200;Provantini;Silvia;"AUTORE;ILLUSTRATORE"
+2215;Casali;Lisa;AUTORE
+2742;Poli;Cinzia;TRADUTTORE
+2780;Recalcati;Massimo;"AUTORE;PREFATORE"
+3143;Borghello;Giampaolo;AUTORE
+3226;Greco;Giovanni;"AUTORE;CURATORE;TRADUTTORE"
+3565;Matteo;Salvo;AUTORE
+3751;Heine;Heinrich;AUTORE
+4129;Freschi;Valentina;TRADUTTORE
+4134;de Kerangal;Maylis;AUTORE
+4135;Baiocchi;Maria;TRADUTTORE
+4200;Peri;Francesco;TRADUTTORE
+4240;Di Paolo;Paolo;"AUTORE;CURATORE"
+4312;Pranzetti Lombardini;Laura;"AUTORE;CURATORE"
+4330;Verne;Jules;AUTORE
+4331;Revelli;Marco;PREFATORE
+4336;Sacchini;Stella;"CURATORE;TRADUTTORE"
+4352;Bajani;Andrea;"AUTORE;PREFATORE"
+4451;Da Ros;Emanuela;AUTORE
+4553;DA DEFINIRE;;"AUTORE;CURATORE;ILLUSTRATORE;PREFATORE;TRADUTTORE"
+4670;Lallemand;Orianne;"AUTORE;ILLUSTRATORE"
+4671;Thuillier ;Éléonore;"AUTORE;ILLUSTRATORE"
+4759;Antonelli;Sara;"AUTORE;CURATORE;TRADUTTORE"
+4816;Colitto;Alfredo;TRADUTTORE
+4827;Cingoli;Lorenza;AUTORE
+4837;Forti;Martina;AUTORE
+4863;Nocentini;Gabriella;TRADUTTORE
+4901;Stella;Gaia;ILLUSTRATORE
+4948;Gamberale;Chiara;"AUTORE;PREFATORE"
+5051;Ricuperati;Gianluigi;AUTORE
+5065;Brontë;Charlotte;AUTORE
+5096;Sghirinzetti;Marta ;TRADUTTORE
+5134;Vásquez;Juan Gabriel;AUTORE
+5160;Recanatini;Simona;"AUTORE;CURATORE"
+5161;Sassi;Sonia;AUTORE
+5221;Borca;Deborah;"CURATORE;TRADUTTORE"
+5222;Zanetto;Giuseppe;AUTORE
+5303;Wharton;Edith;AUTORE
+5354;Pe';Francesca;TRADUTTORE
+5379;Llenas;Anna;"AUTORE;ILLUSTRATORE"
+5395;Barzun;Jacques;PREFATORE
+5436;Faraci;Tito;"AUTORE;CURATORE"
+5457;Scarlini;Luca;AUTORE
+5464;Cottarelli;Carlo ;AUTORE
+5485;Corbellini;Gilberto;AUTORE
+5528;Ciccarella;Emanuele;TRADUTTORE
+5530;Plescia;Iolanda;"CURATORE;TRADUTTORE"
+5532;Berton;Matteo;ILLUSTRATORE
+5621;Rosen;Michael;AUTORE
+5622;Draper;Sharon M.;AUTORE
+5632;Prodon;Federico;AUTORE
+5635;Cima;Lodovica;"AUTORE;CURATORE"
+5692;Casolo ;Francesco ;AUTORE
+5746;Vecchio;Concetto;AUTORE
+5751;Prettyman;Steve;AUTORE
+5812;Shimazaki;Aki;AUTORE
+5828;Montgomery;Ross ;AUTORE
+5844;Nieto Guridi;Raúl ;ILLUSTRATORE
+5870;Rizzi ;Valentina;AUTORE
+5871;Carabelli;Francesca;ILLUSTRATORE
+5883;Marone;Lorenzo;AUTORE
+5903;Duckett;Jon;AUTORE
+5930;Cappellini;Elena;TRADUTTORE
+5982;Saunders;George;AUTORE
+5983;Mennella;Cristiana;TRADUTTORE
+5984;d'Eramo;Marco;AUTORE
+6085;Dolfi;Laura;CURATORE
+6087;Postorino ;Rosella;AUTORE
+6100;Herron;Mick;AUTORE
+6101;Amatori;Franco;"CURATORE;PREFATORE"
+6102;Mendini;Alessandro;"AUTORE;ILLUSTRATORE"
+6134;Lee;Andy;AUTORE
+6192;Lipovetsky;Gilles;AUTORE
+6277;Magris;Claudio;"AUTORE;PREFATORE"
+7100;Pavese;Cesare;AUTORE
+7124;Blom;Philipp;AUTORE
+7334;Mounk;Yascha;AUTORE
+7339;Castaldi ;Paolo ;"AUTORE;ILLUSTRATORE"
+7372;Eilenberger;Wolfram;AUTORE
+7428;Merlin Defanti;Stella;AUTORE
+7436;Cuniberto;Flavio;TRADUTTORE
+7455;Manara ;Milo;AUTORE
+7468; Tassinari;Simonetta;AUTORE
+7469;Labadessa;Mattia;AUTORE
+7500;Assirelli;Francesca;ILLUSTRATORE
+7553;De Mauro;Andrea;AUTORE
+7559;Bellotti;Elisa;ILLUSTRATORE
+7583;Caluri;Daniele;AUTORE
+7584;Pagani;Emiliano;AUTORE
+7601;Orwell;George;AUTORE
+7621;Ginzberg;Siegmund;AUTORE
+7625;Bouvier;Nicolas;AUTORE
+7626;Vernet;Thierry;ILLUSTRATORE
+7632;Tonelli;Guido;AUTORE
+7655;Battaglia;Boris;"PREFATORE;TRADUTTORE"
+7657;Franco;Barbara;"AUTORE;CURATORE"
+7707;Benjamin;Walter;AUTORE
+7720;Baldi;Massimo;TRADUTTORE
+7732;Ortolani;Leo;"AUTORE;ILLUSTRATORE"
+7753;Riccini;Raimonda;"CURATORE;PREFATORE"
+7761;Liberatore;Tanino;"AUTORE;ILLUSTRATORE"
+7770;Sacchi;Michele;TRADUTTORE
+7774;Sagramola;Giulia;ILLUSTRATORE
+7784;Ferrari;Gian Arturo;AUTORE
+7793;Nobile;Gabriella;AUTORE
+7807;Torregrossa;Giuseppina;AUTORE
+7826;Renner;Benjamin;ILLUSTRATORE
+7907;Cerri;Claudio;"AUTORE;ILLUSTRATORE"
+7911;Carofiglio;Gianrico;AUTORE
+7914;Timm;Uwe;AUTORE
+7915;Pira;Dottor;AUTORE
+7920;Gnocchi;Laura;CURATORE
+7964;Borini;Alessandro;TRADUTTORE
+7965;Gorla;Valeria;TRADUTTORE
+7966;Milton Knowles;Samanta K.;TRADUTTORE
+7969;Mankell;Henning;AUTORE
+7970;Puleo;Giorgio;TRADUTTORE
+7971;Illies;Florian;AUTORE
+7974;Morando;Enrico;AUTORE
+7975;Tonini;Giorgio;AUTORE
+7992;Righetto;Matteo;AUTORE
+8291;Pavolini;Lorenzo;AUTORE
+8312;De Toni;Alberto F.;"AUTORE;CURATORE;PREFATORE"
+8323;Cremonesi;Fabio;TRADUTTORE
+8338;De Michelis;Cesare;";AUTORE;CON_TESTI_DI;CURATORE;INTRODUZIONE;PREFATORE;PREFAZIONE"
+8340;D'Avino;Maria Valeria;TRADUTTORE
+8341;Adler-Olsen;Jussi;";AUTORE"
+8345;Farinetti;Gianni;AUTORE
+8346;Marklund;Liza;AUTORE
+8347;Qiu;Xiaolong;";AUTORE"
+8352;Butler;Nickolas;AUTORE
+8356;Zolla;Elémire;"AUTORE;CURATORE"
+8360;Marchianò;Grazia;"CURATORE;INTRODUZIONE"
+8361;De Simone;Annalisa;AUTORE
+8362;Parolini;Maura;"AUTORE;TRADUTTORE"
+8363;Curtoni;Matteo;TRADUTTORE
+8364;Miller;Madeline;AUTORE
+8365;Bienati;Luisa;"AUTORE;CURATORE;TRADUTTORE"
+8376;Ravatn;Agnes;AUTORE
+8377;Ferrari;Alessia;TRADUTTORE
+8378;Sten;Viveca;AUTORE
+8379;Cosimini;Silvia;TRADUTTORE
+8380;Jónasson;Ragnar;AUTORE
+8383;Rossari;Marco;"PREFATORE;TRADUTTORE"
+8389;Isotta;Paolo;"AUTORE;PREFAZIONE"
+8397;Sessi;Frediano;"AUTORE;CURATORE;INTRODUZIONE;PREFAZIONE;TRADUTTORE"
+8400;Fini;Massimo;"AUTORE;PREFAZIONE"
+8403;Merlo;Francesco;AUTORE
+8405;Guay-Poliquin;Christian;AUTORE
+8407;Veneziani;Marcello;AUTORE
+8408;Mingardi;Alberto;AUTORE
+8412;Baccomo Duchesne;Federico;";AUTORE"
+8418;Valvo;Eva;TRADUTTORE
+8428;Valensise;Marina;AUTORE
+8429;Zavagna;Giulia;TRADUTTORE
+8430;Flores;Paulina;AUTORE
+8443;Lorenzetto;Stefano;AUTORE
+8451;de Beaumont;Gaia;"AUTORE;TRADUTTORE"
+8453;Lamberti;Ginevra;"AUTORE;TRADUTTORE"
+8456;van den Brink;H.M.;AUTORE
+8460;Cocco & Magella;;AUTORE
+8464;Franchini;Antonio;"AUTORE;PREFAZIONE"
+8471;Folin;Alberto;"AUTORE;CON_TESTI_DI;CURATORE;TRADUTTORE"
+8472;Cascio;Gandolfo;"AUTORE;CURATORE;INTRODUZIONE;PREFATORE"
+8474;Armocida;Pedro;CURATORE
+8481;Cacopardo;Domenico;AUTORE
+8483;Lupo;Giuseppe;AUTORE
+8484;Pressburger;Nicola;AUTORE
+8488;Ghinelli;Lorenza;AUTORE
+8489;Letizia;Claudia Valeria;TRADUTTORE
+8498;Ieranò;Giorgio;AUTORE
+8500;Necci;Alessandra;AUTORE
+8506;Fatland;Erika;AUTORE
+8530;Facci;Filippo;AUTORE
+8531;Stein;Jesper;AUTORE
+8533;Breda;Marzio;AUTORE
+8535;Baratta;Paolo;AUTORE
+8538;Masini;Beatrice;"AUTORE;INTRODUZIONE"
+8541;Avoledo;Tullio;AUTORE
+8545;Truc;Olivier;AUTORE
+8550;Zagarrio;Vito;";AUTORE;CURATORE"
+8552;Raimondi;Valeria;TRADUTTORE
+8556;Uva;Christian;"AUTORE;CURATORE"
+8557;Favaro;Roberto;AUTORE
+8567;Graham;Winston;AUTORE
+8568;Genisi;Gabriella;AUTORE
+8570;Franchi;Paolo;AUTORE
+8578;Feltri;Mattia;"AUTORE;CURATORE"
+8589;Berg;Mattias;AUTORE
+8602;Magrì;Marinella;TRADUTTORE
+8621;Sorgi;Marcello;AUTORE
+8622;Pendinelli;Mario;AUTORE
+8626;Verasani;Grazia;AUTORE
+8631;Piovan;Giuliano;AUTORE
+8632;Giliberto;Franco;AUTORE
+8633;Teruzzi;Rosa;AUTORE
+8634;Fontana;Giovanni Luigi;CURATORE
+8636;Lunde;Maja;AUTORE
+8637;Stein;Gertrude;AUTORE
+8642;Peluffo;Gianluca;AUTORE
+8659;Ritsos;Yannis;AUTORE
+8673;Lindqvist;John Ajvide;AUTORE
+8674;Fiorentino;Francesco;"AUTORE;CURATORE;INTRODUZIONE"
+8734;Marini;Daniele;"AUTORE;CURATORE"
+8758;Brunetta;Gian Piero;"AUTORE;CURATORE"
+8775;Sarasso;Simone;AUTORE
+8812;Montanelli;Indro;"AUTORE;PREFATORE;PREFAZIONE"
+8892;Gradowski;Salmen;AUTORE
+8932;Persson;Leif GW;AUTORE
+9014;Farina;Renato;AUTORE
+9042;Sem-Sandberg;Steve;AUTORE
+9055;Alvi;Geminello;"AUTORE;PREFATORE;PREFAZIONE"
+9193;Matthieussent;Brice;AUTORE
+9242;Ficara;Giorgio;AUTORE
+9285;Serra;Maurizio;AUTORE
+9303;Dahl;Kjell Ola;AUTORE
+9354;Jandelli;Cristina;AUTORE
+9384;Ghigi;Giuseppe;"AUTORE;CURATORE"
+9393;Franco;Cristiana;CURATORE
+9404;Denis Curti;;"AUTORE;CURATORE"
+9421;Gorbacëv;Michail;AUTORE
+9448;Antonini;Luca;AUTORE
+9549;Bassolino;Antonio;AUTORE
+9566;Barone;Caterina;CURATORE
+9677;Yeats;William Butler;AUTORE
+9714;Bruck;Edith;AUTORE
+9719;Monteleone;Franco;"AUTORE;CURATORE"
+9738;Caon;Fabio;AUTORE
+9860;Scali;Alessandra;TRADUTTORE
+9946;Corrado Augias;;PREFATORE
+9954;Melchiorre;Matteo;AUTORE
+10010;De Carolis;Chetro;TRADUTTORE
+10021;Rusconi;Anna;TRADUTTORE
+10042;Marchianò;Grazie;CURATORE
+10114;Forlani;Stefania;TRADUTTORE
+10115;Schulman;Ninni;AUTORE
+10133;Luca Zaia;;AUTORE
+10137;Sveen;Gard;AUTORE
+10155;Carabba;Carlo;AUTORE
+10169;Pillon;Giulia;TRADUTTORE
+10189;Murgia;Michela;AUTORE
+10190;Giammei;Alessandro;";CURATORE"
+10215;Maldini;Sergio;AUTORE
+10229;Florenskij;Pavel A.;AUTORE
+10248;Ferrara;Giuliano;"AUTORE;INTRODUZIONE;PREFAZIONE"
+10256;Cossu;Giulio;AUTORE
+10305;Strauss;Leo;AUTORE
+10442;Villiers de l'Isle-Adam;Philippe Auguste;AUTORE
+10466;Akutagawa;Ryunosuke;AUTORE
+10607;Scarpi;Paolo;CURATORE
+10673;Marlowe;Christopher;AUTORE
+10832;Doyle;Arthur Conan;AUTORE
+10845;Pestelli;Giorgio;"AUTORE;PREFATORE"
+10917;Bernardi;Sandro;"AUTORE;CURATORE"
+11402;Purini;Franco;"AUTORE;PREFAZIONE"
+11503;Minuzzi;Sabrina;CURATORE
+11542;Campi;Alessandro;"AUTORE;CURATORE"
+11874;De Gaetano;Roberto;AUTORE
+11913;Pantzar;Katja;AUTORE
+11922;Grandi;Daniela;AUTORE
+11938;Axe;Josh;AUTORE
+11939;Vitale;Paola;TRADUTTORE
+11954;Woodiwiss;Kathleen E.;AUTORE
+12097;Navarro;Joe;AUTORE
+12132;Vori;Raffaella;TRADUTTORE
+12133;Maioli;Maura;TRADUTTORE
+12233;Goodwin;Daisy;AUTORE
+12234;Di Luzio;Alessandra;TRADUTTORE
+12269;Jónsdóttir;Sólveig;AUTORE
+12277;Jaubert;Elodie-Joy;AUTORE
+12293;Serafini Prosperi;Giorgio;AUTORE
+12315;Ypi;Lea;AUTORE
+12316;Parrella;Valeria;"AUTORE;PREFATORE"
+12318;Azzolini;Luca;AUTORE
+12356;Augias;Corrado;AUTORE
+12357;Frisari;Francesco;CURATORE
+12358;Suber;Micol;CURATORE
+12386;Camporeale;Francesco;ILLUSTRATORE
+12407;Fior;Manuele;ILLUSTRATORE
+12457;Giraldo;Maria Loretta;AUTORE
+12476;Bartoletti;Ivana;";AUTORE;PREFATORE"
+12492;Jovanotti;Lorenzo;"AUTORE;CURATORE;PREFATORE"
+12502;Marsullo;Marco;AUTORE
+12517;Serreli;Silvia;AUTORE
+12543;Francesco Bruno; ;TRADUTTORE
+12555;Ossola;Carlo ;"AUTORE;CURATORE;INTRODUZIONE"
+12591;Deaglio;Enrico;AUTORE
+12613;Veltroni;Walter;AUTORE
+12652;Forcellini;Paolo;AUTORE
+12681;Castro;Maurizio;CURATORE
+12683;Lenze;Ulla;AUTORE
+12706;Engberg;Katrine;AUTORE
+12718;Christie;Michael;AUTORE
+12720;Bågstam;Anna;AUTORE
+12722;Martínez;Guillermo;AUTORE
+12723;Modica;Luciano;AUTORE
+12724;Romero;Fulvio Luna;AUTORE
+12729;Zollo;Giuseppe;AUTORE
+12730;Cerni;Enrico;AUTORE
+12732;Omero; ;AUTORE
+12736;Ovidio; ;AUTORE
+12738;Tennyson; ;AUTORE
+12762;Lucetta Scaraffia; ;"AUTORE;INTRODUZIONE"
+12825;James;Henry;AUTORE
+12937;Atwood; ;AUTORE
+12938;Machiavelli; ;AUTORE
+12939;Webster; ;AUTORE
+12940;Plutarco; ;AUTORE
+12984;Euripide; ;AUTORE
+13020;Pascoli; ;AUTORE
+13021;Dallapiccola; ;AUTORE
+13022;Dante; ;AUTORE
+13159;La Fontaine; ;AUTORE
+13168;Luca Zaia; ;PREFAZIONE
+13375;Sofocle; ;AUTORE
+14140;Amlesù;Ida;"AUTORE;TRADUTTORE"
+14141;Foley;Elizabeth;AUTORE
+14142;Coates;Beth;AUTORE
+14150;Paolo Perucci; ;PREFAZIONE
+14156;Danese;Silvio;AUTORE
+14157;Potacqui;Luigi;AUTORE
+14159;Fein;Louise;AUTORE
+14912;Qvortrup;Puk;AUTORE
+14919;Prestia;Nikolai;AUTORE
+14925;Manetti;Daniela;AUTORE
+14928;Tomasello;Dario;AUTORE
+14930;Sarchi;Alessandra;CURATORE
+14931;Petruccioli;Claudio;AUTORE
+14933;Ferracchiati;Liv;AUTORE
+14947;Della Seta;Valentina;AUTORE
+14950;Shellenberger;Michael;AUTORE
+14951;Soncini;Guia;AUTORE
+14952;Foa;Anna;AUTORE
+14956;Santoro;Michele;AUTORE
+16061;Afrifa;Viola;AUTORE
+16062;Ricci;Valentina;AUTORE
+16063;Rimondi;Romana;ILLUSTRATORE
+16064;Jannini;Emmanuele Angelo Francesco;AUTORE
+16065;Poggiogalle;Eleonora;AUTORE
+16068;Fellus;Gabrielle;AUTORE
+16069;Stinson;Barney;AUTORE
+16070;Spisni;Enzo;AUTORE
+16071;Veronesi;Giulia;AUTORE
+16190;Viola;Antonella;AUTORE
+17435;Muñoz Morales;Rocío;AUTORE
+17585;Mieli;Mario;AUTORE
+17589;Läckberg;Camilla;AUTORE
+17590;Cangemi;Laura;TRADUTTORE
+17611;Roversi;Paolo;AUTORE
+17613;Zaccaria;Giuseppe;
+17614;Pressburger;Giorgio;AUTORE
+17616;Gnoli;Antonio;AUTORE
+17641;Cotto;Massimo;AUTORE
+17648;Deaglio;Enrico;AUTORE
+17650;Cangemi;Laura;TRADUTTORE
+17655;Roversi;Paolo;AUTORE
+17656;Blom;Philipp;AUTORE
+17657;Peri;Francesco;TRADUTTORE
+17664;Paterniti;Giovanna;TRADUTTORE
+17665;Bertozzi;Marco;AUTORE
+17668;Läckberg;Camilla;AUTORE
+17673;Roversi;Paolo;AUTORE
+17674;Verasani;Grazia;AUTORE
+17688;Zucchella;Fabio;TRADUTTORE
+17702;Amatori;Franco;INTRODUZIONE
+17703;Isnenghi;Mario;AUTORE
+17707;Zucchella;Fabio;TRADUTTORE
+17795;De Marco;Katia;TRADUTTORE
+17883;Goethe;Johann Wolfgang;AUTORE
+17884;Racine;Jean;AUTORE
+18126;Loewenthal;Elena;TRADUTTORE
+18192;Zucchella;Fabio;TRADUTTORE
+18242;Ciani;Maria Grazia;CURATORE
+18264;Roversi;Paolo;AUTORE
+18276;Zucchella;Fabio;TRADUTTORE
+18668;Ciani;Maria Grazia;AUTORE
+18731;Paterniti;Giovanna;TRADUTTORE
+18903;La bella ;Riccardo;ILLUSTRATORE
+18910;Wright;Charles ;AUTORE
+18915;Trolese;Alessandro;AUTORE
+18916;Morgese ;Roberto;AUTORE
+18917;Snégaroff;Thomas;AUTORE
+18920;Angela;Piero;PREFATORE
+18921;Liotta;Eliana;CURATORE
+18922;Tsumura;Kikuko;AUTORE
+18923;Trionfale;Marco;AUTORE
+18925;Antonelli;Noemi;AUTORE
+18926;Reed Turrell;Emma;AUTORE
+18940;Studio Littera;;TRADUTTORE
+18944;Bonfreschi;Lucia;AUTORE
+18945;Adinolfi;Francesco;AUTORE
+18946;Meucci;Piero;AUTORE
+18951;Hosseini;Khaled;AUTORE
+18953;Wirtemberska;Maria;AUTORE
+18954;Marinelli;Luigi;CURATORE
+18959;Pellas;Francesca;TRADUTTORE
+18961;Grilli;Alessandro;CURATORE
+18973;Piaggio;Alice;ILLUSTRATORE
+18975;Bonotto;Silvia;TRADUTTORE
+18976;Callender;Kacen;AUTORE
+18988;Francini;Antonella;TRADUTTORE
+18998;Ramina;Verdiana;AUTORE
+19000;Guida;Simone;AUTORE
+19003;Frosini;Fabio;CURATORE
+19005;Bittente;Alvise;ILLUSTRATORE
+19009;Salvi;Cesare;AUTORE
+19015;Zatti;Renato;TRADUTTORE
+19016;Culeddu;Sara;TRADUTTORE
+19023;Togawa;Masako;AUTORE
+19024;Hase;Seishu;AUTORE
+19026;Gritti;Maria Chiara;AUTORE
+19028;Razzano;Pier Luigi;AUTORE
+19031;McGill;Melissa;AUTORE
+19033;Ferrario ;Erica;AUTORE
+19037;Kolker ;Robert;AUTORE
+19038;Marya;Rupa;AUTORE
+19040;Frascolla;Pasquale;"CURATORE;TRADUTTORE"
+19041;Wittgenstein;Ludwig;AUTORE
+19043;Gunster;Berthold;AUTORE
+19046;Winn;Raynor;AUTORE
+19052;Rizzo;Chiara;TRADUTTORE
+19056;Principessa;Valerio;AUTORE
+19062;Amaduri;Agnese;AUTORE
+19092;Cereda;Paola;AUTORE
+19093;Nurra;Nicola;AUTORE
+19094;Miller;Donald;AUTORE
+19095;Mallouk;Peter;AUTORE
+19098;Eudocia;;AUTORE
+19099;Spies;Johann;AUTORE
+19100;Calderón de la Barca;Pedro ;AUTORE
+19101;Valéry;Paul;AUTORE
+19107;Sergotti;M. Chiara;"AUTORE;CURATORE"
+19108;Berteotti;Danilo;AUTORE
+19125;Vygotskij;Lev;AUTORE
+19126;Mecacci;Luciano;"CURATORE;TRADUTTORE"
+19134;Teocrito;;AUTORE
+19135;Bione;;AUTORE
+19136;Ronsard;Pierre de;AUTORE
+19138;Fagnoni;Barbara;TRADUTTORE
+19139;Vitucci;Francesco;TRADUTTORE
+19145;Solomon;Maynard;AUTORE
+19149;Saint;Jennifer;AUTORE
+19156;Browne;Charlotte;AUTORE
+19162;Veronesi;Paolo;AUTORE
+19163;Burato;Patrizia;AUTORE
+19164;Innorta;Marina;AUTORE
+19173;Bartocci;Maurizio;TRADUTTORE
+19185;De Rosa;Maurizio;TRADUTTORE
+19191;Petruška;Felix;ILLUSTRATORE
+19195;Asimov ;Isaac ;AUTORE
+19198;De Martini ;Piero ;AUTORE
+19199;Dyer ;Geoff ;AUTORE
+19200;Ereditato ;Antonio ;AUTORE
+19204;Ligotti ;Thomas ;AUTORE
+19206;Mason ;Paul;AUTORE
+19207;Sandal;Massimo;AUTORE
+19208;Stajano ;Corrado ;AUTORE
+19211;Candito;Alessia;AUTORE
+19215;Mian;Emanuel;AUTORE
+19217;Stringer;Claire;TRADUTTORE
+19222;Gor'kij;Maksim;AUTORE
+19228;de Concini;Alessandro;AUTORE
+19232;Klein;Erica;PREFATORE
+19233;Galimberti;Fabio;TRADUTTORE
+19234;Dean;Will;AUTORE
+19235;Ahmad;Imran;AUTORE
+19238;Tedoldi;Giordano;CURATORE
+19240;Portolano;Cristina;AUTORE
+19241;Assirelli;Sofia;AUTORE
+19252;Maspero;Edoardo;AUTORE
+19253;Roncone;Fabrizio;AUTORE
+19255;Pastore;Antonietta;TRADUTTORE
+19258;Dal Ferro;Riccardo;AUTORE
+19259;Virgili;Maria Chiara;AUTORE
+19260;Andreani;Fabiana;AUTORE
+19268;Dagnes;Joselle;CURATORE
+19269;Salento ;Angelo;CURATORE
+19270;Omizzolo;Marco;AUTORE
+19277;Rossman;John;AUTORE
+19279;Peterson;J.J.;AUTORE
+19282;Davis;Harold;AUTORE
+19283;Brown;Robert;AUTORE
+19284;Barrow;Paul;AUTORE
+19285;Barrow;Colin ;AUTORE
+19292;Vidotto;Giulio;CURATORE
+19293;Ghisi;Marta;CURATORE
+19294;Simeone;Ivana;CURATORE
+19296;Dickson;John;AUTORE
+19313;Mancini;Iole;AUTORE
+19314;Di Gravio;Maria Luisa;"AUTORE;ILLUSTRATORE"
+19315;Sarfatti;Anna;AUTORE
+19316;Marchesini;Matteo;CURATORE
+19319;Graziosi;Stefania;AUTORE
+19325;Garofalo;Luigi;CURATORE
+19326;Ceci;Francesca;AUTORE
+19328;Giovannini;Francesca;AUTORE
+19329;Malanca;Gerald;AUTORE
+19333;Racca;Enrico;AUTORE
+19335;Stagnaro;Carlo;AUTORE
+19337;Marsi;Cristina;AUTORE
+19338;Wiest;Brianna;AUTORE
+19342;Kotter;John P.;AUTORE
+19344;Lock;Andrew;AUTORE
+19345;Eviston;Brent;AUTORE
+19346;Wright;Jordana;AUTORE
+19348;Goswami;Swish;AUTORE
+19349;Underwood;Quinn;AUTORE
+19352;Brass;Tinto;AUTORE
+19354;Malnerich;Sarah;AUTORE
+19355;Fiore;Francesca;AUTORE
+19356;Garboli;Cesare;PREFATORE
+19357;Greco;Pietro;PREFATORE
+19359;Gargari;Lulù;AUTORE
+19360;Guarisco;Sebastiano;AUTORE
+19362;Hoskings;Richard;AUTORE
+19366;D'Altan;Paolo;ILLUSTRATORE
+19368;Nakate;Vanessa;AUTORE
+19369;Orlando;Andrea;AUTORE
+19370;Borso ;Dario;CURATORE
+19372;Castelli;Alfredo;AUTORE
+19373;Barbato;Paola;AUTORE
+19374;Troisi;Licia;AUTORE
+19375;Silver;;AUTORE
+19376;Cardini;Franco;AUTORE
+19377;Montesano;Marina;AUTORE
+19389;Asconio;;AUTORE
+19390;Santalucia;Bernardo;CURATORE
+19410;Gianola;Maria;AUTORE
+19422;Dillehay;James;AUTORE
+19431;Cagan;Marty;AUTORE
+19436;Bongiorno;Laura;PREFATORE
+19444;Basconi;Luana;TRADUTTORE
+19446;Grünbein;Durs;AUTORE
+19447;Valenza;Valeria;ILLUSTRATORE
+19448;Fallongo;Cecilia;ILLUSTRATORE
+19458;McKenzie;Heath;ILLUSTRATORE
+19471;Stevenson;Benjamin;AUTORE
+19478;Batori;Susan;AUTORE
+19480;Locantore;Maura;CURATORE
+19484;Saravalle;Alberto;AUTORE
+19487;Plazzi;Andrea;CURATORE
+19488;Natalini;Roberto;CURATORE
+19491;Cecchini;Ombretta;AUTORE
+19492;Lurgo;Ivan;AUTORE
+19493;Matteoli;Michela;AUTORE
+19494;Morini;Massimiliano;"CURATORE;TRADUTTORE"
+19495;Chaucer;Geoffrey;AUTORE
+19496;Marras;Giorgia;ILLUSTRATORE
+19497;Jones;Gayl;AUTORE
+19498;Spampinato;Lorena;AUTORE
+19499;Sheperd;Andy;AUTORE
+19500;Witcher;Moony;AUTORE
+19501;Zaccagnini;Guido;AUTORE
+19504;Doré;Jeanne;CURATORE
+19505;Nucci;Daniele;AUTORE
+19506;Vecchioni;Daniele;AUTORE
+19507;Cioè;Simone;AUTORE
+19508;Erikioba;;AUTORE
+19509;Padovani;Clara;AUTORE
+19510;Padovani;Gigi;AUTORE
+19511;Edwards;Jim;AUTORE
+19512;Simon;Julien;AUTORE
+19513;Galioto;Eugenio;AUTORE
+19514;Petzold;Charles;AUTORE
+19516;Schulz;Adrian;AUTORE
+19517;Rocca;Veronica;AUTORE
+19518;Veggiesituation;;AUTORE
+19519;Petronio;Roberta;AUTORE
+19520;Fusco;Ombretta;AUTORE
+19521;Mannari;Enrica;AUTORE
+19522;Righetto;Matteo;AUTORE
+19523;Patrizi;Giorgio;AUTORE
+19524;Battaglia;Sveva;AUTORE
+19525;Morselli;Raffaella;AUTORE
+19526;Ciammitti;Luisa;AUTORE
+19527;Nazzaro;Giona A.;CURATORE
+153949;Loewenthal;Elena;"AUTORE;CURATORE;TRADUTTORE"
+153988;Amato;Bruno;"CURATORE;TRADUTTORE"
+154011;Amitrano;Giorgio;"AUTORE;TRADUTTORE"
+154178;Melaouah;Yasmina;"CURATORE;TRADUTTORE"
+154360;Bacile di Castiglione;Claudia;"CURATORE;TRADUTTORE"
+154662;Guercetti;Emanuela;"CURATORE;TRADUTTORE"
+155115;Bini;Benedetta;"CURATORE;PREFATORE;TRADUTTORE"
+155166;Bisutti;Donatella;"AUTORE;CURATORE"
+155360;Borghi;Liana;"CURATORE;TRADUTTORE"
+155668;Busi;Aldo;"AUTORE;CONTRIBUTI;PREFATORE;TRADUTTORE"
+155936;Cangemi;Laura;TRADUTTORE
+156126;Carlotti;Giancarlo;"CURATORE;TRADUTTORE"
+156262;Castagnone;Mariagiulia;TRADUTTORE
+156328;Cavagnoli;Franca;"AUTORE;CURATORE;PREFATORE;TRADUTTORE"
+156735;Collodi;Carlo;"AUTORE;TRADUTTORE"
+156972;Cotto;Massimo;"AUTORE;TRADUTTORE"
+157349;De Luca;Erri;"AUTORE;CURATORE;INTERPRETE;PREFATORE;TRADUTTORE"
+157541;Desideri;Fabrizio;"AUTORE;CURATORE"
+157550;Tabucchi;Antonio;"AUTORE;CONTRIBUTI;PREFATORE;TRADUTTORE"
+157981;Fachinelli;Elvio;AUTORE
+158481;Fusini;Nadia;"AUTORE;CURATORE;PREFATORE;TRADUTTORE"
+158836;Liverani;Elena;"PREFATORE;TRADUTTORE"
+159918;Lombardo;Agostino;"AUTORE;CONTRIBUTI;CURATORE;TRADUTTORE"
+160411;Mantovani;Vincenzo;"PREFATORE;TRADUTTORE"
+161420;Origlia;Lydia;TRADUTTORE
+161682;Paolini;Pier Francesco;TRADUTTORE
+162472;Raimondi;Valeria;TRADUTTORE
+162770;Ross;Tony;"AUTORE;ILLUSTRATORE"
+163805;Tonelli;Angelo;"CURATORE;TRADUTTORE"
+167682;Borgna;Eugenio;"AUTORE;PREFATORE"
+172719;Foucault;Michel;AUTORE
+174419;Giaveri;Maria Teresa;"CURATORE;TRADUTTORE"
+176688;Maldonado;Tomás;"AUTORE;CURATORE"
+179255;Perissinotto;Luigi;"AUTORE;CURATORE;TRADUTTORE"
+179333;Petazzi;Paolo;"CURATORE;PREFATORE"
+186099;Oz;Amos;AUTORE
+187014;Alighieri;Dante;AUTORE
+187125;Allende;Isabel;AUTORE
+188524;Vivarelli;Anna;AUTORE
+191845;Baricco;Alessandro;"AUTORE;CONTRIBUTI;PREFATORE"
+194054;Benni;Stefano;"AUTORE;INTERPRETE"
+194090;Gardner;Howard;AUTORE
+197555;Bonsiepe;Gui;"AUTORE;PREFATORE"
+201391;Dickens;Charles;AUTORE
+205730;Chiapponi;Medardo;"AUTORE;CURATORE"
+207085;Coe;Jonathan;AUTORE
+211152;Davis;Mike;"AUTORE;PREFATORE"
+212561;Defoe;Daniel;AUTORE
+215337;Duras;Marguerite;AUTORE
+216237;Eschilo;;AUTORE
+217509;Feltrinelli;Carlo;"AUTORE;CONTRIBUTI;PREFATORE"
+221379;Shakespeare;William;AUTORE
+223710;Goethe;Johann Wolfgang;AUTORE
+229321;Wilde;Oscar;AUTORE
+229390;Jodorowsky;Alejandro;AUTORE
+240557;Mishima;Yukio;AUTORE
+244436;Orlev;Uri;AUTORE
+246704;Pennac;Daniel;AUTORE
+253245;Rumiz;Paolo;"AUTORE;INTERPRETE;PREFATORE"
+253956;Salvago Raggi;Camilla;TRADUTTORE
+256579;Shelley;Percy Bysshe;AUTORE
+258789;Strada;Gino;"AUTORE;CONTRIBUTI;PREFATORE"
+261563;Twain;Mark;AUTORE
+261672;Uhlman;Fred;AUTORE
+264889;Woolf;Virginia;"AUTORE;CONTRIBUTI"
+265057;Yoshimoto;Banana;AUTORE
+271396;Buitoni;Maria;TRADUTTORE
+271397;Corsini;Gianfranco;TRADUTTORE
+271398;Miniati;Gianni;TRADUTTORE
+272569;Martinelli;Ilaria;ILLUSTRATORE
+491984;Scheffler;Axel;ILLUSTRATORE
+492006;Juul;Jesper;AUTORE
+499928;Himanen;Pekka;AUTORE
+499937;Noulian;Laura;TRADUTTORE
+499972;Risari;Guia;"AUTORE;TRADUTTORE"
+500038;Bocca;Giorgio;AUTORE
+500065;Massaron;Stefano;TRADUTTORE
+1000013;Roncaglia;Silvia;AUTORE
+1000226;Zanotelli;Alex;AUTORE
+1000284;Agliardi;Allegra;"AUTORE;ILLUSTRATORE"
+1000310;Ciani;Maria Grazia;"AUTORE;CURATORE"
+1000313;Gide;André;AUTORE
+1000314;Vaccari Spagnol;Elena;TRADUTTORE
+1000344;Valenti;Stefano;"AUTORE;CURATORE;TRADUTTORE"
+1000371;Bakan;Joel;AUTORE
+1000407;Rota Sperti;Silvia;"CURATORE;TRADUTTORE"
+1000468;Rosoff;Meg;AUTORE
+1000469;Volpi;Cristina;TRADUTTORE
+1000477;Lerner;Gad;"AUTORE;CURATORE;INTERPRETE;PREFATORE"
+1000621;Caridi;Paola;"AUTORE;CURATORE;TRADUTTORE"
+1000628;Anand Videha;Swami;"CURATORE;TRADUTTORE"
+1000631;Giammaria;Duilio;AUTORE
+1000647;Grasso;Pietro;AUTORE
+1000692;Cantoni;Elena;TRADUTTORE
+1000707;Macaluso;Emanuele;"AUTORE;CONTRIBUTI"
+1000739;Oliveri;Adele;TRADUTTORE
+1000870;Patel;Raj;AUTORE
+1000877;Cerasoli;Anna;AUTORE
+1000946;Sunstein;Cass R.;AUTORE
+1000947;Thaler;Richard;AUTORE
+1001003;Chiappero-Martinetti;Enrica;"AUTORE;CURATORE"
+1001022;Sorrentino;Paolo;AUTORE
+1001082;Ceccarelli;Filippo;AUTORE
+1001103;Follaco;Gala Maria;TRADUTTORE
+10008472;Saviano;Roberto;"AUTORE;CONTRIBUTI;PREFATORE"
+10008478;Malimpensa;Cristina;"ILLUSTRATORE;TRADUTTORE"
+10008482;Birattari;Massimo;AUTORE
+10008546;Conan Doyle;Arthur;AUTORE
+10008547;Ciccotti;Caterina;"CURATORE;TRADUTTORE"
