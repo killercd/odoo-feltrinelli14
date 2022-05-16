@@ -33,7 +33,7 @@ class LoadingException(Exception):
 
 
 @contextmanager
-def cursor(env):
+def cursor(env):    
     try:
         yield env.cr
     finally:
@@ -129,7 +129,7 @@ class ImportProducts(Command):
         return args, unknown
 
     def set_ids_check_results(self, results):
-        #import pdb; pdb.set_trace()
+        
         self.errors = results["messages"]
         self.ids = results["ids"] or []
         if self.errors:
@@ -252,7 +252,7 @@ class ImportProducts(Command):
     def adjusted_fields(self, cls):
         fields = [f.name for f in attr.fields(cls)]
         logger.info("fields: %s", fields)
-        #import pdb; pdb.set_trace()
+         
         return map(lambda x: x + "/id" if x.endswith("_id") else x, fields)
 
     def load_collane(self, infile):
@@ -580,7 +580,7 @@ class ImportProducts(Command):
 
     def run_batch(self, args, env, fln_name=None):
         logger.info("Start")
-        #import pdb; pdb.set_trace()
+         
         self.env = env
         with cursor(env):
             if args.categories:
@@ -612,12 +612,12 @@ class ImportProducts(Command):
 class ImportProducts_14(ImportProducts):
     def run_batch(self, env, fln_name=None):
         #logger.info("Start ImportProducts_14")
-        #import pdb; pdb.set_trace()
+         
+        print("CIAOOOOOOOO")
         self.env = env
         with cursor(env):
             with open(fln_name, "rt", encoding="utf-8") as filename:
                 self.load_products(filename)
-
         logger.info("End")
     def load_products(self, infile):
         self.get_products(infile)
@@ -687,12 +687,12 @@ class ImportProducts_14(ImportProducts):
         logger.debug("Fields: %s", fields)
         values = [attr.astuple(product)]
         logger.info("Values: %s", values)
-        #import pdb; pdb.set_trace()
+         
         results = self.env["product.template"].load(fields, values)
         # logger.info("results: %s", results)
-        #ids = self.set_ids_check_results(results)
-        self.set_ids_check_results(results)
-        # logger.debug("ids: %s", ids)
+        ids = self.set_ids_check_results(results)
+        #self.set_ids_check_results(results)
+        logger.debug("ids: %s", ids)
         #count += len(ids)
         #logger.debug("Count: %s", count)
 

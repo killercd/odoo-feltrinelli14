@@ -1981,6 +1981,17 @@ class ImportFromInfolib(Command):
                 "Something went wrong somewhere in the code! Now go to debugging!"
             )
 class ImportContact_14(ImportFromChimp):
+    def adjusted_fields(self, cls):
+        fields = [f.name for f in attr.fields(cls)]
+
+        fields = map(lambda x: x + "/id" if x.endswith("_id") else x, fields)
+        return map(
+            lambda x: x.replace("_xid", "_id") + "/.id"
+            if x.endswith("_xid")
+            else x,
+            fields,
+        )
+
     def run_batch(self, env, fln_name=None):
         logger.info("Start")
 
@@ -1990,14 +2001,15 @@ class ImportContact_14(ImportFromChimp):
         try:
             with open(fln_name, "rt", encoding="utf-8") as filename:
                 partners = self.get_partners(filename)
+                '''
                 partner_blocks = self.batch_generator(partners)
                 for block in partner_blocks:
                     values = [attr.astuple(p) for p in block]
-                    import pdb; pdb.set_trace()
                     results = env["res.partner"].load(fields, values)
                     ids = self.set_ids_check_results(results)
                     count += len(ids)
                     logger.info("So far: %s", count)
+                '''
         except Exception:
             logger.exception("caricamento fallito")
         finally:
@@ -2020,7 +2032,13 @@ class ImportContact_14(ImportFromChimp):
                 email=email,
                 id=self.external_id("contatti", email),
             )
-            yield partner
+            #yield partner
+            fields = self.adjusted_fields(Partner)
+            values = [attr.astuple(partner)]
+            result = self.env["res.partner"].load(fields, values)
+            ids = self.set_ids_check_results(result)
+            print("Caricato", partner, "con id", ids)
+
     def slugify(self, value):
         if not isinstance(value, str):
             value = value.decode(ENC, "ignore")
