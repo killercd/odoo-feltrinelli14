@@ -640,7 +640,7 @@
     
         </field>
     </record>
-
+<!--
     <record id="res_partner_view_buttons_fltr9" model="ir.ui.view">
         <field name="name">res.partner.view.buttons.fltr9</field>
         <field name="model">res.partner</field>
@@ -655,5 +655,5 @@
             </button>
         </field>
     </record>
-
+-->
 </odoo>
