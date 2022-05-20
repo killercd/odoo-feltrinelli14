@@ -111,6 +111,7 @@ class CityZipGeonamesImport(models.TransientModel):
         config_url = self.env["ir.config_parameter"].get_param(
             "geonames.url", default="http://download.geonames.org/export/zip/%s.zip"
         )
+        logger.info("CONFIG URL "+config_url+" COUNTRY_CODE "+country_code)
         url = config_url % country_code
         logger.info("Starting to download %s" % url)
         res_request = requests.get(url)
