@@ -15,6 +15,7 @@ _logger = logging.getLogger(__name__)
 class ResPartner(models.Model):
     _inherit = "res.partner"
     _description = "Partner"
+    _order = "lastname asc" 
 
     order = fields.One2many(
         "sale.order",

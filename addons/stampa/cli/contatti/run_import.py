@@ -2025,10 +2025,11 @@ class ImportContact_14(ImportFromChimp):
         while True:
             line = next(reader)
             logger.info("line: %s", line)
-            name = " ".join((line[1], line[2]))
+            #name = " ".join((line[1], line[2]))
             email = line[0].strip().lower()
             partner = Partner(
-                firstname=name.title().strip(),
+                lastname = line[1].title().strip(),
+                firstname= line[2].title().strip(),
                 email=email,
                 id=self.external_id("contatti", email),
             )
