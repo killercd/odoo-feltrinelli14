@@ -153,8 +153,8 @@ class QueueJob(models.Model):
                 lambda records: records.env.user.id != vals["user_id"]
             )
 
-        if vals.get("state") == "failed":
-            self._message_post_on_failure()
+        #if vals.get("state") == "failed":
+            #self._message_post_on_failure()
 
         result = super().write(vals)
 
