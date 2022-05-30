@@ -24,6 +24,7 @@ class QueueJob(models.Model):
 
     def create(self, vals):
         _logger.info(vals)
+        so = None
         if 'model_name' in vals:
             if vals['model_name'] in ['sale.order', 'send.book'] and vals['method_name'] in self.TRANSITION_MAP:
                 if  vals['model_name'] == 'sale.order':
@@ -34,9 +35,9 @@ class QueueJob(models.Model):
                 elif vals['model_name'] == 'send.book':
                     vals['partner'] = '[JOB DISPATCHER]'
                     vals['transition'] = self.TRANSITION_MAP.get(vals['method_name'], '').format(vals['records'][0].target)
-        
         res = super(QueueJob, self).create(vals)
-        #self.verifica_failed(vals, so)
+        if so:
+            self.verifica_failed(vals, so)
     
     def verifica_failed(self, vals, so):
         done = False
@@ -53,6 +54,7 @@ class QueueJob(models.Model):
                 for ordine in ordini:
                     if ordine.state.lower().strip() == 'failed':
                         ordine.unlink()
+
         
 
 
