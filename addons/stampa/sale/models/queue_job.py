@@ -36,6 +36,23 @@ class QueueJob(models.Model):
                     vals['transition'] = self.TRANSITION_MAP.get(vals['method_name'], '').format(vals['records'][0].target)
         
         res = super(QueueJob, self).create(vals)
+        self.verifica_failed(vals, so)
+    
+    def verifica_failed(self, vals, so):
+        done = False
+        failed = False
+        if vals['transition'].lower().strip() == 'in spedizione -> spediti':
+            ordini = self.env['queue.job'].search([('ref_order','=',so.name)])
+            for ordine in ordini:
+                if ordine.transition.lower().strip() == 'in spedizione -> spediti':
+                    if ordine.state.lower().strip() == 'failed':
+                        failed = True
+                    elif ordine.state.lower().strip() in ['done', 'pending']:
+                        done = True
+            if done and failed:
+                for ordine in ordini:
+                    if ordine.state.lower().strip() == 'failed':
+                        ordine.unlink()
         
 
 
