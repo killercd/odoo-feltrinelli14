@@ -36,7 +36,7 @@ class QueueJob(models.Model):
                     vals['transition'] = self.TRANSITION_MAP.get(vals['method_name'], '').format(vals['records'][0].target)
         
         res = super(QueueJob, self).create(vals)
-        self.verifica_failed(vals, so)
+        #self.verifica_failed(vals, so)
     
     def verifica_failed(self, vals, so):
         done = False
