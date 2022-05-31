@@ -56,6 +56,7 @@ class QueueJob(models.Model):
                 for ordine in ordini:
                     if ordine.state.lower().strip() == 'failed':
                         messaggio_delete = 'Elimino il record fallito '+so.name
+                        _logger.info(messaggio_delete)
                         ordine.unlink()
 
         
