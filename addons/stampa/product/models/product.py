@@ -17,20 +17,21 @@ class ProductChangeQuantity(models.TransientModel):
     def change_product_qty(self):
 
         # controllo la quantità
-         
+        '''
         new_qty = self.product_id.qty_available + self.new_quantity
         added_qty = self.new_quantity
         self.new_quantity = new_qty
 
         if new_qty < 0:
             raise UserError(_("Quantity cannot be negative."))
-
+        '''
         res = super(ProductChangeQuantity, self).change_product_qty()
-        
+        '''
         # aggiorno il field accantonamento
         self.product_id.accantonamento = (
             self.product_id.accantonamento + added_qty
         )
+        '''
 
 class Collana(models.Model):
     _description = "Collana"
