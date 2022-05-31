@@ -48,7 +48,7 @@ class QueueJob(models.Model):
             ordini = self.env['queue.job'].search([('ref_order','=',so.name)])
             for ordine in ordini:
                 verifica = ordine.transition.lower().strip() == 'in spedizione -> spediti'
-                messaggio_ordine = str(ordine.id)+' - '+ordine.state+ ' - '+ordine.transition+' - '+verifica
+                messaggio_ordine = str(ordine.id)+' - '+ordine.state+ ' - '+ordine.transition+' - '+ str(verifica)
                 _logger.info(messaggio_ordine)
                 if ordine.transition.lower().strip() == 'in spedizione -> spediti':
                     if ordine.state.lower().strip() == 'failed':
