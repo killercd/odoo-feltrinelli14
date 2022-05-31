@@ -40,6 +40,7 @@ class QueueJob(models.Model):
             self.verifica_failed(vals, so)
     
     def verifica_failed(self, vals, so):
+        print('Verifico esistenza falliti di', so.name)
         done = False
         failed = False
         if vals['transition'].lower().strip() == 'in spedizione -> spediti':
@@ -53,6 +54,7 @@ class QueueJob(models.Model):
             if done and failed:
                 for ordine in ordini:
                     if ordine.state.lower().strip() == 'failed':
+                        print('Elimino il record fallito', so.name)
                         ordine.unlink()
 
         
