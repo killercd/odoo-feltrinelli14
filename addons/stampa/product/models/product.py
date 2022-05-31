@@ -2,7 +2,7 @@
 
 from odoo import api, fields, models
 
-import logging
+import logging, time
 
 _logger = logging.getLogger(__name__)
 
@@ -15,23 +15,24 @@ class ProductChangeQuantity(models.TransientModel):
             pass  # raise UserError(_('Quantity cannot be negative.'))
 
     def change_product_qty(self):
-
+        _logger.info('INIZIO')
+        _logger.info(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
         # controllo la quantità
-        '''
         new_qty = self.product_id.qty_available + self.new_quantity
         added_qty = self.new_quantity
         self.new_quantity = new_qty
 
         if new_qty < 0:
             raise UserError(_("Quantity cannot be negative."))
-        '''
+            
         res = super(ProductChangeQuantity, self).change_product_qty()
-        '''
+        
         # aggiorno il field accantonamento
         self.product_id.accantonamento = (
             self.product_id.accantonamento + added_qty
         )
-        '''
+        _logger.info('FINE')
+        _logger.info(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
 
 class Collana(models.Model):
     _description = "Collana"
