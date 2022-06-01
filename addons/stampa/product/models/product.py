@@ -32,7 +32,7 @@ class ProductChangeQuantity(models.TransientModel):
             'inventory_quantity': self.new_quantity,
         })
         '''
-        self.env['stock.quant'].create({
+        self.env['stock.quant'].load({
             'product_id': self.product_id.id,
             'location_id': warehouse.lot_stock_id.id,
             'inventory_quantity': self.new_quantity,
