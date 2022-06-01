@@ -25,11 +25,13 @@ class ProductChangeQuantity(models.TransientModel):
         # instead of create a new one.
         _logger.info('INIZIO QUANT E FINE WAREHOUSE')
         _logger.info(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
+        '''
         self.env['stock.quant'].with_context(inventory_mode=True).create({
             'product_id': self.product_id.id,
             'location_id': warehouse.lot_stock_id.id,
             'inventory_quantity': self.new_quantity,
         })
+        '''
         _logger.info('FINE QUANT')
         _logger.info(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
         return {'type': 'ir.actions.act_window_close'}
