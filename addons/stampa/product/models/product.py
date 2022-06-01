@@ -32,6 +32,11 @@ class ProductChangeQuantity(models.TransientModel):
             'inventory_quantity': self.new_quantity,
         })
         '''
+        self.env['stock.quant'].create({
+            'product_id': self.product_id.id,
+            'location_id': warehouse.lot_stock_id.id,
+            'inventory_quantity': self.new_quantity,
+        })
         _logger.info('FINE QUANT')
         _logger.info(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
         return {'type': 'ir.actions.act_window_close'}
