@@ -13,6 +13,26 @@ class ProductChangeQuantity(models.TransientModel):
     def check_new_quantity(self):
         if any(wizard.new_quantity < 0 for wizard in self):
             pass  # raise UserError(_('Quantity cannot be negative.'))
+        
+    def super_change_product(self):
+        _logger.info('INIZIO WAREHOUSE')
+        _logger.info(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
+        warehouse = self.env['stock.warehouse'].search(
+            [('company_id', '=', self.env.company.id)], limit=1
+        )
+        # Before creating a new quant, the quand `create` method will check if
+        # it exists already. If it does, it'll edit its `inventory_quantity`
+        # instead of create a new one.
+         _logger.info('INIZIO QUANT E FINE WAREHOUSE')
+        _logger.info(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
+        self.env['stock.quant'].with_context(inventory_mode=True).create({
+            'product_id': self.product_id.id,
+            'location_id': warehouse.lot_stock_id.id,
+            'inventory_quantity': self.new_quantity,
+        })
+         _logger.info('FINE QUANT')
+        _logger.info(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
+        return {'type': 'ir.actions.act_window_close'}
 
     def change_product_qty(self):
         _logger.info('INIZIO')
