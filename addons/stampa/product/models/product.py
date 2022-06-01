@@ -45,8 +45,8 @@ class ProductChangeQuantity(models.TransientModel):
         if new_qty < 0:
             raise UserError(_("Quantity cannot be negative."))
             
-        res = super(ProductChangeQuantity, self).change_product_qty()
-        
+        #res = super(ProductChangeQuantity, self).change_product_qty()
+        res = self.super_change_product()
         # aggiorno il field accantonamento
         self.product_id.accantonamento = (
             self.product_id.accantonamento + added_qty
