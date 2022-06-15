@@ -18,7 +18,7 @@ class ResPartner(models.Model):
     _order = "lastname asc" 
 
     order = fields.One2many(
-        "sale.order",
+        "sale.order.line",
         "partner_id",
         string="Orders",
         states={"cancel": [("readonly", True)], "done": [("readonly", True)]},
@@ -30,14 +30,10 @@ class ResPartner(models.Model):
     property_account_payable_id = fields.Many2one(required=False)
     property_account_receivable_id = fields.Many2one(required=False)
 
-    # FIXME il field product_id nel sale.order non esiste
-    # product_id = fields.Many2one(
-    #    "product.product", related="order.product_id", string="Product"
-    #)
-    # collana_id = fields.Many2one(
-    #    "stampa.collana", related="product_id.collana_id", string="Collana"
-    #)
-
+   
+    product_id = fields.Many2one("product.product",related="order.product_id", string="Product")
+    collana_id = fields.Many2one("stampa.collana",related="product_id.collana_id", string="Collana")
+   
     tipo = fields.Char("Tipo", compute="_compute_type", readonly=True)
 
     # spostati qui da modulo ordine_import che conteneva solo questi
