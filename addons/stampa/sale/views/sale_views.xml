@@ -480,8 +480,8 @@
         <field name="inherit_id" ref="base.view_res_partner_filter"/>
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <!-- FIXME field name="product_id" string="Libro" />
-                <field name="collana_id" string="Collana" /-->
+                <field name="product_id" string="Libro" />
+                <field name="collana_id" string="Collana" />
                 <field name="street2" string="Testata" filter_domain="[('street2','ilike',self)]"/>
                 <field name="comment" string="Note"/>
             </field>
@@ -640,7 +640,6 @@
     
         </field>
     </record>
-
 <!--
     <record id="res_partner_view_buttons_fltr9" model="ir.ui.view">
         <field name="name">res.partner.view.buttons.fltr9</field>
