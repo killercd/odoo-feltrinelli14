@@ -16,7 +16,6 @@ set arch_prev='<?xml version="1.0"?>
                 <field name="collana_id" string="Collana"/>
                 <field name="street2" string="Testata" filter_domain="[(''street2'',''ilike'',self)]"/>
                 <field name="comment" string="Note"/>
-				<!--/-->
             </field>'
 where arch_db like '%Libro%';
 
@@ -42,7 +41,9 @@ set arch_db='<?xml version="1.0"?>
                         <filter name="group_country" string="Country" context="{''group_by'': ''country_id''}"/>
                     </group>
                 </search>
-				'
+				',
+    create_uid = 1,
+    active = true
 where id=125;
 
 
