@@ -9,7 +9,7 @@ import time
 import odoo.addons.stampa.cli.contatti.run_import as contact_import
 import odoo.addons.stampa.cli.prodotti.run_import as product_import
 import pdb
-
+from pprint import pprint
 
 
 _logger = logging.getLogger(__name__)
@@ -35,7 +35,7 @@ class ModuloStampa(http.Controller):
         ic.run_batch(http.request.env, contact_file)
         return "OK"
         
-    @http.route('/import/product/', auth='public')
+    @http.route('/import/product/', auth='public', csrf=False)
     def list(self, **kw):
         product_file = "/tmp/titoli.csv"
         
@@ -43,4 +43,16 @@ class ModuloStampa(http.Controller):
         ip = product_import.ImportProducts_14()
         ip.run_batch(http.request.env, product_file)
         return "OK"
-        
+
+    @http.route('/createitem/product/', auth='public', csrf=False)
+    def createfile_product(self, **post):
+        product_file = "/tmp/titoli.csv"
+        if post.get('attachment',False):
+            name = post.get('attachment').filename      
+            file = post.get('attachment')
+            attachment = file.read() 
+            with open(product_file,'wb') as fw:
+                fw.write(attachment)
+        return "OK"
+
+
