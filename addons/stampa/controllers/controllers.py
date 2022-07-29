@@ -26,7 +26,7 @@ def timeit(func):
     return timeit_wrapper
 
 class ModuloStampa(http.Controller):
-    @http.route('/import/autori/', auth='user')
+    @http.route('/import/autori/', auth='public')
     def index(self, **kw):
         contact_file = "/tmp/contact.csv"
         
@@ -35,7 +35,7 @@ class ModuloStampa(http.Controller):
         ic.run_batch(http.request.env, contact_file)
         return "OK"
         
-    @http.route('/import/product/', auth='user', csrf=False)
+    @http.route('/import/product/', auth='public', csrf=False)
     def list(self, **kw):
         product_file = "/tmp/titoli.csv"
         
@@ -44,7 +44,7 @@ class ModuloStampa(http.Controller):
         ip.run_batch(http.request.env, product_file)
         return "OK"
 
-    @http.route('/createitem/product/', auth='user', csrf=False)
+    @http.route('/createitem/product/', auth='public', csrf=False)
     def createfile_product(self, **post):
         product_file = "/tmp/titoli.csv"
         if post.get('attachment',False):
