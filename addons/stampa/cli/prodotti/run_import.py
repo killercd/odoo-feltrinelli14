@@ -625,7 +625,6 @@ class ImportProducts_14(ImportProducts):
     def get_products(self, infile):
         reader = self.utf_reader(infile)
         next(reader)  # skip first line
-        # import pdb;pdb.set_trace()
         try:
             while True:
                 line = next(reader)
@@ -688,7 +687,7 @@ class ImportProducts_14(ImportProducts):
         values = [attr.astuple(product)]
         logger.info("Values: %s", values)
          
-        results = self.env["product.template"].load(fields, values)
+        results = self.env["product.template"].sudo().load(fields, values)
         # logger.info("results: %s", results)
         ids = self.set_ids_check_results(results)
         #self.set_ids_check_results(results)
