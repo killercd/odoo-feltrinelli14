@@ -628,60 +628,55 @@ class ImportProducts_14(ImportProducts):
         # import pdb;pdb.set_trace()
         try:
             while True:
-                titolo = ""
-                try:
-                    line = next(reader)
-                    # id_gpe = line[0]
-                    isbn13 = line[1]
-                    titolo = line[2].strip()
-                    # sottotitolo = line[3].strip()
-                    collana_id = line[4].strip()
-                    collana = line[5].strip()
-                    data_uscita = line[6]
-                    in_magazzino = line[7]
-                    tipo = line[8].title()
-                    redazione = line[9]
-                    marchio = line[10].strip().title()
-                    autori = line[11]
-                    curatori = line[12]
-                    prefatori = line[13]
-                    traduttori = line[14]
-                    illustratori = line[15]
-                    nome_cedola = line[16]
-                    data_cedola = line[17]
-                    id = self.external_id("libri", isbn13)
+                line = next(reader)
+                # id_gpe = line[0]
+                isbn13 = line[1]
+                titolo = line[2].strip()
+                # sottotitolo = line[3].strip()
+                collana_id = line[4].strip()
+                collana = line[5].strip()
+                data_uscita = line[6]
+                in_magazzino = line[7]
+                tipo = line[8].title()
+                redazione = line[9]
+                marchio = line[10].strip().title()
+                autori = line[11]
+                curatori = line[12]
+                prefatori = line[13]
+                traduttori = line[14]
+                illustratori = line[15]
+                nome_cedola = line[16]
+                data_cedola = line[17]
+                id = self.external_id("libri", isbn13)
 
-                    ##collana_id = collana_id
-                    collana_id = self.get_external_ids("collane", collana_id)
-                    autori_id = self.get_external_ids("autori", autori)
-                    curatori_id = self.get_external_ids("autori", curatori)
-                    prefatori_id = self.get_external_ids("autori", prefatori)
-                    traduttori_id = self.get_external_ids("autori", traduttori)
-                    illustratori_id = self.get_external_ids("autori", illustratori)
-                    product = Product(
-                        name=titolo,
-                        id=id,
-                        barcode=isbn13,
-                        data_uscita=data_uscita,
-                        redazione=redazione,
-                        marchio_editoriale=marchio,
-                        book_type=tipo,
-                        in_magazzino=in_magazzino,
-                        # collana_id=None,
-                        collana_id=collana_id,
-                        autori_id=autori_id,
-                        curatori_id=curatori_id,
-                        prefatori_id=prefatori_id,
-                        traduttori_id=traduttori_id,
-                        illustratori_id=illustratori_id,
-                        data_cedola=data_cedola,
-                        nome_cedola=nome_cedola,
-                    )
-                    #yield product
-                    self.load_product(product)
-                except Exception:
-                    logger.debug("error on book %s",titolo)
-                    pass
+                ##collana_id = collana_id
+                collana_id = self.get_external_ids("collane", collana_id)
+                autori_id = self.get_external_ids("autori", autori)
+                curatori_id = self.get_external_ids("autori", curatori)
+                prefatori_id = self.get_external_ids("autori", prefatori)
+                traduttori_id = self.get_external_ids("autori", traduttori)
+                illustratori_id = self.get_external_ids("autori", illustratori)
+                product = Product(
+                    name=titolo,
+                    id=id,
+                    barcode=isbn13,
+                    data_uscita=data_uscita,
+                    redazione=redazione,
+                    marchio_editoriale=marchio,
+                    book_type=tipo,
+                    in_magazzino=in_magazzino,
+                    # collana_id=None,
+                    collana_id=collana_id,
+                    autori_id=autori_id,
+                    curatori_id=curatori_id,
+                    prefatori_id=prefatori_id,
+                    traduttori_id=traduttori_id,
+                    illustratori_id=illustratori_id,
+                    data_cedola=data_cedola,
+                    nome_cedola=nome_cedola,
+                )
+                #yield product
+                self.load_product(product)
         except StopIteration:
             print("FINE")
         except:
