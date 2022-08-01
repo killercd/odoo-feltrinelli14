@@ -41,7 +41,7 @@ class ModuloStampa(http.Controller):
     #     ic.run_batch(http.request.env, contact_file)
     #     return "OK"
         
-    @http.route('/import/product/', auth='user', csrf=False)
+    @http.route('/import/product/', auth='public', csrf=False)
     def list(self, **kw):
         product_file = "/tmp/titoli.csv"
         
