@@ -24,22 +24,28 @@ def timeit(func):
         print(f'Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds')
         return result
     return timeit_wrapper
+def caricamento_product_secondario():
+    product_file = "/tmp/titoli.csv"
+            
+    _logger.info("Start caricamento titoli emergenza (%s)",product_file);
+    ip = product_import.ImportProducts_14()
+    ip.run_batch(http.request.env, product_file)
 
 class ModuloStampa(http.Controller):
-    @http.route('/import/autori/', auth='public')
-    def index(self, **kw):
-        contact_file = "/tmp/contact.csv"
+    # @http.route('/import/autori/', auth='public')
+    # def index(self, **kw):
+    #     contact_file = "/tmp/contact.csv"
         
-        _logger.info("Start import contatti (%s)",contact_file);
-        ic = contact_import.ImportContact_14()
-        ic.run_batch(http.request.env, contact_file)
-        return "OK"
+    #     _logger.info("Start import contatti (%s)",contact_file);
+    #     ic = contact_import.ImportContact_14()
+    #     ic.run_batch(http.request.env, contact_file)
+    #     return "OK"
         
-    @http.route('/import/product/', auth='public', csrf=False)
+    @http.route('/import/product/', auth='user', csrf=False)
     def list(self, **kw):
         product_file = "/tmp/titoli.csv"
         
-        _logger.info("Start import autori (%s)",product_file);
+        _logger.info("Start import product TESTTEST (%s)",product_file);
         ip = product_import.ImportProducts_14()
         ip.run_batch(http.request.env, product_file)
         return "OK"
